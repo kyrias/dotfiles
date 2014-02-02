@@ -1,0 +1,2 @@
+text/html;                      ~/.config/mutt/tiny.pl %s %{charset} ; copiousoutput ;  nametemplate=%s.html
+text/plain;                      ~/.config/mutt/tiny.pl %s %{charset} 't' ; copiousoutput ; nametemplate=%s.html

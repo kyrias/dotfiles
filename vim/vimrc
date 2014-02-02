@@ -1,0 +1,70 @@
+set nocompatible               " be iMproved
+
+" Respect XDG
+set directory=$XDG_CACHE_HOME/vim,~/,/tmp
+set backupdir=$XDG_CACHE_HOME/vim,~/,/tmp
+set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
+set runtimepath=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$VIM,$VIMRUNTIME,/usr/share/vim/vimfiles
+let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
+
+" Make backspace behave in a sane manner.
+set backspace=indent,eol,start
+
+" NeoBndle stuff
+set runtimepath+=~/.config/vim/bundle/neobundle.vim/
+call neobundle#rc('/home/kyrias/.config/vim/bundle')
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+NeoBundle 'Shougo/vimproc', {
+ \ 'build' : {
+ \     'unix' : 'make -f make_unix.mak',
+ \    },
+ \ }
+NeoBundle 'Shougo/unite.vim'
+
+" Colorscheme❤
+NeoBundle "daylerees/colour-schemes", { "rtp": "vim-themes/" }
+colorscheme Darkcustomside
+
+" Smart Tabs (http://www.emacswiki.org/emacs/SmartTabs)
+NeoBundle 'gustavo-hms/vim-smart-tabs'
+
+" Switch syntax highlighting on
+syntax on
+" Enable file type detection and do language-dependent indenting.
+filetype plugin indent on
+
+" Tabs are 4 spaces wide
+set tabstop=8
+set softtabstop=8
+set shiftwidth=9
+set noexpandtab
+
+" Make the cursor be on the left side in normal mode if line starts with tab
+set list lcs=tab:\ \ 
+" Note the extra space after the second \
+
+" Append modeline after last line in buffer.
+function! AppendModeline()
+	let l:modeline = printf(" vim: set ts=%d sw=%d %set:",
+				\ &tabstop, &shiftwidth, &expandtab ? '' : 'no')
+	let l:modeline = substitute(&commentstring, "%s", l:modeline, "")
+	call append(line("$"), l:modeline)
+endfunction
+nnoremap <silent> <Leader>ml Go<ESC>``:call AppendModeline()<CR>
+
+" Paste mode when pressing Insert, disables autoformating
+set pastetoggle=<Insert>
+
+" Installation check.
+NeoBundleCheck
+
+set listchars=tab:»·,trail:·
+set list
+
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()

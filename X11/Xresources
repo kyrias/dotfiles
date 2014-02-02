@@ -1,0 +1,67 @@
+Xcursor.theme:    Vanilla-DMZ-AA
+
+!URxvt*termName: rxvt-unicode-256color
+
+!URxvt*loginShell: true
+
+URxvt.iconFile:    /usr/share/icons/elementary-xfce/apps/32/terminal.svg
+
+!transparency
+URxvt.depth: 32
+URxvt.background: [80]#000000
+URxvt.fading: 0
+
+!urxvt fonts: 
+
+URxvt*font: xft:Ubuntu Mono:pixelsize=15
+URxvt*boldFont: xft:Ubuntu Mono:bold:pixelsize=15
+
+URxvt*geometry: 90x25
+
+!urxvt extensions:
+URxvt.perl-ext-common:  default,fullscreen,tabbedex,vtwheel,clipboard,url-select,keyboard-select
+URxvt.url-select.launcher:  /usr/bin/firefox
+URxvt.url-select.underline: true
+URxvt.keysym.M-u:           perl:url-select:select_next
+URxvt.keysym.M-Escape:      perl:keyboard-select:activate
+URxvt.keysym.M-s:           perl:keyboard-select:search
+
+
+URxvt.keysym.F11: perl:fullscreen:switch
+
+!enabling clickable links:
+!URxvt.url-launcher:      /usr/bin/firefox
+!URxvt.matcher.button:   1
+
+!urxvt scrolling options and cursor style:
+URxvt*saveLines: 12000
+URxvt*scrollstyle:plain
+URxvt*scrollBar: true
+URxvt*scrollBar_right: true
+URxvt*cursorBlink: true
+URxvt*cursorUnderline: true
+
+! urxvt tabs settings:
+URxvt.tabbed.tabbar-fg: 2
+URxvt.tabbed.tabbar-bg: 0
+URxvt.tabbed.tab-fg: 2
+URxvt.tabbed.tab-bg: 8
+URxvt.tabbed.autohide:  yes
+URxvt.tabbed.new-button:  no
+URxvt.tabbed.title: no
+
+URxvt*.keysym.Control-Up:   \033[1;5A
+URxvt*.keysym.Control-Down:    \033[1;5B
+URxvt*.keysym.Control-Left:    \033[1;5D
+URxvt*.keysym.Control-Right:    \033[1;5C
+
+URxvt.colorIT:      #87af5f
+URxvt.colorBD:      #d7d7d7
+URxvt.colorUL:      #87afd7
+
+*VT100.colorBDMode:     true
+*VT100.colorBD:         red
+*VT100.colorULMode:     true
+*VT100.colorUL:         cyan
+XTerm*bellIsUrgent: true
+URxvt.urgentOnBell: true

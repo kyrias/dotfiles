@@ -1,0 +1,27 @@
+[user]
+	name = Johannes Löthberg
+	email = johannes@kyriasis.com
+	signingkey = 3A9D0BB5
+[credential]
+	helper = cache --timeout=7200
+[color]
+	ui = true
+[push]
+	default = simple
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	unstage = reset HEAD --
+	last = log -1 HEAD
+[branch]
+	autosetuprebase = always
+[github]
+	user = kyrias
+[core]
+	editor = vim
+[merge]
+	tool = vimdiff
+[sendemail]
+	smtpserver = /usr/bin/msmtp

@@ -1,0 +1,4 @@
+hwdec=vdpau
+vo=vdpau
+
+no-osc

@@ -1,0 +1,39 @@
+! ----------------------------------------------------------------------------
+! file:     Xresources-colors
+! author:   Miblo - http://miblodelcarpio.blog.co.uk/
+! modified: 2012-06-15
+! vim:fenc=utf-8:nu:ai:si:et:ts=4:sw=4:ft=xdefaults:
+! ----------------------------------------------------------------------------
+
+*background:            #000000
+*foreground:            #FFFFFF
+*fading:                40
+*fadeColor:             #000000
+*cursorColor:           #33FF33
+*pointerColorBackground:#99FF33
+*pointerColorForeground:#000000
+
+!! blacks: Black / Dark grey
+*color0:                #000000
+*color8:                #3D3D3D
+!! reds: Strong red / Light brilliant red
+*color1:                #B80000
+*color9:                #FF3333
+!! greens: Light brilliant green / Light brilliant chartreuse green
+*color2:                #33FF33
+*color10:               #99FF33
+!! yellows: Light brilliant orange / Light brilliant yellow
+*color3:                #FF9933
+*color11:               #FFFF33
+!! blues: Light brilliant blue / Light brilliant azure
+*color4:                #3333FF
+*color12:               #3399FF
+!! magentas: Light brilliant magenta / Light brilliant violet
+*color5:                #FF33FF
+*color13:               #9933FF
+!! cyans: Light brilliant cyan / Very light cyan
+*color6:                #33FFFF
+*color14:               #99FFFF
+!! whites: Cosmic latte / White
+*color7:                #FFF8E7
+*color15:               #FFFFFF

@@ -1,4 +1,5 @@
 set nocompatible               " be iMproved
+set shortmess+=I
 
 " Respect XDG
 set directory=$XDG_CACHE_HOME/vim,~/,/tmp
@@ -25,20 +26,50 @@ NeoBundle 'Shougo/unite.vim'
 " Colorscheme❤
 NeoBundle "daylerees/colour-schemes", { "rtp": "vim-themes/" }
 colorscheme Darkcustomside
+"colorscheme mustang
 
 " Smart Tabs (http://www.emacswiki.org/emacs/SmartTabs)
 NeoBundle 'gustavo-hms/vim-smart-tabs'
 
-" Switch syntax highlighting on
 syntax on
-" Enable file type detection and do language-dependent indenting.
 filetype plugin indent on
+set autoindent    " always set autoindenting on
+set copyindent    " copy the previous indentation on autoindenting
+set number        " always show line numbers
+set showmatch     " set show matching parenthesis
+set smartcase     " ignore case if search pattern is all lowercase,
+                  "    case-sensitive otherwise
+set hlsearch      " highlight search terms
+set incsearch     " show search matches as you type
+set history=1000         " remember more commands and search history
+set undolevels=1000      " use many muchos levels of undo
+set wildignore=*.swp,*.bak,*.pyc,*.class
+set title                " change the terminal's title
+set visualbell           " don't beep
+set noerrorbells         " don't beep
+set nobackup
+set noswapfile
+
+set mouse=a
+nnoremap ; :
+
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+
+nmap <silent> <Leader>/ :nohlsearch<CR>
+
+cmap w!! w !sudo tee % >/dev/null
 
 " Tabs are 4 spaces wide
-set tabstop=8
-set softtabstop=8
-set shiftwidth=9
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 set noexpandtab
+
+" voodoo magic
+set hidden
 
 " Make the cursor be on the left side in normal mode if line starts with tab
 set list lcs=tab:\ \ 
@@ -46,8 +77,8 @@ set list lcs=tab:\ \
 
 " Append modeline after last line in buffer.
 function! AppendModeline()
-	let l:modeline = printf(" vim: set ts=%d sw=%d %set:",
-				\ &tabstop, &shiftwidth, &expandtab ? '' : 'no')
+	let l:modeline = printf("vim: set ts=%d sts=%d sw=%d %set:",
+				\ &tabstop, &softtabstop, &shiftwidth, &expandtab ? '' : 'no')
 	let l:modeline = substitute(&commentstring, "%s", l:modeline, "")
 	call append(line("$"), l:modeline)
 endfunction

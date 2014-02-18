@@ -1,5 +1,4 @@
-export PATH="$HOME"/.local/bin:"$PATH":"$HOME"/.gem/ruby/2.0.0/bin:$PLAN9/bin
-export PLAN9=/usr/local/plan9
+export PATH="$HOME"/.local/bin:"$PATH"
 
 export XDG_CACHE_HOME="$HOME"/.cache
 export XDG_CONFIG_HOME="$HOME"/.config
@@ -30,13 +29,10 @@ export TERMINAL=termite
 
 export SDL_AUDIODRIVER=pulse
 
-export GTK_IM_MODULE=xim
+#export GTK_IM_MODULE=xim
 
 export SUDO_PROMPT=$'\e[31mSUDO\e[m password for \e[34m%p\e[m: '
-
-export GOPATH=$HOME/code/go
-export PATH=$PATH:$GOPATH/bin
-
 [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx "$HOME"/.config/X11/xinitrc
-envoy -t gpg-agent
-source <(envoy -p)
+#envoy -t gpg-agent
+#source <(envoy -p)
+

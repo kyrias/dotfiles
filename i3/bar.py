@@ -27,13 +27,13 @@ status.register("temp",
 status.register("pulseaudio",
     format="♪:{volume}%",)
 
-status.register("mpd",
-    format="{status} {artist} > {title}",
-    status={
-        "pause": "✧",
-        "play": "▶",
-        "stop": "◾",
-    },)
+#status.register("mpd",
+#    format="{status} {artist} > {title}",
+#    status={
+#        "pause": "✧",
+#        "play": "▶",
+#        "stop": "◾",
+#    },)
 
 status.register("wireless",
     interface="wlp3s0",
@@ -43,7 +43,7 @@ status.register("wireless",
 # Format:
 # 42/128G [86G]
 status.register("disk",
-    path="/home/kyrias/media",
+    path="/media",
     format="{avail}G",)
 
 status.register("disk",

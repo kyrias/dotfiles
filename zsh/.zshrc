@@ -116,3 +116,9 @@ alias sprin='curl -F "sprunge=<-" http://sprunge.us'
 sprfile() {
 	curl -F "sprunge=<$1" http://sprunge.us
 }
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+GPG_AGENT_INFO=$(ss -xl | grep -o '/run/user/1000/keyring-.*/gpg')
+[ -z "$GPG_AGENT_INFO" ] || export GPG_AGENT_INFO=$GPG_AGENT_INFO:0:1
+SSH_AUTH_SOCK=$(ss -xl | grep -o '/run/user/1000/keyring-.*/ssh')
+[ -z "$SSH_AUTH_SOCK" ] || export SSH_AUTH_SOCK

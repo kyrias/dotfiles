@@ -20,7 +20,7 @@
 <Multi_key> <apostrophe> <bracketleft>	: "‘" U2018
 <Multi_key> <apostrophe> <bracketright>	: "’" U2019
 <Multi_key> <less> <bracketleft>	: "｢" UFF62
-<Multi_key> <more> <bracketright>	: "｣" UFF63
+<Multi_key> <greater> <bracketright>	: "｣" UFF63
 
 <Multi_key> <e> <m> <minus>		: "—" U2014
 

@@ -3,6 +3,7 @@ HISTSIZE=500
 SAVEHIST=500
 setopt notify
 
+fpath=(~/.local/share/zsh/completion $fpath)
 zstyle :compinstall filename "$HOME/.config/zsh/.zshrc"
 
 al=(colors

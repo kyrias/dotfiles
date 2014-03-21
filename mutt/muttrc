@@ -2,11 +2,10 @@
 set realname		= "Johannes Löthberg"
 set from		= "johannes@kyriasis.com"
 set envelope_from	# which from?
-set sig_dashes		# dashes before sig
 set edit_headers	# show headers when composing
 set fast_reply		# skip to compose when replying
 set fcc_attach		# save attachments with the body
-unset mime_forward	# forward attachments as part of body
+set mime_forward	# do not forward attachments as part of body
 set forward_format	= "Fwd: %s"	# format of subject when forwarding
 set forward_decode	# decode when forwarding
 set attribution		= "On %d, %n wrote:"	# format of quoting header
@@ -23,18 +22,18 @@ set mark_old		= no
 set sleep_time		= 0	# no delay when opening a maildir!
 
 set mbox_type		= Maildir
-set folder		= "~/.mail/kyriasis"
-set trash		= "~/.mail/kyriasis/Trash"
+set folder		= "~/.mail"
+set trash		= "~/.mail/Trash"
 set header_cache	= ~/.config/mutt/cache/headers	# where to store headers
 set message_cachedir	= ~/.config/mutt/cache/			# where to store bodies
 set certificate_file	= ~/.config/mutt/certificates	# where to store certs
 set mailcap_path	= ~/.config/mutt/mailcap		# entries for filetypes
 set tmpdir		= ~/.config/mutt/temp			# where to keep temp files
 set signature		= ~/.config/mutt/sig			# my signature file
-set spoolfile		= "+INBOX"
-set mbox		= "+Archives"
+set spoolfile		= "+Inbox"
+set mbox		= "+archives"
 set postponed		= "+Drafts"
-mailboxes +INBOX +Sent +Drafts +Trash +Archives +arch-dev-public +arch-bugs +Spam +Ham
+mailboxes +Inbox +Sent +Drafts +Trash +archives +arch-dev-public +aur-general +arch-bugs +Spam +Ham
 
 ## Abook
 set query_command= "abook --datafile ~/.config/abook/addressbook --mutt-query '%s'"
@@ -42,35 +41,27 @@ macro index,pager  A "<pipe-message>abook --datafile ~/.config/abook/addressbook
 bind editor        <Tab> complete-query
 
 # Sync email
-macro index O "<shell-escape>offlineimap<enter>"           "run offlineimap to sync all mail"
-macro index o "<shell-escape>offlineimap -qf INBOX<enter>" "run offlineimap to sync inbox"
+#macro index O "<shell-escape>offlineimap<enter>"           "run offlineimap to sync all mail"
+#macro index o "<shell-escape>offlineimap -qf INBOX<enter>" "run offlineimap to sync inbox"
 
-set sendmail		= "/usr/bin/msmtp -a kyriasis"
+set sendmail		= "/usr/bin/msmtp -a theos"
 set sendmail_wait	= 0
 set record		= +Sent
 set copy		= yes
 
-# Basic Options --------------------------------------
-#set wait_key = no        # shut up, mutt
-#set timeout = 3          # idle time before scanning
-#set mail_check = 0       # minimum time between scans
-#unset move               # gmail does that
-#set delete               # don't ask, just do
-#unset confirmappend      # don't ask, just do!
-#set quit                 # don't ask, just do!!
-#unset mark_old           # read/new is good enough for me
-set beep_new             # bell on new mails
-unset pipe_decode          # strip headers and eval mimes when piping
+unset confirmappend      # don't ask, just do!
+set quit                 # don't ask, just do!!
+unset mark_old           # read/new is good enough for me
+unset pipe_decode        # strip headers and eval mimes when piping
 set thorough_search      # strip headers and eval mimes before searching
-
 
 # Status Bar -----------------------------------------
 set status_chars  = " *%A"
 set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
 
 # Header Options -------------------------------------
-#ignore *                                # ignore all headers
-#unignore from: to: cc: date: subject:   # show only these
+ignore *                                # ignore all headers
+unignore from: to: cc: date: subject: delivered-to: In-Reply-To: Message-ID:   # show only these
 unignore X-Spambayes-Classification: X-Spambayes-Trained:
 #unhdr_order *                           # some distros order things by default
 #hdr_order from: to: cc: date: subject:  # and in this order
@@ -100,14 +91,11 @@ alternative_order text/plain text/enriched text/html
 macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
 macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
 
-# Index Key Bindings
 bind index gg		first-entry
 bind index G		last-entry
-
 bind index R		group-reply
 bind index S	sync-mailbox
 bind index <space>	collapse-thread
-bind index B		bounce-message
 
 # Pager Key Bindings ---------------------------------
 bind pager k  previous-line
@@ -116,8 +104,8 @@ bind pager gg top
 bind pager G  bottom
 bind pager R  group-reply
 
-# Move message to Archives
-macro index,pager a "s=Archives<enter>"
+# Move message to archives
+macro index,pager a "<save-message>=archives<enter>"
 
 # View attachments properly.
 bind attach <return> view-mailcap
@@ -127,13 +115,28 @@ bind compose P postpone-message
 bind index P recall-message
 
 source ~/.config/mutt/gpg.rc
-set pgp_timeout = 3600       # how long to cache the pass-phrase
 set crypt_autosign = yes
-set crypt_replyencrypt = yes
+set crypt_replyencrypt=no
+set crypt_verify_sig            = yes
 set pgp_sign_as = 3A9D0BB5
 set pgp_use_gpg_agent = yes
 set crypt_use_pka = yes
+set crypt_use_gpgme = yes
 
 source ~/.config/mutt/themes/comidia
 
 subscribe arch-dev-public@archlinux.org
+subscribe aur-general@archlinux.org
+
+# sidebar
+#set sidebar_width   = 20
+#set sidebar_visible = no
+#color sidebar_new yellow default
+# sidebar bindings
+#bind index <left> sidebar-prev          # got to previous folder in sidebar
+#bind index <right> sidebar-next         # got to next folder in sidebar
+#bind index <space> sidebar-open         # open selected folder from sidebar
+# sidebar toggle
+#macro index ~ '<enter-command>toggle sidebar_visible<enter><refresh>'
+#
+set nm_default_uri = "notmuch:///home/kyrias/.mail"

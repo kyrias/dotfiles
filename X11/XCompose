@@ -67,3 +67,5 @@
 
 <Multi_key> <b> <h> <s>			: "☣" U2623		 # BIOHAZARD SIGN
 <Multi_key> <r> <a> <s>			: "☢" U2622		 # RADIOACTIVE SIGN
+<Multi_key> <S> <W>				: "卐" U262D
+<Multi_key> <colon> <bar> <bar>	: "ಠ_ಠ"

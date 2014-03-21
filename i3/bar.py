@@ -10,7 +10,7 @@ status.register("clock",
     format="%y-%m-%d %H:%M:%S",)
 
 status.register("battery",
-    format="{status} {percentage:.2f}% {remaining:%E%hh:%Mm}",
+    format="⚡:{percentage:.2f}% {remaining:%E%hh:%Mm} {status}",
     alert=True,
     alert_percentage=20,
     status={

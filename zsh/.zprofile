@@ -1,13 +1,13 @@
-export PATH="$HOME"/.local/bin:"$PATH"
+export PATH="$HOME/.local/bin":"$PATH"
 
-export XDG_CACHE_HOME="$HOME"/.cache
-export XDG_CONFIG_HOME="$HOME"/.config
-export XDG_DATA_HOME="$HOME"/.local/share
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
 
-export MPV_HOME="$XDG_CONFIG_HOME"/mpv
-export GNUPGHOME="$XDG_CONFIG_HOME"/gnupg
-export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc-2.0
-export XCOMPOSEFILE="$XDG_CONFIG_HOME"/X11/XCompose
+export MPV_HOME="$XDG_CONFIG_HOME/mpv"
+export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
+export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"
+export XCOMPOSEFILE="$XDG_CONFIG_HOME/X11/XCompose"
 
 export ABSROOT="$HOME/build/abs"
 
@@ -35,8 +35,4 @@ export SUDO_PROMPT=$'\e[31mSUDO\e[m password for \e[34m%p\e[m: '
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
-
-[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx "$HOME"/.config/X11/xinitrc
-#envoy -t gpg-agent
-#source <(envoy -p)
-
+[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx "$HOME/.config/X11/xinitrc"

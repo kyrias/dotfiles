@@ -13,8 +13,8 @@ URxvt.fading: 0
 
 !urxvt fonts: 
 
-URxvt*font: xft:Ubuntu Mono:pixelsize=15
-URxvt*boldFont: xft:Ubuntu Mono:bold:pixelsize=15
+URxvt*font: xft:Source Code Pro:pixelsize=10
+URxvt*boldFont: xft:Source Code Pro:bold:pixelsize=10
 
 URxvt*geometry: 90x25
 

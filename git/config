@@ -2,12 +2,12 @@
 	name = Johannes Löthberg
 	email = johannes@kyriasis.com
 	signingkey = 3A9D0BB5
-[credential]
-	helper = /usr/share/git/credential/gnome-keyring/git-credential-gnome-keyring
 [color]
 	ui = true
 [push]
 	default = simple
+[branch]
+	autosetuprebase = always
 [alias]
 	co = checkout
 	br = branch
@@ -15,8 +15,6 @@
 	st = status
 	unstage = reset HEAD --
 	last = log -1 HEAD
-[branch]
-	autosetuprebase = always
 [github]
 	user = kyrias
 [core]
@@ -25,3 +23,5 @@
 	tool = vimdiff
 [sendemail]
 	smtpserver = /usr/bin/msmtp
+[credential]
+	helper = /usr/share/git/credential/gnome-keyring/git-credential-gnome-keyring

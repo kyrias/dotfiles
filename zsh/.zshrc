@@ -118,7 +118,7 @@ sprfile() {
 	curl -F "sprunge=<$1" http://sprunge.us
 }
 
-GPG_AGENT_INFO=$(ss -xl | grep -o '/run/user/1000/keyring-.*/gpg')
+GPG_AGENT_INFO=$(ss -xl | grep -o '/run/user/1000/keyring/gpg')
 [ -z "$GPG_AGENT_INFO" ] || export GPG_AGENT_INFO=$GPG_AGENT_INFO:0:1
-SSH_AUTH_SOCK=$(ss -xl | grep -o '/run/user/1000/keyring-.*/ssh')
+SSH_AUTH_SOCK=$(ss -xl | grep -o '/run/user/1000/keyring/ssh')
 [ -z "$SSH_AUTH_SOCK" ] || export SSH_AUTH_SOCK

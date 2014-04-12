@@ -33,6 +33,4 @@ export GTK_IM_MODULE=xim
 
 export SUDO_PROMPT=$'\e[31mSUDO\e[m password for \e[34m%p\e[m: '
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
 [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx "$HOME/.config/X11/xinitrc"

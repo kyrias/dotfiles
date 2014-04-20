@@ -31,8 +31,6 @@ colorscheme Darkcustomside
 " Smart Tabs (http://www.emacswiki.org/emacs/SmartTabs)
 NeoBundle 'gustavo-hms/vim-smart-tabs'
 
-NeoBundle 'rust'
-
 syntax on
 filetype plugin indent on
 set autoindent    " always set autoindenting on

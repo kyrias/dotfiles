@@ -19,6 +19,7 @@ colors
 shellopts=(PROMPT_SUBST
 		   completealiases
 		   auto_cd
+		   interactivecomments
 )
 setopt $shellopts
 

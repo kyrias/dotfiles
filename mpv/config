@@ -1,4 +1,4 @@
-hwdec=vaapi
-vo=vaapi
+hwdec=vdpau
+vo=vdpau
 
 no-osc

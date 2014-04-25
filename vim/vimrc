@@ -100,3 +100,6 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
 highlight Comment cterm=italic
+
+
+set ttimeoutlen=50

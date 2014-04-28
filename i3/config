@@ -162,4 +162,4 @@ for_window [class="Gifview"] floating enable
 
 #exec --no-startup-id /usr/bin/dropbox start
 exec --no-startup-id feh --bg-tile /media/pictures/wallpapers/1366x768/wallpaper.png
-exec --no-startup-id dex -ae i3
+exec --no-startup-id dex "$HOME"/.config/autostart/*

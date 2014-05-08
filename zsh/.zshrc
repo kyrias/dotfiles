@@ -1,6 +1,6 @@
 HISTFILE=~/.config/zsh/.zsh_history
-HISTSIZE=500
-SAVEHIST=500
+HISTSIZE=5000
+SAVEHIST=5000
 setopt notify
 
 fpath=(~/.local/share/zsh/completion $fpath)
@@ -39,28 +39,16 @@ fi
 
 source /usr/share/doc/pkgfile/command-not-found.zsh
 
-#zstyle ':vcs_info:*' check-for-changes true
-
-zstyle ':vcs_info:git*' stagedstr "✚ "
-zstyle ':vcs_info:git*' unstagedstr "● "
-
-zstyle ':vcs_info:git*' formats "｢%b %u%c%m｣"
-
-zstyle ':vcs_info:*' enable git
-precmd() {
-	vcs_info
-}
-
 PS1=$'%{${fg[blue]}%}%B%~%b%{${fg[blue]}%} %B%#%b %{${fg[default]}%}'
 #PS1=$'┌─[${fg[cyan]}%B%n%b ${fg[blue]}%B%~%b$fg[default]]\n└─╼ '
-RPS1='%{${fg[blue]}%}${vcs_info_msg_0_}%{${fg[default]}%}'
 
 # Vi keybindings
 bindkey -v
 
 # Bind "<command mode> H" to run-help (man pages)
 bindkey -M vicmd 'H' run-help
-bindkey "^R" history-incremental-search-backward
+bindkey "^R" history-incremental-pattern-search-backward
+bindkey -M isearch '^M' accept-search # Don't run commands when retrieving from history
 
 autoload -U edit-command-line
 zle -N edit-command-line

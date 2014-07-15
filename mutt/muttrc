@@ -24,7 +24,6 @@ set sleep_time		= 0 # no delay when opening a maildir!
 
 set mbox_type		= Maildir
 set folder			= "~/.mail"
-set trash			= "~/.mail/Trash"
 set header_cache	= ~/.config/mutt/cache/headers	# where to store headers
 set message_cachedir= ~/.config/mutt/cache/			# where to store bodies
 set certificate_file= ~/.config/mutt/certificates	# where to store certs
@@ -36,9 +35,8 @@ set mbox			= "+archives"
 set postponed		= "+Drafts"
 mailboxes +Inbox +Sent +Drafts +Trash +archives +arch-dev-public +aur-general +arch-bugs +Spam +Ham
 
-## Abook
-set query_command	= "abook --datafile ~/.config/abook/addressbook --mutt-query '%s'"
-macro index,pager A	"<pipe-message>abook --datafile ~/.config/abook/addressbook --add-email-quiet<return>" "Add this sender to Abook"
+set query_command="goobook query '%s'"
+macro index,pager A "<pipe-message>goobook add<return>" "add the sender address to Google contacts"
 bind editor <Tab>	complete-query
 
 # Sync email
@@ -72,13 +70,7 @@ unignore			X-Spambayes-Classification: X-Spambayes-Trained:
 set date_format		= "%d/%m"
 set index_format	= "[%Z]  %D  %-20.20F  %s"
 set sort			= threads # like gmail
-#set sort_aux		= reverse-last-date-received # like gmail
-#set sort			= reverse-last-date-received # like gmail
-#set sort_aux		= threads # like gmail
 set uncollapse_jump	# don't collapse on an unread message
-set sort_re			# thread based on regex
-set reply_regexp	= "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
-# Pager View Options ---------------------------------
 set pager_index_lines	= 10 # number of index lines to show
 set pager_context	= 3 # number of context lines to show
 set pager_stop		# don't go to next message automatically
@@ -128,3 +120,4 @@ source ~/.config/mutt/themes/comidia
 
 subscribe arch-dev-public@archlinux.org
 subscribe aur-general@archlinux.org
+set imap_authenticators="gssapi"

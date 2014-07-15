@@ -12,7 +12,7 @@ status.register("clock",
 status.register("battery",
     format="⚡:{percentage:.2f}% {remaining:%E%hh:%Mm}{status}",
     alert=True,
-    alert_percentage=20,
+    alert_percentage=5,
     status={
         "DIS": "↓",
         "CHR": "↑",

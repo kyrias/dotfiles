@@ -73,10 +73,6 @@ set noexpandtab
 " voodoo magic
 set hidden
 
-" Make the cursor be on the left side in normal mode if line starts with tab
-set list lcs=tab:\ \ 
-" Note the extra space after the second \
-
 " Paste mode when pressing Insert, disables autoformating
 set pastetoggle=<Insert>
 

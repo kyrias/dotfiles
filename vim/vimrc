@@ -1,10 +1,11 @@
-set nocompatible               " be iMproved
 set shortmess+=I
 
+
 " Respect XDG
-set directory=$XDG_CACHE_HOME/vim,~/,/tmp
-set backupdir=$XDG_CACHE_HOME/vim,~/,/tmp
 set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
+set directory=$XDG_CACHE_HOME/vim/swap,/tmp
+set backupdir=$XDG_CACHE_HOME/vim/backup,/tmp
+set undodir=$XDG_CACHE_HOME/vim/undo,/tmp
 set runtimepath=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$VIM,$VIMRUNTIME,/usr/share/vim/vimfiles
 let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
 
@@ -26,10 +27,12 @@ NeoBundle 'Shougo/unite.vim'
 " Colorscheme❤
 NeoBundle "daylerees/colour-schemes", { "rtp": "vim-themes/" }
 colorscheme Darkcustomside
-"colorscheme mustang
 
-" Smart Tabs (http://www.emacswiki.org/emacs/SmartTabs)
-NeoBundle 'gustavo-hms/vim-smart-tabs'
+NeoBundle 'mattn/emmet-vim'
+
+NeoBundle 'miekg/rfc'
+
+NeoBundle 'tommcdo/vim-exchange'
 
 syntax on
 filetype plugin indent on
@@ -46,9 +49,9 @@ set wildignore=*.swp,*.bak,*.pyc,*.class
 set title                " change the terminal's title
 set visualbell           " don't beep
 set noerrorbells         " don't beep
-set nobackup
-set noswapfile
-
+set ruler
+set backup
+set undofile                " Save undo's after file closes
 set mouse=a
 nnoremap ; :
 
@@ -73,15 +76,6 @@ set hidden
 " Make the cursor be on the left side in normal mode if line starts with tab
 set list lcs=tab:\ \ 
 " Note the extra space after the second \
-
-" Append modeline after last line in buffer.
-function! AppendModeline()
-	let l:modeline = printf("vim: set ts=%d sts=%d sw=%d %set:",
-				\ &tabstop, &softtabstop, &shiftwidth, &expandtab ? '' : 'no')
-	let l:modeline = substitute(&commentstring, "%s", l:modeline, "")
-	call append(line("$"), l:modeline)
-endfunction
-nnoremap <silent> <Leader>ml Go<ESC>``:call AppendModeline()<CR>
 
 " Paste mode when pressing Insert, disables autoformating
 set pastetoggle=<Insert>

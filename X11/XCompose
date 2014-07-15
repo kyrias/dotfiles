@@ -69,3 +69,5 @@
 <Multi_key> <r> <a> <s>			: "☢" U2622		 # RADIOACTIVE SIGN
 <Multi_key> <S> <W>				: "卐" U262D
 <Multi_key> <colon> <bar> <bar>	: "ಠ_ಠ"
+
+<Multi_key> <l> <a>			: "λ"

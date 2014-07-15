@@ -1,6 +1,6 @@
 HISTFILE=~/.config/zsh/.zsh_history
-HISTSIZE=5000
-SAVEHIST=5000
+HISTSIZE=500000
+SAVEHIST=500000
 setopt notify
 
 fpath=(~/.local/share/zsh/completion $fpath)
@@ -9,7 +9,6 @@ zstyle :compinstall filename "$HOME/.config/zsh/.zshrc"
 al=(colors
 	compinit
 	promptinit
-	vcs_info
 )
 autoload -Uz $al
 compinit
@@ -20,6 +19,8 @@ shellopts=(PROMPT_SUBST
 		   completealiases
 		   auto_cd
 		   interactivecomments
+		   inc_append_history
+		   extendedhistory
 )
 setopt $shellopts
 
@@ -36,8 +37,6 @@ fi
 # Load all configs
 #for f in ~/.config/zsh/zsh.d/*.zsh
 #	source $f
-
-source /usr/share/doc/pkgfile/command-not-found.zsh
 
 PS1=$'%{${fg[blue]}%}%B%~%b%{${fg[blue]}%} %B%#%b %{${fg[default]}%}'
 #PS1=$'┌─[${fg[cyan]}%B%n%b ${fg[blue]}%B%~%b$fg[default]]\n└─╼ '
@@ -72,11 +71,6 @@ alias mkdir='mkdir -vp'
 alias 'please?'='sudo $(history | tail -n1 | cut -c 8-)'
 alias acp='acp -g'
 alias amv='amv -g'
-
-# Use 'git's completions with 'hub'
-if type compdef >/dev/null; then
-   compdef hub=git
-fi
 
 # Colored man
 man() {

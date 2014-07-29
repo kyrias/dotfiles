@@ -33,4 +33,9 @@ export GTK_IM_MODULE=xim
 
 export SUDO_PROMPT=$'\e[31mSUDO\e[m password for \e[34m%p\e[m: '
 
-[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx "$HOME/.config/X11/xinitrc"
+# LS_COLORS is now required for `ls` to use colour
+eval "$(dircolors -b ~/.config/dircolors)"
+
+if [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]]; then
+	exec startx "$HOME/.config/X11/xinitrc"
+fi

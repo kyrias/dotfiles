@@ -65,7 +65,6 @@ alias df='df -h'
 alias nano='nano -w' # No linewrap
 alias ncmpcpp='ncmpcpp -c ~/.config/ncmpcpp/config'
 alias 'cd..'='cd ..'
-alias ',,'='..'
 alias '...'='../..'
 alias mkdir='mkdir -vp'
 alias 'please?'='sudo $(history | tail -n1 | cut -c 8-)'

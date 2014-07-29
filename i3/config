@@ -158,8 +158,5 @@ bindsym $mod+y border 1pixel
 bindsym $mod+u border none
 
 for_window [class="Gifview"] floating enable
-#for_window [title="MPD:"] border 1pixel
 
-#exec --no-startup-id /usr/bin/dropbox start
-exec --no-startup-id feh --bg-tile /media/pictures/wallpapers/1366x768/wallpaper.png
 exec --no-startup-id dex "$HOME"/.config/autostart/*

@@ -1,0 +1,21 @@
+IMAPAccount theos
+Host theos.kyriasis.com
+User kyrias
+PassCmd "pass show mail/johannes@kyriasis.com"
+UseIMAPS yes
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+IMAPStore theos-remote
+Account theos
+
+MaildirStore theos-local
+Path ~/.mail/
+Inbox ~/.mail/Inbox
+
+Channel theos
+Master :theos-remote:
+Slave :theos-local:
+Patterns *
+Create Slave
+SyncState *
+Expunge Both

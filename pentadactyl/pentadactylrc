@@ -1,0 +1,66 @@
+" ~/.pentadactylrc
+
+set runtimepath=~/.config/pentadactyl
+
+loadplugins '\.(js|penta)$'
+group user
+highlight FontFixed font-family: monospace !important; font: 12px "Source Code Pro" !important;
+map -modes=n -silent C -javascript commands.execute('!(mpv "'
+  \                 + content.location.href.replace(/([$`"\\])/g, "\\$1")
+  \                 + '") &');
+set defsearch=duckduckgoog
+
+
+" ui
+source ~/.config/pentadactyl/chrome.css
+set guioptions=Csn
+set hlfind
+
+" Speed up scrolling
+nmap -b h 5h
+nmap -b j 5j
+nmap -b k 5k
+nmap -b l 5l
+
+" Tab control
+nmap <A-h> -e :tabprev
+nmap <A-l> -e :tabnext
+nmap <A-S-h> -e :tabmove -1
+nmap <A-S-l> -e :tabmove +1
+
+" Toggle bookmark toolbar
+nmap <A-b> -e :toolbartoggle Bookmarks Toolbar
+
+" Easily show downloads
+nmap <S-d> -e :downloads
+
+" Stop <C-j> and <C-k> doing whatever it does
+nmap <C-j> <nop>
+nmap <C-k> <nop>
+
+nmap <A> <nop>
+
+" Open the current URL as an argument to yt-dl
+nmap <S-u> -e :launchv
+
+" Same above but with quvi
+nmap <S-q> -e :launchvq
+
+" Use vim instead of gvim for now
+set editor='termite -e "vim +<line> <file>"'
+
+" Hide the status bar when using fullscreen
+au fullscreen on set go-=s
+au fullscreen off set go+=s
+
+" Change some default about:configs
+set! noscript.keys.tempAllowPage="alt z"
+set! noscript.keys.revokeTemp="alt c"
+"set! noscript.notify=false
+set! plugins.click_to_play=true
+set! plugin.default.state=1
+
+" Require websites preform safe ssl negotiation
+set! security.ssl.treat_unsafe_negotiation_as_broken=true
+
+" vim: ft=pentadactyl

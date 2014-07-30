@@ -42,7 +42,7 @@ bind editor <Tab>	complete-query
 # Sync email
 macro index O		'<shell-escape>mbsync -c "$XDG_CONFIG_HOME/mbsyncrc" theos<return>'  "run mbsync to sync all mail"
 
-set sendmail		= "/usr/bin/msmtp -a theos"
+set sendmail		= '/usr/bin/msmtp -C "$XDG_CONFIG_HOME/msmtprc" -a theos'
 set sendmail_wait	= 0
 set record			= +Sent
 set copy			= yes

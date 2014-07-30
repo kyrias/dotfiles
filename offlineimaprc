@@ -1,0 +1,30 @@
+# Sample minimal config file.  Copy this to ~/.offlineimaprc and edit to
+# get started fast.
+
+[general]
+accounts = kyriasis
+fsync = false
+pythonfile=~/.local/bin/offlineimap.py
+# Die after 120 seconds of nothing. Probably the connection died ...
+socktimeout = 120
+
+[Account kyriasis]
+localrepository = kyriasisLocal
+remoterepository = kyriasisRemote
+status_backend = sqlite
+quick = 30
+
+[Repository kyriasisLocal]
+type = Maildir
+localfolders = ~/offlineimapmail
+
+[Repository kyriasisRemote]
+type = IMAP
+remotehost = theos.kyriasis.com
+#remoteusereval = get_username("kyriasis.com")
+remoteuser = kyrias
+remotepasseval = keyring.get_password("offlineimap","kyrias")
+ssl = yes
+ssl_version = tls1
+maxconnections = 2
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt

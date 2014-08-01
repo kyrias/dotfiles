@@ -6,8 +6,12 @@
 __pycache__
 chromium/
 google-*/
+gnupg/*.gpg
 libreoffice/
+mpd/database
 mpd/playlists/
+mpd/state
+mpd/sticker.sql
 mpv/watch_later/
 mutt/cache/
 mutt/temp/

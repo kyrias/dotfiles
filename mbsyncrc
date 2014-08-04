@@ -9,8 +9,8 @@ IMAPStore theos-remote
 Account theos
 
 MaildirStore theos-local
-Path ~/.mail/
-Inbox ~/.mail/Inbox
+Path ~/mail/
+Inbox ~/mail/Inbox
 
 Channel theos
 Master :theos-remote:

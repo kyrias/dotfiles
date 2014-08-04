@@ -23,7 +23,7 @@ set mark_old		= no
 set sleep_time		= 0 # no delay when opening a maildir!
 
 set mbox_type		= Maildir
-set folder			= "~/.mail"
+set folder			= "~/mail"
 set header_cache	= ~/.config/mutt/cache/headers	# where to store headers
 set message_cachedir= ~/.config/mutt/cache/			# where to store bodies
 set certificate_file= ~/.config/mutt/certificates	# where to store certs
@@ -42,7 +42,7 @@ bind editor <Tab>	complete-query
 # Sync email
 macro index O		'<shell-escape>mbsync -c "$XDG_CONFIG_HOME/mbsyncrc" theos<return>'  "run mbsync to sync all mail"
 
-set sendmail		= '/usr/bin/msmtp -C "$XDG_CONFIG_HOME/msmtprc" -a theos'
+set sendmail		= "/usr/bin/msmtp -C $XDG_CONFIG_HOME/msmtprc -a theos"
 set sendmail_wait	= 0
 set record			= +Sent
 set copy			= yes

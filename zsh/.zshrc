@@ -15,12 +15,22 @@ compinit
 promptinit
 colors
 
-shellopts=(PROMPT_SUBST
-		   completealiases
-		   auto_cd
-		   interactivecomments
-		   inc_append_history
-		   extendedhistory
+shellopts=(
+	autocd
+	complete_aliases
+	extended_history
+	hist_verify
+	hist_ignore_all_dups
+	hist_save_no_dups
+	hist_ignore_space
+	hist_reduce_blanks
+	share_history
+	inc_append_history
+	interactive_comments
+	numeric_glob_sort
+	no_bg_nice
+	print_exit_value
+	prompt_subst
 )
 setopt $shellopts
 

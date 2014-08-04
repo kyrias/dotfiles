@@ -67,17 +67,17 @@ bindkey -M vicmd 'e' edit-command-line
 ## Aliasing and keybinding
 ##
 alias wefree='weechat -a -r "/connect Freenode"'
-ls_options='-F --color=auto --group-directories-first'
+alias ms='mbsync -c "$XDG_CONFIG_HOME/mbsyncrc" theos'
+
+ls_options='-A -F --color=auto --group-directories-first'
 alias ls="ls $ls_options"
 alias lsa="ls $ls_options -hAX"
 alias lla="ls $ls_options -lhA"
+
 alias df='df -h'
-alias nano='nano -w' # No linewrap
 alias ncmpcpp='ncmpcpp -c ~/.config/ncmpcpp/config'
-alias 'cd..'='cd ..'
 alias '...'='../..'
 alias mkdir='mkdir -vp'
-alias 'please?'='sudo $(history | tail -n1 | cut -c 8-)'
 alias acp='acp -g'
 alias amv='amv -g'
 

@@ -4,7 +4,6 @@ Description=Music Player Daemon
 [Service]
 Environment=PULSE_PROP=application.icon_name=sound
 ExecStart=/usr/bin/mpd --no-daemon
-ExecStop=/usr/bin/mpd --kill
 
 [Install]
 WantedBy=default.target

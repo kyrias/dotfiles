@@ -27,3 +27,5 @@
 	smtpserver = /usr/bin/msmtp
 [credential]
 	helper = /usr/share/git/credential/gnome-keyring/git-credential-gnome-keyring
+[status]
+	showuntrackedfiles = no

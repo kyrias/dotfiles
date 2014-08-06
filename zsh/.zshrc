@@ -24,7 +24,6 @@ shellopts=(
 	hist_save_no_dups
 	hist_ignore_space
 	hist_reduce_blanks
-	share_history
 	inc_append_history
 	interactive_comments
 	numeric_glob_sort

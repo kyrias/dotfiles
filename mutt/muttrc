@@ -119,4 +119,3 @@ source ~/.config/mutt/themes/comidia
 
 subscribe arch-dev-public@archlinux.org
 subscribe aur-general@archlinux.org
-set imap_authenticators="gssapi"

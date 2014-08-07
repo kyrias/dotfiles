@@ -1,10 +1,10 @@
 IMAPAccount theos
 Host theos.kyriasis.com
 User kyrias
-PassCmd "pass show mail/johannes@kyriasis.com"
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 SSLType IMAPS
 SSLVersions TLSv1.2
+AuthMechs GSSAPI
 
 IMAPStore theos-remote
 Account theos

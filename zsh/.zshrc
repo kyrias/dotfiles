@@ -38,6 +38,26 @@ setopt autocd \
 # Menu completion
 zstyle ':completion:*' menu select
 
+DEFAULT_COLOR="%{${fg[default]}%}"
+function bold  { printf "%s%s%s" "%{%B%}" "$1" "%{%b%}" }
+function red   { printf "%s%s%s" "%{${fg[red]}%}" "$1" "$DEFAULT_COLOR" }
+function green { printf "%s%s%s" "%{${fg[green]}%}" "$1" "$DEFAULT_COLOR" }
+function blue  { printf "%s%s%s" "%{${fg[blue]}%}" "$1" "$DEFAULT_COLOR" }
+function cyan { printf "%s%s%s" "%{${fg[cyan]}%}" "$1" "$DEFAULT_COLOR" }
+function magenta { printf "%s%s%s" "%{${fg[magenta]}%}" "$1" "$DEFAULT_COLOR" }
+function yellow { printf "%s%s%s" "%{${fg[yellow]}%}" "$1" "$DEFAULT_COLOR" }
+function black { printf "%s%s%s" "%{${fg[black]}%}" "$1" "$DEFAULT_COLOR" }
+function white { printf "%s%s%s" "%{${fg[white]}%}" "$1" "$DEFAULT_COLOR" }
+function prompt_user_color {
+	(( UID )) && printf green || print red
+}
+
+PS1='$(yellow "$(bold %m)") \
+$($(prompt_user_color) "$(bold %n)") \
+$(blue "$(bold %~)") \
+$(blue "$(bold %#)") '
+RPS1=$'$(yellow $branch)'
+
 function get_git_branch {
     if [[ -d .git ]]; then
         branch=" $(git rev-parse --abbrev-ref HEAD) "
@@ -62,9 +82,6 @@ function preexec {
 # Load all configs
 #for f in ~/.config/zsh/zsh.d/*.zsh
 #	source $f
-
-PS1=$'%{${fg[blue]}%}%B%~%b%{${fg[blue]}%} %B%#%b %{${fg[default]}%}'
-#PS1=$'┌─[${fg[cyan]}%B%n%b ${fg[blue]}%B%~%b$fg[default]]\n└─╼ '
 
 source "$ZDOTDIR"/aliases.zsh
 source "$ZDOTDIR"/keybindings.zsh

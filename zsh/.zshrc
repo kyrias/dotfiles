@@ -80,6 +80,8 @@ alias mkdir='mkdir -vp'
 alias acp='acp -g'
 alias amv='amv -g'
 
+have() { command -v "$1" >&/dev/null; }
+
 # Colored man
 man() {
     env LESS_TERMCAP_mb=$(printf "\e[1;31m") \

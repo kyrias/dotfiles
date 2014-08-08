@@ -12,6 +12,8 @@ export XAUTHORITY="$XDG_RUNTIME_DIR"/X11/authority
 
 export ABSROOT="$HOME"/build/abs
 
+export PREFIX="$HOME"/.local
+
 export EDITOR=vim
 export VISUAL=vim
 export VIMINIT='source $XDG_CONFIG_HOME/vim/vimrc'
@@ -32,6 +34,9 @@ export SDL_AUDIODRIVER=pulse
 export GTK_IM_MODULE=xim
 
 export SUDO_PROMPT=$'\e[31mSUDO\e[m password for \e[34m%p\e[m: '
+
+export HOSTNAME=$(hostname -s)
+export FQDN=$(hostname -f)
 
 # LS_COLORS is now required for `ls` to use colour
 eval "$(dircolors -b ~/.config/dircolors)"

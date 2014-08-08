@@ -14,8 +14,7 @@ export ABSROOT="$HOME"/build/abs
 
 export EDITOR=vim
 export VISUAL=vim
-# Set vimrc's location and source it on vim startup
-export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
+export VIMINIT='source $XDG_CONFIG_HOME/vim/vimrc'
 
 export PAGER=less
 export LESS=-R

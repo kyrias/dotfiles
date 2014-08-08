@@ -38,6 +38,26 @@ setopt autocd \
 # Menu completion
 zstyle ':completion:*' menu select
 
+function get_git_branch {
+    if [[ -d .git ]]; then
+        branch=" $(git rev-parse --abbrev-ref HEAD) "
+    else
+        branch=" "
+    fi
+}
+
+# Print basic prompt to the window title
+function precmd {
+    print -Pn "\e];%n %~\a"
+    get_git_branch
+}
+
+# Print the current running command's name to the window title
+function preexec {
+    local cmd=${1[(wr)^(*=*|sudo|exec|ssh|-*)]}
+    print -Pn "\e];$cmd:q\a"
+}
+
 if [[ $TERM == xterm-termite && $DISPLAY == ":0" ]]; then
     . /etc/profile.d/vte.sh
     __vte_osc7

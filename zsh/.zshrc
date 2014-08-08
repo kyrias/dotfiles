@@ -62,38 +62,6 @@ autoload -U edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd 'e' edit-command-line
 
-###########################
-## Aliasing and keybinding
-##
-alias wefree='weechat -a -r "/connect Freenode"'
-alias ms='mbsync -c "$XDG_CONFIG_HOME/mbsyncrc" theos'
-
-ls_options='-A -F --color=auto --group-directories-first'
-alias ls="ls $ls_options"
-alias lsa="ls $ls_options -hAX"
-alias lla="ls $ls_options -lhA"
-
-alias df='df -h'
-alias ncmpcpp='ncmpcpp -c ~/.config/ncmpcpp/config'
-alias '...'='../..'
-alias mkdir='mkdir -vp'
-alias acp='acp -g'
-alias amv='amv -g'
-
-have() { command -v "$1" >&/dev/null; }
-
-# Colored man
-man() {
-    env LESS_TERMCAP_mb=$(printf "\e[1;31m") \
-	LESS_TERMCAP_md=$(printf "\e[1;31m") \
-	LESS_TERMCAP_me=$(printf "\e[0m") \
-	LESS_TERMCAP_se=$(printf "\e[0m") \
-	LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
-	LESS_TERMCAP_ue=$(printf "\e[0m") \
-	LESS_TERMCAP_us=$(printf "\e[1;32m") \
-	man "$@"
-}
-
 typeset -A key
 
 key[Home]=${terminfo[khome]}
@@ -118,6 +86,7 @@ key[PageDown]=${terminfo[knp]}
 [[ -n "${key[Right]}"    ]]  && bindkey  "${key[Right]}"    forward-char
 [[ -n "${key[PageUp]}"   ]]  && bindkey  "${key[PageUp]}"   beginning-of-buffer-or-history
 [[ -n "${key[PageDown]}" ]]  && bindkey  "${key[PageDown]}" end-of-buffer-or-history
+source "$ZDOTDIR"/aliases.zsh
 
 # Finally, make sure the terminal is in application mode, when zle is
 # active. Only then are the values from $terminfo valid.
@@ -131,11 +100,6 @@ if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
     zle -N zle-line-init
     zle -N zle-line-finish
 fi
-
-alias sprin='curl -F "sprunge=<-" http://sprunge.us'
-sprfile() {
-	curl -F "sprunge=<$1" http://sprunge.us
-}
 
 [[ -S '/run/user/1000/keyring/gpg' ]] && export GPG_AGENT_INFO='/run/user/1000/keyring/gpg:0:1'
 [[ -S '/run/user/1000/keyring/ssh' ]] && export SSH_AUTH_SOCK='/run/user/1000/keyring/ssh'

@@ -35,3 +35,33 @@ man() {
 	LESS_TERMCAP_us=$(printf "\e[1;32m") \
 	man "$@"
 }
+
+sp() { printf '%s' "$@"; printf '\n'; }
+
+have() { command -v "$1" >&/dev/null; }
+
+## service management
+if have systemctl && [[ -d /run/systemd/system ]]; then
+	alias sd='systemctl'
+	alias u='systemctl --user'
+	alias list='systemctl list-units -t path,service,socket --no-legend'
+	alias lcstatus='loginctl session-status $XDG_SESSION_ID'
+	alias tsd='tree /etc/systemd/system'
+
+	start()   { sudo systemctl start "$@";   systemctl status -a "$@"; }
+	stop()    { sudo systemctl stop "$@";    systemctl status -a "$@"; }
+	restart() { sudo systemctl restart "$@"; systemctl status -a "$@"; }
+	reload()  { sudo systemctl reload "$@";  systemctl status -a "$@"; }
+	status()  { systemctl status -a "$@"; }
+
+	alias userctl='systemctl --user'
+	alias ulist='userctl list-units -t path,service,socket --no-legend'
+	ustart()   { userctl start "$@";   userctl status -a "$@"; }
+	ustop()    { userctl stop "$@";    userctl status -a "$@"; }
+	urestart() { userctl restart "$@"; userctl status -a "$@"; }
+	ureload()  { userctl reload "$@";  userctl status -a "$@"; }
+
+	cgls() { SYSTEMD_PAGER='cat' systemd-cgls "$@"; }
+	usls() { cgls "/user.slice/user-$UID.slice/$*"; }
+	psls() { cgls "/user.slice/user-$UID.slice/session-$XDG_SESSION_ID.scope"; }
+fi

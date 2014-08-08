@@ -58,10 +58,6 @@ function preexec {
     print -Pn "\e];$cmd:q\a"
 }
 
-if [[ $TERM == xterm-termite && $DISPLAY == ":0" ]]; then
-    . /etc/profile.d/vte.sh
-    __vte_osc7
-fi
 
 # Load all configs
 #for f in ~/.config/zsh/zsh.d/*.zsh
@@ -119,4 +115,9 @@ if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
     }
     zle -N zle-line-init
     zle -N zle-line-finish
+fi
+
+if [[ -n "$VTE_VERSION" ]]; then
+    source /etc/profile.d/vte.sh
+    __vte_prompt_command
 fi

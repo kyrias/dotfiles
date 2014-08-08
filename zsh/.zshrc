@@ -67,20 +67,15 @@ function get_git_branch {
 
 # Print basic prompt to the window title
 function precmd {
-    print -Pn "\e];%n %~\a"
-    get_git_branch
+	print -Pn "\e];%n %~\a"
+	get_git_branch
 }
 
 # Print the current running command's name to the window title
 function preexec {
-    local cmd=${1[(wr)^(*=*|sudo|exec|ssh|-*)]}
-    print -Pn "\e];$cmd:q\a"
+	local cmd=${1[(wr)^(*=*|sudo|exec|ssh|-*)]}
+	print -Pn "\e];$cmd:q\a"
 }
-
-
-# Load all configs
-#for f in ~/.config/zsh/zsh.d/*.zsh
-#	source $f
 
 source "$ZDOTDIR"/aliases.zsh
 source "$ZDOTDIR"/keybindings.zsh
@@ -88,6 +83,6 @@ source "$ZDOTDIR"/keybindings.zsh
 zle -N edit-command-line
 
 if [[ -n "$VTE_VERSION" ]]; then
-    source /etc/profile.d/vte.sh
-    __vte_prompt_command
+	source /etc/profile.d/vte.sh
+	__vte_prompt_command
 fi

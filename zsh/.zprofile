@@ -39,7 +39,7 @@ export HOSTNAME=$(hostname -s)
 export FQDN=$(hostname -f)
 
 # LS_COLORS is now required for `ls` to use colour
-eval "$(dircolors -b ~/.config/dircolors)"
+source <(dircolors -b "$XDG_CONFIG_HOME"/dircolors)
 
 if [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]]; then
 	exec startx "$XDG_CONFIG_HOME"/X11/xinitrc

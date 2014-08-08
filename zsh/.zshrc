@@ -1,39 +1,39 @@
 HISTFILE=~/.config/zsh/.zsh_history
 HISTSIZE=500000
 SAVEHIST=500000
-setopt notify
 
 fpath=(~/.local/share/zsh/completion $fpath)
 zstyle :compinstall filename "$HOME/.config/zsh/.zshrc"
 
-al=(colors
-	compinit
-	promptinit
-)
-autoload -Uz $al
+autoload -Uz colors \
+             compinit \
+             promptinit \
+             edit-command-line \
+             run-help \
+             zmv
+
 compinit
 promptinit
 colors
 
-shellopts=(
-	autocd
-	complete_aliases
-	extended_history
-	hist_verify
-	hist_ignore_all_dups
-	hist_save_no_dups
-	hist_ignore_space
-	hist_reduce_blanks
-	inc_append_history
-	interactive_comments
-	numeric_glob_sort
-	no_bg_nice
-	print_exit_value
-	prompt_subst
-)
-setopt $shellopts
-
 zmodload zsh/mapfile
+
+setopt autocd \
+       complete_aliases \
+       dotglob \
+       extended_history \
+       hist_verify \
+       hist_ignore_all_dups \
+       hist_save_no_dups \
+       hist_ignore_space \
+       hist_reduce_blanks \
+       inc_append_history \
+       interactive_comments \
+       numeric_glob_sort \
+       no_bg_nice \
+       print_exit_value \
+       prompt_subst \
+       notify
 
 # Menu completion
 zstyle ':completion:*' menu select

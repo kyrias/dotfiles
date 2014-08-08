@@ -41,6 +41,9 @@ export FQDN=$(hostname -f)
 # LS_COLORS is now required for `ls` to use colour
 source <(dircolors -b "$XDG_CONFIG_HOME"/dircolors)
 
+[[ -S '/run/user/1000/keyring/gpg' ]] && export GPG_AGENT_INFO='/run/user/1000/keyring/gpg:0:1'
+[[ -S '/run/user/1000/keyring/ssh' ]] && export SSH_AUTH_SOCK='/run/user/1000/keyring/ssh'
+
 if [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]]; then
 	exec startx "$XDG_CONFIG_HOME"/X11/xinitrc
 fi

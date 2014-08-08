@@ -100,6 +100,3 @@ if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
     zle -N zle-line-init
     zle -N zle-line-finish
 fi
-
-[[ -S '/run/user/1000/keyring/gpg' ]] && export GPG_AGENT_INFO='/run/user/1000/keyring/gpg:0:1'
-[[ -S '/run/user/1000/keyring/ssh' ]] && export SSH_AUTH_SOCK='/run/user/1000/keyring/ssh'

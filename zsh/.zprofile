@@ -8,7 +8,7 @@ export MPV_HOME="$XDG_CONFIG_HOME"/mpv
 export GNUPGHOME="$XDG_CONFIG_HOME"/gnupg
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc-2.0
 export XCOMPOSEFILE="$XDG_CONFIG_HOME"/X11/XCompose
-export XAUTHORITY="$XDG_RUNTIME_DIR"/X11/authority
+export XAUTHORITY="$HOME"/.local/share/xorg/authority
 
 export ABSROOT="$HOME"/build/abs
 

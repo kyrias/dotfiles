@@ -82,6 +82,9 @@ source "$ZDOTDIR"/keybindings.zsh
 
 zle -N edit-command-line
 
+[[ -f "$ZDOTDIR"/environ-"$(hostname -s)" ]] && \
+    source "$ZDOTDIR"/environ-"$(hostname -s)"
+
 if [[ -n "$VTE_VERSION" ]]; then
 	source /etc/profile.d/vte.sh
 	__vte_prompt_command

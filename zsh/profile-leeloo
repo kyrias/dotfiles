@@ -1,3 +1,9 @@
+export LD_PRELOAD="$HOME"/.local/lib/libwcwidth.so
+
+source "$HOME"/misc/grawity/code/kerberos/kc.sh
+
+export PERL5LIB="$HOME"/misc/grawity/code/lib/perl5
+
 function {
 	local envfile="$XDG_RUNTIME_DIR"/gpg-agent.env
 	if [[ -e "$envfile" ]] && kill -0 $(cut -d':' -f2 <"$envfile") &>/dev/null; then
@@ -20,4 +26,4 @@ function {
 	fi
 }
 
-# vim: ft=zsh:
+# vim: ft=zsh

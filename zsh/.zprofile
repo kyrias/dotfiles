@@ -41,8 +41,27 @@ export FQDN=$(hostname -f)
 # LS_COLORS is now required for `ls` to use colour
 source <(dircolors -b "$XDG_CONFIG_HOME"/dircolors)
 
-[[ -S '/run/user/1000/keyring/gpg' ]] && export GPG_AGENT_INFO='/run/user/1000/keyring/gpg:0:1'
-[[ -S '/run/user/1000/keyring/ssh' ]] && export SSH_AUTH_SOCK='/run/user/1000/keyring/ssh'
+function {
+	local envfile="$XDG_RUNTIME_DIR"/gpg-agent.env
+	if [[ -e "$envfile" ]] && kill -0 $(cut -d':' -f2 <"$envfile") &>/dev/null; then
+		source "$envfile"
+	else
+		source <(gpg-agent --daemon --write-env-file "$envfile")
+		export GPG_AGENT_INFO
+	fi
+}
+
+function {
+	local envfile="$XDG_RUNTIME_DIR"/ssh-agent.env
+	local pid=$(awk -F'[=;]' 'FNR == 2 {print $2}' "$envfile" 2>/dev/null)
+
+	if [[ -n "$pid" ]] && kill -0 "$pid" &>/dev/null; then
+		source "$envfile" >/dev/null
+	else
+		ssh-agent > "$envfile"
+		source "$envfile" >/dev/null
+	fi
+}
 
 if [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]]; then
 	exec startx "$XDG_CONFIG_HOME"/X11/xinitrc

@@ -19,13 +19,17 @@ bindkey -v
 # Shift-tab
 bindkey $terminfo[kcbt] reverse-menu-complete
 
+# Insert
+bindkey -M vicmd $terminfo[kich1] vi-insert
+bindkey          $terminfo[kich1] overwrite-mode
+
 # Delete
 bindkey -M vicmd $terminfo[kdch1] vi-delete-char
 bindkey          $terminfo[kdch1] delete-char
 
-# Insert
-bindkey -M vicmd $terminfo[kich1] vi-insert
-bindkey          $terminfo[kich1] overwrite-mode
+# Home
+bindkey -M vicmd $terminfo[khome] vi-beginning-of-line
+bindkey          $terminfo[khome] beginning-of-line
 
 # End
 bindkey -M vicmd $terminfo[kend] vi-end-of-line
@@ -38,8 +42,7 @@ bindkey          $terminfo[kbs] backward-delete-char
 # Page up (and <C-b> in vicmd)
 bindkey -M vicmd $terminfo[kpp] beginning-of-buffer-or-history
 bindkey          $terminfo[kpp] beginning-of-buffer-or-history
-
-bindkey -M vicmd '^B' beginning-of-buffer-or-history
+bindkey -M vicmd '^B'           beginning-of-buffer-or-history
 
 # Page down (and <C-f> in vicmd)
 bindkey -M vicmd $terminfo[knp] end-of-buffer-or-history

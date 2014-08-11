@@ -11,7 +11,6 @@ autoload -Uz colors \
              edit-command-line \
              run-help \
              zmv
-
 compinit
 promptinit
 colors
@@ -20,7 +19,7 @@ zmodload zsh/mapfile
 
 setopt autocd \
        complete_aliases \
-       dotglob \
+       glob_dots \
        extended_history \
        hist_verify \
        hist_ignore_all_dups \

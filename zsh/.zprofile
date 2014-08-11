@@ -41,27 +41,8 @@ export FQDN=$(hostname -f)
 # LS_COLORS is now required for `ls` to use colour
 source <(dircolors -b "$XDG_CONFIG_HOME"/dircolors)
 
-function {
-	local envfile="$XDG_RUNTIME_DIR"/gpg-agent.env
-	if [[ -e "$envfile" ]] && kill -0 $(cut -d':' -f2 <"$envfile") &>/dev/null; then
-		source "$envfile"
-	else
-		source <(gpg-agent --daemon --write-env-file "$envfile")
-		export GPG_AGENT_INFO
-	fi
-}
-
-function {
-	local envfile="$XDG_RUNTIME_DIR"/ssh-agent.env
-	local pid=$(awk -F'[=;]' 'FNR == 2 {print $2}' "$envfile" 2>/dev/null)
-
-	if [[ -n "$pid" ]] && kill -0 "$pid" &>/dev/null; then
-		source "$envfile" >/dev/null
-	else
-		ssh-agent > "$envfile"
-		source "$envfile" >/dev/null
-	fi
-}
+[[ -f "$ZDOTDIR"/profile-"$(hostname -s)" ]] && \
+    source "$ZDOTDIR"/profile-"$(hostname -s)"
 
 if [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]]; then
 	exec startx "$XDG_CONFIG_HOME"/X11/xinitrc

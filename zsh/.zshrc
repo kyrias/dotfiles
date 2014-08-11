@@ -80,8 +80,6 @@ function preexec {
 source "$ZDOTDIR"/aliases.zsh
 source "$ZDOTDIR"/keybindings.zsh
 
-zle -N edit-command-line
-
 [[ -f "$ZDOTDIR"/environ-"$(hostname -s)" ]] && \
     source "$ZDOTDIR"/environ-"$(hostname -s)"
 

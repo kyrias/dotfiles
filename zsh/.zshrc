@@ -81,8 +81,8 @@ function preexec {
 source "$ZDOTDIR"/aliases.zsh
 source "$ZDOTDIR"/keybindings.zsh
 
-[[ -f "$ZDOTDIR"/environ-"$(hostname -s)" ]] && \
-    source "$ZDOTDIR"/environ-"$(hostname -s)"
+[[ -f "$ZDOTDIR"/zshrc-"$(hostname -s)" ]] && \
+    source "$ZDOTDIR"/zshrc-"$(hostname -s)"
 
 if [[ -n "$VTE_VERSION" ]]; then
 	source /etc/profile.d/vte.sh

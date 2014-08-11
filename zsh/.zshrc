@@ -37,6 +37,8 @@ setopt autocd \
 
 # Menu completion
 zstyle ':completion:*' menu select
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' rehash yes
 
 DEFAULT_COLOR="%{${fg[default]}%}"
 function bold  { printf "%s%s%s" "%{%B%}" "$1" "%{%b%}" }

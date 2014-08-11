@@ -2,6 +2,18 @@
 # Keybindings
 #
 
+
+# Make sure the terminal is in application mode when zle is active. Only then
+# are the values from $terminfo valid.
+function zle-line-init () {
+	printf '%s' "${terminfo[smkx]}"
+}
+function zle-line-finish () {
+	printf '%s' "${terminfo[rmkx]}"
+}
+zle -N zle-line-init
+zle -N zle-line-finish
+
 bindkey -v
 
 # Shift-tab

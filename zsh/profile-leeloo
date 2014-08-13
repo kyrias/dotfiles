@@ -4,14 +4,18 @@ source "$HOME"/misc/grawity/code/kerberos/kc.sh
 
 export PERL5LIB="$HOME"/misc/grawity/code/lib/perl5
 
+export XAUTHORITY="$HOME"/.local/share/xorg/authority
+
 function {
 	local envfile="$XDG_RUNTIME_DIR"/gpg-agent.env
+
 	if [[ -e "$envfile" ]] && kill -0 $(cut -d':' -f2 <"$envfile") &>/dev/null; then
 		source "$envfile"
 	else
 		source <(gpg-agent --daemon --write-env-file "$envfile")
-		export GPG_AGENT_INFO
 	fi
+
+	export GPG_AGENT_INFO
 }
 
 function {

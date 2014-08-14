@@ -24,7 +24,9 @@
 [merge]
 	tool = vimdiff
 [sendemail]
-	smtpserver = /usr/bin/msmtp
+	smtpserver = "/usr/bin/msmtp"
+	smtpserveroption = "-C"
+	smtpserveroption = "/home/kyrias/.config/msmtprc"
 [credential]
 	helper = /usr/share/git/credential/gnome-keyring/git-credential-gnome-keyring
 [status]

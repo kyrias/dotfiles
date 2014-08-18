@@ -1,0 +1,25 @@
+Host *
+	VerifyHostKeyDNS yes
+	ControlPath /run/user/1000/ssh.%r@%h:%p
+	ControlMaster auto
+	ControlPersist 30
+	GSSAPIAuthentication yes
+	PubkeyAuthentication yes
+
+Host *.kyriasis.com
+	GSSAPIDelegateCredentials yes
+	ForwardAgent yes
+	ForwardX11 yes
+	ForwardX11Trusted yes
+
+Host theos
+	hostname theos.kyriasis.com
+	PubkeyAuthentication no
+
+Host lucifer
+	hostname lucifer.kyriasis.com
+
+Host astronomer
+	user demize
+	hostname astronomer.erebor.buhman.org
+	ProxyCommand ssh theos.kyriasis.com ncat %h %p

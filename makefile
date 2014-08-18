@@ -1,3 +1,4 @@
 install:
-	ln -sf .config/zsh/.zshenv "$(HOME)/.zshenv"
-	ln -sf .config/pentadactyl/pentadactylrc "$(HOME)/.pentadactylrc"
+	-ln -s "$(HOME)/.config/zsh/.zshenv" "$(HOME)/.zshenv"
+	-ln -s "$(HOME)/.config/pentadactyl/pentadactylrc" "$(HOME)/.pentadactylrc"
+	-ln -sn "$(HOME)/.config/ssh/" "$(HOME)/.ssh"

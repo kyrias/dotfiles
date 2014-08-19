@@ -37,6 +37,8 @@ export SUDO_PROMPT=$'\e[31mSUDO\e[m password for \e[34m%p\e[m: '
 export HOSTNAME=$(hostname -s)
 export FQDN=$(hostname -f)
 
+export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/"$UID"/dbus/user_bus_socket
+
 export XAUTHORITY="$XDG_RUNTIME_DIR"/xauthority
 
 # LS_COLORS is now required for `ls` to use colour

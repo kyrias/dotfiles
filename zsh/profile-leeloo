@@ -1,7 +1,4 @@
 export LD_PRELOAD="$HOME"/.local/lib/libwcwidth.so
-export XAUTHORITY="$HOME"/.local/share/xorg/authority
-
-source "$HOME"/misc/grawity/code/kerberos/kc.sh
 
 export PERL5LIB="$HOME"/misc/grawity/code/lib/perl5"${PERL5LIB+:}$PERL5LIB";
 source <(perl -Mlocal::lib="$HOME"/.local)
@@ -25,5 +22,7 @@ function {
 		source "$envfile" >/dev/null
 	fi
 }
+
+source "$HOME"/misc/grawity/code/kerberos/kc.sh
 
 # vim: ft=zsh

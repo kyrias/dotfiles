@@ -6,8 +6,8 @@ alias '...'='../..'
 
 ls_options=('--almost-all' '--classify'  '--color=auto'
             '--human-readable' '--group-directories-first')
-alias ls='ls "${ls_options[@]}"'
-alias ll='ls "${ls_options[@]}" -l'
+alias ls='\ls "${ls_options[@]}"'
+alias ll='\ls "${ls_options[@]}" -l'
 
 alias mkdir='mkdir -vp'
 alias df='df -h'

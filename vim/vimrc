@@ -14,12 +14,13 @@ set backspace=indent,eol,start
 
 " NeoBndle stuff
 set runtimepath+=~/.config/vim/bundle/neobundle.vim/
-call neobundle#rc('/home/kyrias/.config/vim/bundle')
+call neobundle#rc("$XDG_CONFIG_HOME/vim/bundle")
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'Shougo/vimproc', {
  \ 'build' : {
  \     'unix' : 'make -f make_unix.mak',
+ \     'mac' : 'make -f make_mac.mak',
  \    },
  \ }
 NeoBundle 'Shougo/unite.vim'

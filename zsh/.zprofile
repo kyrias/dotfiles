@@ -1,3 +1,4 @@
+export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/"$UID"/dbus/user_bus_socket
 export PATH="$HOME"/.local/bin:"$PATH"
 
 # Set XDG Basedir Spec paths
@@ -14,8 +15,6 @@ export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc-2.0
 export XCOMPOSEFILE="$XDG_CONFIG_HOME"/X11/XCompose
 export XAUTHORITY="$XDG_RUNTIME_DIR"/xauthority
 export ABSROOT="$HOME"/build/abs
-
-export PREFIX="$HOME"/.local
 
 export EDITOR=vim
 export VISUAL=vim
@@ -36,7 +35,6 @@ export GTK_IM_MODULE=xim
 
 export SUDO_PROMPT=$'\e[31mSUDO\e[m password for \e[34m%p\e[m: '
 
-export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/"$UID"/dbus/user_bus_socket
 export SHORTHOST=$(hostname -s)
 
 if [[ -f "$ZDOTDIR"/profile-"$SHORTHOST" ]]; then

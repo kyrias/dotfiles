@@ -20,6 +20,9 @@ export EDITOR=vim
 export VISUAL=vim
 export VIMINIT='source $XDG_CONFIG_HOME/vim/vimrc'
 
+export BROWSER=firefox
+export TERMINAL=termite
+
 export PAGER=less
 export LESS=-R
 export LESSHISTFILE="$XDG_CACHE_HOME"/lesshist
@@ -27,9 +30,6 @@ export LESSOPEN="|lesspipe.sh %s"
 export LESSCOLORIZER=pygmentize
 
 export GREP_OPTIONS=--color=auto
-
-export BROWSER=firefox
-export TERMINAL=termite
 
 export SDL_AUDIODRIVER=pulse
 

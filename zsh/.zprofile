@@ -35,18 +35,16 @@ export GTK_IM_MODULE=xim
 
 export SUDO_PROMPT=$'\e[31mSUDO\e[m password for \e[34m%p\e[m: '
 
-export HOSTNAME=$(hostname -s)
-export FQDN=$(hostname -f)
-
 export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/"$UID"/dbus/user_bus_socket
+export SHORTHOST=$(hostname -s)
 
 export XAUTHORITY="$XDG_RUNTIME_DIR"/xauthority
+if [[ -f "$ZDOTDIR"/profile-"$SHORTHOST" ]]; then
+	source "$ZDOTDIR"/profile-"$SHORTHOST"
+fi
 
 # LS_COLORS is now required for `ls` to use colour
 source <(dircolors -b "$XDG_CONFIG_HOME"/dircolors)
-
-[[ -f "$ZDOTDIR"/profile-"$(hostname -s)" ]] && \
-    source "$ZDOTDIR"/profile-"$(hostname -s)"
 
 if [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]]; then
 	exec startx "$XDG_CONFIG_HOME"/X11/xinitrc

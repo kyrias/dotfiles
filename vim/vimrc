@@ -1,18 +1,11 @@
-set shortmess+=I
-
-
 " Respect XDG
 set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
 set directory=$XDG_CACHE_HOME/vim/swap,/tmp
 set backupdir=$XDG_CACHE_HOME/vim/backup,/tmp
 set undodir=$XDG_CACHE_HOME/vim/undo,/tmp
 set runtimepath=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$VIM,$VIMRUNTIME,/usr/share/vim/vimfiles
-let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
 
-" Make backspace behave in a sane manner.
-set backspace=indent,eol,start
-
-" NeoBndle stuff
+" NeoBundle stuff
 set runtimepath+=~/.config/vim/bundle/neobundle.vim/
 call neobundle#rc("$XDG_CONFIG_HOME/vim/bundle")
 NeoBundleFetch 'Shougo/neobundle.vim'
@@ -20,7 +13,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc', {
  \ 'build' : {
  \     'unix' : 'make -f make_unix.mak',
- \     'mac' : 'make -f make_mac.mak',
+ \     'mac'  : 'make -f make_mac.mak',
  \    },
  \ }
 NeoBundle 'Shougo/unite.vim'
@@ -30,31 +23,33 @@ NeoBundle "daylerees/colour-schemes", { "rtp": "vim-themes/" }
 colorscheme Darkcustomside
 
 NeoBundle 'mattn/emmet-vim'
-
 NeoBundle 'miekg/rfc'
-
 NeoBundle 'tommcdo/vim-exchange'
+
+" Make backspace behave in a sane manner.
+set backspace=indent,eol,start
 
 syntax on
 filetype plugin indent on
-set autoindent    " always set autoindenting on
-set copyindent    " copy the previous indentation on autoindenting
-set number        " always show line numbers
-set smartcase     " ignore case if search pattern is all lowercase,
-                  "    case-sensitive otherwise
-set hlsearch      " highlight search terms
-set incsearch     " show search matches as you type
-set history=1000         " remember more commands and search history
-set undolevels=1000      " use many muchos levels of undo
+set autoindent
+set copyindent
+set number            " always show line numbers
+set smartcase         " ignore case if search pattern is all lowercase,
+                      "   case-sensitive otherwise
+set hlsearch          " highlight search terms
+set incsearch         " show search matches as you type
+set history=1000
+set undolevels=1000
 set wildignore=*.swp,*.bak,*.pyc,*.class
-set title                " change the terminal's title
-set visualbell           " don't beep
-set noerrorbells         " don't beep
+set title             " change the terminal's title
+set visualbell        " don't beep
+set noerrorbells      " don't beep
 set ruler
-set backup
-set undofile                " Save undo's after file closes
-set mouse=a
-nnoremap ; :
+set backup            " use backup files
+set undofile          " save undo's after file closes
+set mouse=a           " enable mouse in all modes
+set shortmess+=I      " don't show the nag-screen
+set encoding=utf-8
 
 map <up> <nop>
 map <down> <nop>
@@ -67,8 +62,8 @@ cmap w!! w !sudo tee % >/dev/null
 
 " Tabs are 4 spaces wide
 set tabstop=4
-set softtabstop=4
 set shiftwidth=4
+set softtabstop=4
 set noexpandtab
 
 " voodoo magic

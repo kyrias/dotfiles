@@ -43,7 +43,7 @@ if [[ -f "$ZDOTDIR"/profile-"$SHORTHOST" ]]; then
 	source "$ZDOTDIR"/profile-"$SHORTHOST"
 fi
 
-# LS_COLORS is now required for `ls` to use colour
+# LS_COLORS is now required for `ls` to use colors
 source <(dircolors -b "$XDG_CONFIG_HOME"/dircolors)
 
 if [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]]; then

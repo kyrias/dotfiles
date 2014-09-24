@@ -1,0 +1,5 @@
+export PATH=/usr/local/bin:/usr/local/sbin:"$HOME"/Library/Haskell/bin:"$PATH"
+
+# path to GNU coreutils without g prefix
+export PATH=/usr/local/opt/coreutils/libexec/gnubin:"$PATH"
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"

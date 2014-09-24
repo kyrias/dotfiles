@@ -5,11 +5,13 @@ export XDG_CACHE_HOME="$HOME"/.cache
 export XDG_CONFIG_HOME="$HOME"/.config
 export XDG_DATA_HOME="$HOME"/.local/share
 
+# Program homedir overrides
 export MPV_HOME="$XDG_CONFIG_HOME"/mpv
 export GNUPGHOME="$XDG_CONFIG_HOME"/gnupg
+
+# Config overrides
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc-2.0
 export XCOMPOSEFILE="$XDG_CONFIG_HOME"/X11/XCompose
-
 export ABSROOT="$HOME"/build/abs
 
 export PREFIX="$HOME"/.local

@@ -2,8 +2,12 @@ HISTFILE=~/.config/zsh/.zsh_history
 HISTSIZE=500000
 SAVEHIST=500000
 
-fpath=(~/.local/share/zsh/completion $fpath)
-zstyle :compinstall filename "$HOME/.config/zsh/.zshrc"
+zstyle :compinstall filename "$ZDOTDIR"/.zshrc
+
+# Menu completion
+zstyle ':completion:*' menu select
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' rehash yes
 
 autoload -Uz colors \
              compinit \
@@ -14,8 +18,6 @@ autoload -Uz colors \
 compinit
 promptinit
 colors
-
-zmodload zsh/mapfile
 
 setopt autocd \
        complete_aliases \
@@ -34,20 +36,19 @@ setopt autocd \
        prompt_subst \
        notify
 
-# Menu completion
-zstyle ':completion:*' menu select
-zstyle ':completion:*' use-cache on
-zstyle ':completion:*' rehash yes
+# "This associative array takes as keys the names of files; the resulting
+# value is the content of the file"
+zmodload zsh/mapfile
 
-
-source "$ZDOTDIR"/prompt.zsh
-source "$ZDOTDIR"/aliases.zsh
 source "$ZDOTDIR"/keybindings.zsh
-
-[[ -f "$ZDOTDIR"/zshrc-"$(hostname -s)" ]] && \
-    source "$ZDOTDIR"/zshrc-"$(hostname -s)"
+source "$ZDOTDIR"/aliases.zsh        # aliases and functions.
+source "$ZDOTDIR"/prompt.zsh         # sets the prompt
 
 if [[ -n "$VTE_VERSION" ]]; then
 	source /etc/profile.d/vte.sh
 	__vte_prompt_command
+fi
+
+if [[ -f "$ZDOTDIR"/zshrc-"$SHORTHOST" ]]; then
+	source "$ZDOTDIR"/zshrc-"$SHORTHOST"
 fi

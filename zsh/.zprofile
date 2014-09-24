@@ -12,6 +12,7 @@ export GNUPGHOME="$XDG_CONFIG_HOME"/gnupg
 # Config overrides
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc-2.0
 export XCOMPOSEFILE="$XDG_CONFIG_HOME"/X11/XCompose
+export XAUTHORITY="$XDG_RUNTIME_DIR"/xauthority
 export ABSROOT="$HOME"/build/abs
 
 export PREFIX="$HOME"/.local
@@ -38,7 +39,6 @@ export SUDO_PROMPT=$'\e[31mSUDO\e[m password for \e[34m%p\e[m: '
 export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/"$UID"/dbus/user_bus_socket
 export SHORTHOST=$(hostname -s)
 
-export XAUTHORITY="$XDG_RUNTIME_DIR"/xauthority
 if [[ -f "$ZDOTDIR"/profile-"$SHORTHOST" ]]; then
 	source "$ZDOTDIR"/profile-"$SHORTHOST"
 fi

@@ -33,7 +33,7 @@ set signature		= ~/.config/mutt/sig			# my signature file
 set spoolfile		= "+Inbox"
 set mbox			= "+archives"
 set postponed		= "+Drafts"
-mailboxes +Inbox +Sent +learn-spam +Drafts +Trash +archives +arch-dev-public +aur-general +arch-bugs +Spam +Ham
+mailboxes +Inbox +Sent +learn-spam +Drafts +Trash +archives +arch-dev-public +aur-general +arch-bugs +Spam +Ham +openldap-technical +opensmtpd +pacman-dev
 
 set query_command='goobook -c "$XDG_CONFIG_HOME/goobookrc" query "%s"'
 macro index,pager A "<pipe-message>goobook -c \"$XDG_CONFIG_HOME/goobookrc\" add<return>" "add the sender address to Google contacts"

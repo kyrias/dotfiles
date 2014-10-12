@@ -159,4 +159,4 @@ bindsym $mod+u border none
 
 for_window [class="Gifview"] floating enable
 
-exec --no-startup-id dex "$HOME"/.config/autostart/*
+exec --no-startup-id $HOME/.local/bin/dex -s $HOME/.config/autostart -a -e i3

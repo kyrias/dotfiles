@@ -2,3 +2,8 @@ hwdec=vdpau
 vo=vdpau
 
 no-osc
+
+# Use with disabled flat-volumes in /etc/pulse/daemon.conf
+volume=25
+softvol=yes
+softvol-max=400

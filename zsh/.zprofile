@@ -19,7 +19,7 @@ export EDITOR=vim
 export VISUAL=vim
 export VIMINIT='source $XDG_CONFIG_HOME/vim/vimrc'
 
-export BROWSER=firefox
+export BROWSER=chromium
 export TERMINAL=termite
 
 export PAGER=less

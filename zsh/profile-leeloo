@@ -4,8 +4,6 @@ if (( UID )); then
 	export PERL5LIB="$HOME"/misc/grawity/code/lib/perl5"${PERL5LIB+:}$PERL5LIB";
 	source <(perl -Mlocal::lib="$HOME"/.local)
 
-	export GPG_AGENT_INFO=/run/user/"$UID"/keyring/gpg:0:1
-
 	function {
 	local envfile="$XDG_RUNTIME_DIR"/ssh-agent.env
 	local pid=$(awk -F'[=;]' 'FNR == 2 {print $2}' "$envfile" 2>/dev/null)

@@ -1,73 +1,82 @@
 # Various extra characters
-<Multi_key> <a> <o>			: "å" aring
-<Multi_key> <A> <o>			: "Å" Aring
-<Multi_key> <a> <e>			: "ä" adiaeresis
-<Multi_key> <A> <e>			: "Ä" Adiaeresis
-<Multi_key> <o> <e>			: "ö" odiaeresis
-<Multi_key> <O> <e>			: "Ö" Odiaeresis
-<Multi_key> <quotedbl> <u>		: "ü" udiaeresis
-<Multi_key> <quotedbl> <U>		: "Ü" Udiaeresis
-<Multi_key> <apostrophe> <e>		: "é" eacute
-<Multi_key> <apostrophe> <E>		: "É" Eacute
-<Multi_key> <grave> <e>			: "è" egrave
-<Multi_key> <grave> <E>			: "È" Egrave
-<Multi_key> <quotedbl> <i>		: "ï" idiaeresis
-<Multi_key> <quotedbl> <I>		: "Ï" Idiaeresis
+<Multi_key> <a> <o>                     : "å" aring
+<Multi_key> <A> <o>                     : "Å" Aring
+<Multi_key> <a> <e>                     : "ä" adiaeresis
+<Multi_key> <A> <e>                     : "Ä" Adiaeresis
+<Multi_key> <o> <e>                     : "ö" odiaeresis
+<Multi_key> <O> <e>                     : "Ö" Odiaeresis
+<Multi_key> <quotedbl> <u>              : "ü" udiaeresis
+<Multi_key> <quotedbl> <U>              : "Ü" Udiaeresis
+<Multi_key> <apostrophe> <e>            : "é" eacute
+<Multi_key> <apostrophe> <E>            : "É" Eacute
+<Multi_key> <grave> <e>                 : "è" egrave
+<Multi_key> <grave> <E>                 : "È" Egrave
+<Multi_key> <quotedbl> <i>              : "ï" idiaeresis
+<Multi_key> <quotedbl> <I>              : "Ï" Idiaeresis
+<Multi_key> <l> <a>                     : "λ" U03BB
+<Multi_key> <m> <u>                     : "µ" U00B5
 
 # Quotes
-<Multi_key> <quotedbl> <bracketleft>	: "“" U201C
-<Multi_key> <quotedbl> <bracketright>	: "”" U201D
-<Multi_key> <apostrophe> <bracketleft>	: "‘" U2018
-<Multi_key> <apostrophe> <bracketright>	: "’" U2019
-<Multi_key> <less> <bracketleft>	: "｢" UFF62
-<Multi_key> <greater> <bracketright>	: "｣" UFF63
-
-<Multi_key> <e> <m> <minus>		: "—" U2014
+<Multi_key> <quotedbl> <bracketleft>    : "“" U201C
+<Multi_key> <quotedbl> <bracketright>   : "”" U201D
+<Multi_key> <apostrophe> <bracketleft>  : "‘" U2018
+<Multi_key> <apostrophe> <bracketright> : "’" U2019
+<Multi_key> <less> <bracketleft>        : "｢" UFF62
+<Multi_key> <greater> <bracketright>    : "｣" UFF63
 
 # Dots/ellipsises
-<Multi_key> <period> <colon>		: "·" periodcentered	# MIDDLE DOT
-<Multi_key> <period> <period> <period>	: "…" U2026		# HORIZONTAL ELLIPSIS
+<Multi_key> <period> <colon>            : "·" U00B7  # MIDDLE DOT
+<Multi_key> <period> <period> <period>  : "…" U2026  # HORIZONTAL ELLIPSIS
 
-<Multi_key> <minus> <less>		: "←" leftarrow		 # LEFTWARDS ARROW
-<Multi_key> <minus> <v>			: "↓" downarrow		 # DOWNWARDS ARROW
-<Multi_key> <minus> <asciicircum>	: "↑" uparrow		 # UPWARDS ARROW
-<Multi_key> <minus> <greater>		: "→" rightarrow	 # RIGHTWARDS ARROW
+<Multi_key> <minus> <less>              : "←" U2190  # LEFTWARDS ARROW
+<Multi_key> <minus> <asciicircum>       : "↑" U2191  # UPWARDS ARROW
+<Multi_key> <minus> <greater>           : "→" U2192  # RIGHTWARDS ARROW
+<Multi_key> <minus> <v>                 : "↓" U2193  # DOWNWARDS ARROW
+
+<Multi_key> <e> <m> <minus>             : "—" U2014  # EM dash
 
 # Mathstuffs
-<Multi_key> <x> <x>			: "×" U00D7		 # MULTIPLICATION SIGN
-<Multi_key> <slash> <slash>		: "÷" U00F7		 # DIVISION SIGN
-<Multi_key> <plus> <minus>		: "±" U00B1		 # PLUS-MINUS SIGN
-<Multi_key> <8> <8>			: "∞" U221E		 # INFINITY
+<Multi_key> <x> <x>                     : "×" U00D7  # MULTIPLICATION SIGN
+<Multi_key> <slash> <slash>             : "÷" U00F7  # DIVISION SIGN
+<Multi_key> <plus> <minus>              : "±" U00B1  # PLUS-MINUS SIGN
+<Multi_key> <8> <8>                     : "∞" U221E  # INFINITY
 
-<Multi_key> <slash> <equal>		: "≠" U2260		 # NOT EQUAL TO
+<Multi_key> <slash> <equal>             : "≠" U2260  # NOT EQUAL TO
 
 # Smileys
-<Multi_key> <colon> <parenright>	: "☺" U263A		 # WHITE SMILING FACE
-<Multi_key> <colon> <parenleft>		: "☹" U2639		 # WHITE FROWNING FACE
+<Multi_key> <colon> <parenright>        : "☺" U263A  # WHITE SMILING FACE
+<Multi_key> <colon> <parenleft>         : "☹" U2639  # WHITE FROWNING FACE
 
-# Hearts 
-<Multi_key> <less> <3>			: "❤" U2764		 # HEAVY BLACK HEART
-<Multi_key> <less> <e>			: "❥" U2765		 # ROTATED HEAVY BLACK HEART BULLET
+# Hearts
+<Multi_key> <less> <3>                  : "❤" U2764  # HEAVY BLACK HEART
+<Multi_key> <less> <e>                  : "❥" U2765  # ROTATED HEAVY BLACK HEART BULLET
 
 # Stars and misc symbols
-<Multi_key> <asterisk> <asterisk>	: "★" U2605		 # BLACK STAR
-<Multi_key> <asterisk> <0>		: "☆" U2606		 # WHITE STAR
-<Multi_key> <asterisk> <minus>		: "✪" U272A		 # CIRCLED WHITE STAR
-<Multi_key> <y> <y>			: "☯" U262F		 # YIN YANG
+<Multi_key> <asterisk> <asterisk>       : "★" U2605  # BLACK STAR
+<Multi_key> <asterisk> <0>              : "☆" U2606  # WHITE STAR
+<Multi_key> <asterisk> <minus>          : "✪" U272A  # CIRCLED WHITE STAR
+<Multi_key> <y> <y>                     : "☯" U262F  # YIN YANG
 
 # Degree symbols
-<Multi_key> <asciicircum> <o>		: "°" U00B0		 # DEGREE SIGN
-<Multi_key> <o> <C>			: "℃" U2103		 # DEGREE CELSIUS
-<Multi_key> <o> <F>			: "℉" U2109		 # DEGREE CELSIUS
+<Multi_key> <asciicircum> <o>           : "°" U00B0  # DEGREE SIGN
+<Multi_key> <o> <C>                     : "℃" U2103  # DEGREE CELSIUS
+<Multi_key> <o> <F>                     : "℉" U2109  # DEGREE CELSIUS
 
 # Intellectual property symbols
-<Multi_key> <c> <s>			: "©" U00A9		 # COPYRIGHT SIGN
-<Multi_key> <r> <s>			: "®" U00AE		 # REGISTERED SIGN
-<Multi_key> <t> <m>			: "™" U2122		 # TRADE MARK SIGN
+<Multi_key> <c> <s>                     : "©" U00A9  # COPYRIGHT SIGN
+<Multi_key> <r> <s>                     : "®" U00AE  # REGISTERED SIGN
+<Multi_key> <t> <m>                     : "™" U2122  # TRADE MARK SIGN
 
-<Multi_key> <b> <h> <s>			: "☣" U2623		 # BIOHAZARD SIGN
-<Multi_key> <r> <a> <s>			: "☢" U2622		 # RADIOACTIVE SIGN
-<Multi_key> <S> <W>				: "卐" U262D
-<Multi_key> <colon> <bar> <bar>	: "ಠ_ಠ"
+<Multi_key> <b> <h> <s>                 : "☣" U2623  # BIOHAZARD SIGN
+<Multi_key> <r> <a> <s>                 : "☢" U2622  # RADIOACTIVE SIGN
+<Multi_key> <S> <W>                     : "卐" U262D
+<Multi_key> <colon> <bar> <bar>         : "ಠ_ಠ"
 
-<Multi_key> <l> <a>			: "λ"
+<Multi_key> <s> <a>                     : U00A0
+<Multi_key> <s> <b>                     : U2007
+<Multi_key> <s> <c>                     : U2008
+<Multi_key> <s> <d>                     : U2009
+<Multi_key> <s> <e>                     : U200A
+<Multi_key> <s> <f>                     : U202F
+<Multi_key> <s> <g>                     : U205F
+<Multi_key> <s> <h>                     : U3000

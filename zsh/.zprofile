@@ -26,8 +26,6 @@ export PAGER=less
 export LESS=-R
 export LESSHISTFILE="$XDG_CACHE_HOME"/lesshist
 
-export GREP_OPTIONS=--color=auto
-
 export SDL_AUDIODRIVER=pulse
 
 export GTK_IM_MODULE=xim

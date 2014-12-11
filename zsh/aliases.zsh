@@ -9,6 +9,8 @@ ls_options=('--almost-all' '--classify'  '--color=auto'
 alias ls='\ls "${ls_options[@]}"'
 alias ll='\ls "${ls_options[@]}" -l'
 
+alias grep='\grep --color'
+
 alias mkdir='mkdir -vp'
 alias df='df -h'
 

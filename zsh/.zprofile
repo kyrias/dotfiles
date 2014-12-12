@@ -8,6 +8,7 @@ export XDG_DATA_HOME="$HOME"/.local/share
 # Program homedir overrides
 export MPV_HOME="$XDG_CONFIG_HOME"/mpv
 export GNUPGHOME="$XDG_CONFIG_HOME"/gnupg
+export GALE_DIR="$XDG_CONFIG_HOME"/gale
 
 # Config overrides
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc-2.0

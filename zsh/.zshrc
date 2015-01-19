@@ -52,3 +52,6 @@ fi
 if [[ -f "$ZDOTDIR"/zshrc-"$SHORTHOST" ]]; then
 	source "$ZDOTDIR"/zshrc-"$SHORTHOST"
 fi
+
+GPG_TTY=$(tty)
+export GPG_TTY

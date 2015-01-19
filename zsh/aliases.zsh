@@ -20,6 +20,7 @@ alias amv='amv -g'
 alias ncmpcpp='ncmpcpp -c ~/.config/ncmpcpp/config'
 alias wefree='weechat -a -r "/connect Freenode"'
 alias ms='mbsync -c "$XDG_CONFIG_HOME/mbsyncrc" theos'
+alias ty='ttytter -rc="$XDG_CONFIG_HOME"/ttytter/ttytterrc'
 
 alias sprin='curl -F "sprunge=<-" http://sprunge.us'
 sprfile() {

@@ -20,6 +20,13 @@
 #
 # History:
 #
+# 2014-12-12
+#     v5.0: fix cropping non-latin buffer names
+# 2014-08-29, Patrick Steinhardt <ps@pks.im>:
+#     v4.9: add support for specifying custom buffer names
+# 2014-07-19, Sebastien Helleu <flashcode@flashtux.org>:
+#     v4.8: add support of ctrl + mouse wheel to jump to previous/next buffer,
+#           new option "mouse_wheel"
 # 2014-06-22, Sebastien Helleu <flashcode@flashtux.org>:
 #     v4.7: fix typos in options
 # 2014-04-05, Sebastien Helleu <flashcode@flashtux.org>:
@@ -157,7 +164,7 @@ use strict;
 use Encode qw( decode encode );
 # -----------------------------[ internal ]-------------------------------------
 my $SCRIPT_NAME = "buffers";
-my $SCRIPT_VERSION = "4.7";
+my $SCRIPT_VERSION = "5.0";
 
 my $BUFFERS_CONFIG_FILE_NAME = "buffers";
 my $buffers_config_file;
@@ -165,7 +172,9 @@ my $cmd_buffers_whitelist= "buffers_whitelist";
 my $cmd_buffers_detach   = "buffers_detach";
 
 my %mouse_keys = ("\@item(buffers):button1*" => "hsignal:buffers_mouse",
-                  "\@item(buffers):button2*" => "hsignal:buffers_mouse");
+                  "\@item(buffers):button2*" => "hsignal:buffers_mouse",
+                  "\@bar(buffers):ctrl-wheelup" => "hsignal:buffers_mouse",
+                  "\@bar(buffers):ctrl-wheeldown" => "hsignal:buffers_mouse");
 my %options;
 my %hotlist_level = (0 => "low", 1 => "message", 2 => "private", 3 => "highlight");
 my @whitelist_buffers = ();
@@ -203,6 +212,8 @@ weechat::hook_signal("buffer_renamed", "buffers_signal_buffer", "");
 weechat::hook_signal("buffer_switch", "buffers_signal_buffer", "");
 weechat::hook_signal("buffer_hidden", "buffers_signal_buffer", "");  # WeeChat >= 0.4.4
 weechat::hook_signal("buffer_unhidden", "buffers_signal_buffer", "");  # WeeChat >= 0.4.4
+weechat::hook_signal("buffer_localvar_added", "buffers_signal_buffer", "");
+weechat::hook_signal("buffer_localvar_changed", "buffers_signal_buffer", "");
 
 weechat::hook_signal("window_switch", "buffers_signal_buffer", "");
 weechat::hook_signal("hotlist_changed", "buffers_signal_hotlist", "");
@@ -812,6 +823,12 @@ my %default_options_look =
      "", 0, 0, "on", "on", 0,
      "", "", "buffers_signal_config", "", "", ""
  ],
+ "mouse_wheel" => [
+     "mouse_wheel", "boolean",
+     "if option is \"on\", mouse wheel jumps to previous/next buffer in list.",
+     "", 0, 0, "on", "on", 0,
+     "", "", "buffers_signal_config", "", "", ""
+ ],
 );
     # section "color"
     my $section_color = weechat::config_new_section(
@@ -1091,8 +1108,14 @@ sub build_buffers
             my $key;
             if (weechat::config_integer( $options{"sort"} ) eq 1) # number = 0; name = 1
             {
-                my $name = $buffer->{"name"};
-                $name = $buffer->{"short_name"} if (weechat::config_boolean( $options{"short_names"} ) eq 1);
+                my $name = weechat::buffer_get_string($buffer->{"pointer"}, "localvar_custom_name");
+                if (not defined $name or $name eq "") {
+                    if (weechat::config_boolean( $options{"short_names"} ) eq 1) {
+                        $name = $buffer->{"short_name"};
+                    } else {
+                        $name = $buffer->{"name"};
+                    }
+                }
                 if (weechat::config_integer($options{"name_size_max"}) >= 1){
                     $name = encode("UTF-8", substr(decode("UTF-8", $name), 0, weechat::config_integer($options{"name_size_max"})));
                 }
@@ -1353,38 +1376,31 @@ sub build_buffers
 
         $str .= weechat::color($color) . weechat::color(",".$bg);
 
-        if (weechat::config_boolean( $options{"short_names"} ) eq 1)
+        my $name = weechat::buffer_get_string($buffer->{"pointer"}, "localvar_custom_name");
+        if (not defined $name or $name eq "")
         {
-            if (weechat::config_integer($options{"name_size_max"}) >= 1)                # check max_size of buffer name
-            {
-                $str .= encode("UTF-8", substr(decode("UTF-8", $buffer->{"short_name"}), 0, weechat::config_integer($options{"name_size_max"})));
-                $str .= weechat::color(weechat::config_color( $options{"color_number_char"})).weechat::config_string($options{"name_crop_suffix"}) if (length($buffer->{"short_name"}) > weechat::config_integer($options{"name_size_max"}));
-                $str .= add_inactive_parentless($buffer->{"type"}, $buffer->{"nicks_count"});
-                $str .= add_hotlist_count($buffer->{"pointer"}, %hotlist);
+            if (weechat::config_boolean( $options{"short_names"} ) eq 1) {
+                $name = $buffer->{"short_name"};
+            } else {
+                $name = $buffer->{"name"};
             }
-            else
-            {
-                $str .= $buffer->{"short_name"};
-                $str .= add_inactive_parentless($buffer->{"type"}, $buffer->{"nicks_count"});
-                $str .= add_hotlist_count($buffer->{"pointer"}, %hotlist);
-            }
+        }
+
+        if (weechat::config_integer($options{"name_size_max"}) >= 1)                # check max_size of buffer name
+        {
+            $name = decode("UTF-8", $name);
+            $str .= encode("UTF-8", substr($name, 0, weechat::config_integer($options{"name_size_max"})));
+            $str .= weechat::color(weechat::config_color( $options{"color_number_char"})).weechat::config_string($options{"name_crop_suffix"}) if (length($name) > weechat::config_integer($options{"name_size_max"}));
+            $str .= add_inactive_parentless($buffer->{"type"}, $buffer->{"nicks_count"});
+            $str .= add_hotlist_count($buffer->{"pointer"}, %hotlist);
         }
         else
         {
-            if (weechat::config_integer($options{"name_size_max"}) >= 1)                # check max_size of buffer name
-            {
-                $str .= encode("UTF-8", substr(decode("UTF-8", $buffer->{"name"},), 0, weechat::config_integer($options{"name_size_max"})));
-                $str .= weechat::color(weechat::config_color( $options{"color_number_char"})).weechat::config_string($options{"name_crop_suffix"}) if (length($buffer->{"name"}) > weechat::config_integer($options{"name_size_max"}));
-                $str .= add_inactive_parentless($buffer->{"type"}, $buffer->{"nicks_count"});
-                $str .= add_hotlist_count($buffer->{"pointer"}, %hotlist);
-            }
-            else
-            {
-                $str .= $buffer->{"name"};
-                $str .= add_inactive_parentless($buffer->{"type"}, $buffer->{"nicks_count"});
-                $str .= add_hotlist_count($buffer->{"pointer"}, %hotlist);
-            }
+            $str .= $name;
+            $str .= add_inactive_parentless($buffer->{"type"}, $buffer->{"nicks_count"});
+            $str .= add_hotlist_count($buffer->{"pointer"}, %hotlist);
         }
+
         if ( weechat::buffer_get_string($buffer->{"pointer"}, "localvar_type") eq "server" and weechat::config_boolean($options{"show_lag"}) eq 1)
         {
             my $color_lag = weechat::config_color(weechat::config_get("irc.color.item_lag_finished"));
@@ -1617,11 +1633,12 @@ sub buffers_hsignal_mouse
     my ($data, $signal, %hash) = ($_[0], $_[1], %{$_[2]});
     my $current_buffer = weechat::buffer_get_integer(weechat::current_buffer(), "number"); # get current buffer number
 
-    if ( $hash{"_key"} eq "button1" )           # left mouse button
+    if ( $hash{"_key"} eq "button1" )
     {
+        # left mouse button
         if ($hash{"number"} eq $hash{"number2"})
         {
-            if ( weechat::config_integer($options{"jump_prev_next_visited_buffer"}) eq 1 )
+            if ( weechat::config_boolean($options{"jump_prev_next_visited_buffer"}) )
             {
                 if ( $current_buffer eq $hash{"number"} )
                 {
@@ -1642,11 +1659,28 @@ sub buffers_hsignal_mouse
             move_buffer(%hash) if (weechat::config_boolean($options{"mouse_move_buffer"}));
         }
     }
-    elsif ( ($hash{"_key"} eq "button2") && (weechat::config_integer($options{"jump_prev_next_visited_buffer"}) eq 1) )# right mouse button
+    elsif ( ($hash{"_key"} eq "button2") && (weechat::config_boolean($options{"jump_prev_next_visited_buffer"})) )
     {
+        # right mouse button
         if ( $current_buffer eq $hash{"number2"} )
         {
             weechat::command("", "/input jump_next_visited_buffer");
+        }
+    }
+    elsif ( $hash{"_key"} =~ /wheelup$/ )
+    {
+        # wheel up
+        if (weechat::config_boolean($options{"mouse_wheel"}))
+        {
+            weechat::command("", "/buffer -1");
+        }
+    }
+    elsif ( $hash{"_key"} =~ /wheeldown$/ )
+    {
+        # wheel down
+        if (weechat::config_boolean($options{"mouse_wheel"}))
+        {
+            weechat::command("", "/buffer +1");
         }
     }
     else

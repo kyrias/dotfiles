@@ -123,3 +123,8 @@ source ~/.config/mutt/themes/comidia
 
 subscribe arch-dev-public@archlinux.org
 subscribe aur-general@archlinux.org
+subscribe pacman-dev@archlinux.org
+subscribe lojban@googlegroups.com
+subscribe openldap-technical@openldap.org
+subscribe misc@opensmtpd.org
+subscribe linux-wireless@vger.kernel.org

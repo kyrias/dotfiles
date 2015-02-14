@@ -40,11 +40,13 @@ mailboxes +arch-dev-public +aur-general +arch-bugs
 mailboxes +openldap-technical +opensmtpd +pacman-dev +openssh-unix-dev
 
 set query_command='goobook -c "$XDG_CONFIG_HOME/goobookrc" query "%s"'
-macro index,pager A "<pipe-message>goobook -c \"$XDG_CONFIG_HOME/goobookrc\" add<return>" "add the sender address to Google contacts"
+macro index,pager A '<pipe-message>goobook -c "$XDG_CONFIG_HOME/goobookrc" add<return>' \
+                        'add the sender address to Google contacts'
 bind editor <Tab>    complete-query
 
 # Sync email
-macro index O       '<shell-escape>mbsync -c "$XDG_CONFIG_HOME/mbsyncrc" theos<return>'  "run mbsync to sync all mail"
+macro index O       '<shell-escape>mbsync -c "$XDG_CONFIG_HOME/mbsyncrc" theos<return>' \
+                        'run mbsync to sync all mail'
 
 set sendmail        = "/usr/bin/msmtp --file $XDG_CONFIG_HOME/msmtprc -a theos"
 set sendmail_wait   = 0

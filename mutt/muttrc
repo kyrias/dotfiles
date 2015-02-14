@@ -60,7 +60,7 @@ set thorough_search # strip headers and eval mimes before searching
 
 # Status Bar -----------------------------------------
 set status_chars    = " *%A"
-set status_format   = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
+set status_format   = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?o? (%o old)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
 
 # Header Options -------------------------------------
 ignore *            # ignore all headers

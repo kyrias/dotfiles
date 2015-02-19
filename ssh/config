@@ -26,3 +26,8 @@ Host lucifer
 Host git.kyriasis.com
 	User git
 	PubkeyAuthentication no
+
+Host aur-dev.archlinux.org
+	IdentityFile ~/.ssh/id_ed25519
+	User aur
+	Port 2222

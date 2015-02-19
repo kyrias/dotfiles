@@ -24,4 +24,5 @@ Host lucifer
 	hostname lucifer.kyriasis.com
 
 Host git.kyriasis.com
+	User git
 	PubkeyAuthentication no

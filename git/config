@@ -2,34 +2,119 @@
 	name = Johannes Löthberg
 	email = johannes@kyriasis.com
 	signingkey = 3A9D0BB5
-[color]
-	ui = true
-	diff = auto
-[push]
-	default = simple
+
+[alias]
+	amend = commit --amend --verbose
+	br = branch
+	ci = commit --verbose
+	co = checkout
+	di = diff
+	dc = diff --cached
+	empty = !git init && git commit --allow-empty -m \"Initial commit\"
+	follow = log --oneline --follow --stat --summary --
+	last = log -1 HEAD
+	lg = log --oneline --decorate
+	mend = commit --amend --reuse-message HEAD
+	mrproper = !git reset --hard HEAD && git clean -fdx
+	ours = !git checkout --ours $@
+	out = log --oneline --decorate @{upstream}..
+	rbc = rebase --continue
+	rbs = rebase -i
+	re = rebase
+	rec = rebase --continue
+	st = status
+	stat = diff --stat
+	statc = diff --cached --stat
+	tagv = !git tag -v $(git describe --abbrev=0)
+	theirs = !git checkout --theirs $@
+	tip = !git --no-pager log -1 --decorate --abbrev-commit --date=relative --show-signature
+	undo = reset --soft HEAD^
+	unstage = reset HEAD --
+	up = remote update
+	wdiff = diff --word-diff
+	wshow = show --word-diff
+	fpush = push --force-with-lease
+
+[advice]
+	detachedHead = false
+
+[am]
+	messageid = true
+
 [branch]
 	autosetuprebase = always
-[alias]
-	co = checkout
-	br = branch
-	ci = commit
-	st = status
-	unstage = reset HEAD --
-	last = log -1 HEAD
+
+[color]
+	ui = true
+	branch = true
+	diff = true
+	status = true
+
+[column]
+	branch = never
+	status = never
+	tag = auto dense
+
+[core]
+	# never use an askpass even if $SSH_ASKPASS is set
+	askpass =
+	logAllRefUpdates = true
+	pager = less -x1,5
+
+[diff]
+	renames = copies
+
+[diff "gpg"]
+	textconv = gpg -v
+	xfuncname = "^((pub|uid) .*)"
+
+[diff "ldif"]
+	xfuncname = "^(dn: .+)$"
+
+[gc]
+	reflogExpire = 365 days
+	reflogExpireUnreachable = 365 days
+
 [github]
 	user = kyrias
-[core]
-	editor = vim
-	pager = less -x1,5
+	password = !pass show web/github.com | head -1
+
+[grep]
+	lineNumber = true
+	extendedRegexp = true
+
+[log]
+	decorate = full
+
 [merge]
 	tool = vimdiff
+	conflictStyle = diff3
+
+[push]
+	default = current
+
+[repack]
+	writebitmaps = true
+	autosquash = true
+
+[receive]
+	denyCurrentBranch = updateInstead
+
 [sendemail]
-	smtpserver = "/usr/bin/msmtp"
+	aliasfiletype = mutt
+	aliasesfile = /home/kyrias/.config/git/aliases
+	envelopesender = johannes@kyriasis.com
+	smtpserver = /usr/bin/msmtp
 	smtpserveroption = "-C"
 	smtpserveroption = "/home/kyrias/.config/msmtprc"
-[credential]
-	helper = /usr/share/git/credential/gnome-keyring/git-credential-gnome-keyring
+	supresscc = self
+
 [status]
 	showuntrackedfiles = no
-[pack]
-	writebitmaps = true
+
+[url "git@github.com:"]
+	pushInsteadOf = git://github.com/
+	pushInsteadOf = https://github.com/
+
+[url "git@git.kyriasis.com"]
+	insteadOf = kyriasis:

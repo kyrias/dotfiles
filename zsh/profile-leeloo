@@ -18,6 +18,4 @@ if (( UID )); then
 	source "$HOME"/misc/grawity/code/kerberos/kc.sh
 fi
 
-export _Z_DATA="$XDG_CONFIG_HOME"/z
-export _Z_OWNER="$USER"
 # vim: ft=zsh

@@ -3,10 +3,10 @@ function red
 function redbg
 	printf "%s%s%s" "%K{red}" "$@" "%k"
 function redbg_p
-	printf "%s%s%s" "%K{red}" "$@" "%k$(red $RSEGF$RSEG)"
+	printf "%s%s%s" "%K{red}" "$@" "%k"
 
 function bluebg_p
-	printf "%s%s%s" "%K{blue}" "$@" "%k%F{blue}$RSEGF$RSEG%f"
+	printf "%s%s%s" "%K{blue}" "$@" "%k%F{blue}%f"
 
 function black
 	printf "%s%s%s" "%F{black}" "$@" "%f"
@@ -18,14 +18,10 @@ function white
 function whitebg
 	printf "%s%s%s" "%K{white}" "$@" "%k"
 
-function user_color {
-	(( UID )) && print -n black || print -n red
-}
-
-RSEGF=""
-RSEG=""
-LSEGF=""
-LSEG=""
-BRNCH=""
-PROMPT='$($(user_color)bg " $(white %m) ")$(whitebg "$($(user_color) "$RSEGF %~") ")$RSEGF
+if [[ $UID -ne 0 ]]; then
+	PROMPT='$(blackbg " $(white %m) ")$(whitebg "$(black " %~") ")
 %(?.$(bluebg_p "%B ^_^ %b").$(redbg_p "%B o_O %b")) '
+else
+	PROMPT='$(redbg " $(white %m) ")$(whitebg "$(red " %~") ")
+%(?.$(bluebg_p "%B ^_^ %b").$(redbg_p "%B o_O %b")) '
+fi

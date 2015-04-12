@@ -45,19 +45,9 @@ sp() { printf '%s' "$@"; printf '\n'; }
 
 have() { command -v "$1" >&/dev/null; }
 
-function get_git_branch {
-	if [[ -d .git ]]; then
-		branch="$(< .git/HEAD)"
-		branch="${branch##*/} "
-	else
-		branch=""
-	fi
-}
-
 # Print basic prompt to the window title
 function precmd {
 	print -Pn "\e];%n %~\a"
-	get_git_branch
 }
 
 # Print the current running command's name to the window title

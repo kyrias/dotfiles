@@ -30,17 +30,21 @@ if (( UID == 0 )); then
 $bg[light_blue]%B ^_^ %b%k '
 
 else
-	if [[ $HOST == "leeloo.kyriasis.com" ]]; then
-		PROMPT='$bg[black] $fg[white]%m%f %k$bg[white]$fg[black] %~ %f%k
-$bg[light_blue]%B ^_^ %b %k'
-
-	elif [[ $HOST == "theos.kyriasis.com" ]]; then
+	case $SHORTHOST in
+	"theos")
 		PROMPT='$bg[light_pink] $fg[white]%m%f %k$bg[white]$fg[light_pink] %~ %f%k
 $bg[light_blue]%B ^_^ %b %k'
+		;;
 
-	elif [[ $HOST == "lucifer.kyriasis.com" ]]; then
+	"lucifer")
 		PROMPT='$bg[dark_gold] $fg[white]%m%f %k$bg[white]$fg[dark_gold] %~ %f%k
 $bg[light_blue]%B ^_^ %b %k'
+		;;
 
-	fi
+	*)
+		PROMPT='$bg[black] $fg[white]%m%f %k$bg[white]$fg[black] %~ %f%k
+$bg[light_blue]%B ^_^ %b %k'
+		;;
+
+	esac
 fi

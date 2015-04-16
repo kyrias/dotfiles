@@ -71,3 +71,25 @@ if have systemctl && [[ -d /run/systemd/system ]]; then
 	usls() { cgls "/user.slice/user-$UID.slice/$*"; }
 	psls() { cgls "/user.slice/user-$UID.slice/session-$XDG_SESSION_ID.scope"; }
 fi
+
+function 5v {
+	if [[ -d "$HOME"/5/venvs/"$1" ]]; then
+		source "$HOME"/5/venvs/"$1"/bin/activate
+		printf "\x1b[38;5;2m==> 5venv ‘%s’ activated successfully.\x1b[0m\n" "$1"
+	else
+		printf "==> 5venv ‘%s’ not found\n" "$1"
+		printf "==> Create? [yN]: "
+		read yn
+		if [[ "$yn" == 'y' || "$yn" == 'yes' ]]; then
+			virtualenv-2.7 "$HOME"/5/venvs/"$1"
+			if (( $? == 0 )); then
+				print "\x1b[38;5;2m==> 5venv created successfully, installing basic requirements.\x1b[0m"
+			else
+				print "\x1b[38;5;1m==> Error: 5env creation failed. Exiting.\x1b[0m"
+				return 1
+			fi
+			source "$HOME"/5/venvs/"$1"/bin/activate
+			pip install -r "$HOME"/5/venvs/5_requirements.txt
+		fi
+	fi
+}

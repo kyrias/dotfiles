@@ -93,3 +93,11 @@ function 5v {
 		fi
 	fi
 }
+
+function 5c {
+	if [[ -n "$1" ]]; then
+		cd "$HOME"/5/code/"$1"
+	else
+		cd "$HOME"/5/code
+	fi
+}

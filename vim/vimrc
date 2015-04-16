@@ -7,7 +7,7 @@ set runtimepath=$XDG_CONFIG_HOME/vim,$VIM,$VIMRUNTIME,/usr/share/vim/vimfiles,$X
 
 " NeoBundle stuff
 set runtimepath+=~/.config/vim/bundle/neobundle.vim/
-call neobundle#rc("$XDG_CONFIG_HOME/vim/bundle")
+call neobundle#begin("$XDG_CONFIG_HOME/vim/bundle")
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'Shougo/vimproc', {
@@ -25,6 +25,8 @@ colorscheme Darkcustomside
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'miekg/rfc'
 NeoBundle 'tommcdo/vim-exchange'
+
+call neobundle#end()
 
 " Make backspace behave in a sane manner.
 set backspace=indent,eol,start

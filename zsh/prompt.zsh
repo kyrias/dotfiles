@@ -24,25 +24,30 @@ bg[blue]='%K{21}'
 fg[light_blue]='%F{blue}'
 fg[blue]='%F{21}'
 
+function virtualenv_prompt {
+	if [[ -n "$VIRTUAL_ENV" ]]; then
+		print "$bg[light_blue]$fg[white] $(basename $VIRTUAL_ENV) %f%k"
+	fi
+}
 
 if (( UID == 0 )); then
-	PROMPT='$bg[light_red] $fg[white]%m%f %k$bg[white]$fg[light_red] %~ %f%k
+	PROMPT='$bg[light_red] $fg[white]%m%f %k$bg[white]$fg[light_red] %~ %f%k$(virtualenv_prompt)
 $bg[light_blue]%B ^_^ %b%k '
 
 else
 	case $SHORTHOST in
 	"theos")
-		PROMPT='$bg[light_pink] $fg[white]%m%f %k$bg[white]$fg[light_pink] %~ %f%k
+		PROMPT='$bg[light_pink] $fg[white]%m%f %k$bg[white]$fg[light_pink] %~ %f%k$(virtualenv_prompt)
 $bg[light_blue]%B ^_^ %b %k'
 		;;
 
 	"lucifer")
-		PROMPT='$bg[dark_gold] $fg[white]%m%f %k$bg[white]$fg[dark_gold] %~ %f%k
+		PROMPT='$bg[dark_gold] $fg[white]%m%f %k$bg[white]$fg[dark_gold] %~ %f%k$(virtualenv_prompt)
 $bg[light_blue]%B ^_^ %b %k'
 		;;
 
 	*)
-		PROMPT='$bg[black] $fg[white]%m%f %k$bg[white]$fg[black] %~ %f%k
+		PROMPT='$bg[black] $fg[white]%m%f %k$bg[white]$fg[black] %~ %f%k$(virtualenv_prompt)
 $bg[light_blue]%B ^_^ %b %k'
 		;;
 

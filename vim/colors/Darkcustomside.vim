@@ -12,7 +12,7 @@ let g:colors_name = "Darkcustomside"
 
 hi Cursor ctermfg=NONE ctermbg=231 cterm=NONE guifg=NONE guibg=#f8f8f0 gui=NONE
 hi Visual ctermfg=NONE ctermbg=16 cterm=NONE guifg=NONE guibg=#161a1f gui=NONE
-hi CursorLine ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#313233 gui=NONE
+hi CursorLine ctermfg=NONE ctermbg=239 cterm=NONE guifg=NONE guibg=#313233 gui=NONE
 hi CursorColumn ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#313233 gui=NONE
 hi ColorColumn ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#313233 gui=NONE
 hi LineNr ctermfg=242 ctermbg=236 cterm=NONE guifg=#6e6f6f guibg=#313233 gui=NONE

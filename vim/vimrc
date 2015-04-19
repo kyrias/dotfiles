@@ -40,7 +40,7 @@ set hlsearch          " highlight search terms
 set incsearch         " show search matches as you type
 set history=1000
 set undolevels=1000
-set wildignore=*.swp,*.bak,*.pyc,*.class
+set wildignore=*.swp,*.bak,*.pyc,*.o
 set title             " change the terminal's title
 set visualbell        " don't beep
 set noerrorbells      " don't beep

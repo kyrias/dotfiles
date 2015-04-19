@@ -6,8 +6,8 @@ set undodir=$XDG_CACHE_HOME/vim/undo,/tmp
 set runtimepath=$XDG_CONFIG_HOME/vim,$VIM,$VIMRUNTIME,/usr/share/vim/vimfiles,$XDG_CONFIG_HOME/vim/after
 
 " NeoBundle stuff
-set runtimepath+=~/.config/vim/bundle/neobundle.vim/
-call neobundle#begin("$XDG_CONFIG_HOME/vim/bundle")
+set runtimepath+=$XDG_CONFIG_HOME/vim/bundle/neobundle.vim/
+call neobundle#begin(expand('$XDG_CONFIG_HOME/vim/bundle'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'Shougo/vimproc', {

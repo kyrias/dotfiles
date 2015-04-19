@@ -92,6 +92,14 @@ autocmd BufWinLeave * call clearmatches()
 highlight Comment cterm=italic
 
 
+" Why does vim set the filetype of .h files as C++?
+augroup filetypes
+	autocmd!
+	autocmd BufRead,BufNewFile *.h set filetype=c
+augroup END
+
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 noet
+
 " Use clang_check for syntax checking
 let g:syntastic_c_checkers = ['clang_check']
 

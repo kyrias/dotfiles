@@ -90,3 +90,36 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
 highlight Comment cterm=italic
+
+
+"" Statusline
+
+set statusline=
+set statusline+=[%n]  " Buffer number
+set statusline+=%<\   " Where to truncate
+set statusline+=%.99f " Relative path to file
+set statusline+=\ %y  " Filetype flag, [c]; [help]
+set statusline+=%w    " Preview window flag, [Preview]
+set statusline+=%m    " Modified flag, [+]; [-]
+
+" Show a warning if file is read only, [RO]
+set statusline+=%#identifier#
+set statusline+=%r
+set statusline+=%*
+
+" Show a warning if file format isn’t unix
+set statusline+=%#warningmsg#
+set statusline+=%{&ff!='unix'?'['.&ff.']':''}
+set statusline+=%*
+
+" Show a warning if file encoding isn’t utf-8
+set statusline+=%#warningmsg#
+set statusline+=%{(&fenc!='utf-8'&&&fenc!='')?'['.&fenc.']':''}
+set statusline+=%*
+
+"" Right side of statusline
+set statusline+=%=                   " Left/right separation point
+set statusline+=%-15.((%l,%c-%v)\ %) " Line, column, percentage. (20,0)
+set statusline+=%P                   " Percentage visible
+
+set laststatus=2 " Always show statusline

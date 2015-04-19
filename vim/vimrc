@@ -79,9 +79,11 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+" Show tabs and end-of-line whitespace
 set listchars=tab:»·,trail:·
 set list
 
+" Color spaces at end of lines bright red for visibility
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/

@@ -37,6 +37,7 @@ filetype plugin indent on
 set autoindent
 set copyindent
 set number            " always show line numbers
+set ignorecase        " Ignore case of normal letters
 set smartcase         " ignore case if search pattern is all lowercase,
                       "   case-sensitive otherwise
 set hlsearch          " highlight search terms
@@ -150,6 +151,7 @@ set statusline+=%*
 set statusline+=%#warningmsg#
 set statusline+=%{(&fenc!='utf-8'&&&fenc!='')?'['.&fenc.']':''}
 set statusline+=%*
+
 
 "" Right side of statusline
 set statusline+=%=                   " Left/right separation point

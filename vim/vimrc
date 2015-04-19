@@ -49,12 +49,8 @@ set backup            " use backup files
 set undofile          " save undo's after file closes
 set mouse=a           " enable mouse in all modes
 set shortmess+=I      " don't show the nag-screen
-set encoding=utf-8
-
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
+set encoding=utf-8    " oh please, like this needs explanation
+set showcmd
 
 nmap <silent> <Leader>/ :nohlsearch<CR>
 

@@ -64,7 +64,7 @@ set shiftwidth=4
 set softtabstop=4
 set noexpandtab
 
-" voodoo magic
+" Automatically hide buffers instead of requiring bangcommands
 set hidden
 
 " Paste mode when pressing Insert, disables autoformating

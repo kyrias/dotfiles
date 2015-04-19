@@ -17,18 +17,16 @@ NeoBundle 'Shougo/vimproc', {
  \    },
  \ }
 NeoBundle 'Shougo/unite.vim'
-
-" Colorscheme❤
-NeoBundle "daylerees/colour-schemes", { "rtp": "vim-themes/" }
-colorscheme Darkcustomside
-
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'miekg/rfc'
 NeoBundle 'tommcdo/vim-exchange'
 
 call neobundle#end()
 
-" Make backspace behave in a sane manner.
+" Colorscheme
+colorscheme Darkcustomside
+
+" Allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
 syntax on

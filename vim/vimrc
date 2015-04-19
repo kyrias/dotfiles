@@ -20,6 +20,7 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'miekg/rfc'
 NeoBundle 'tommcdo/vim-exchange'
+NeoBundle 'scrooloose/syntastic'
 
 call neobundle#end()
 
@@ -94,6 +95,15 @@ autocmd BufWinLeave * call clearmatches()
 highlight Comment cterm=italic
 
 
+" Use clang_check for syntax checking
+let g:syntastic_c_checkers = ['clang_check']
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+
 "" Statusline
 
 set statusline=
@@ -108,6 +118,13 @@ set statusline+=%m    " Modified flag, [+]; [-]
 set statusline+=%#identifier#
 set statusline+=%r
 set statusline+=%*
+
+" Show syntastic warnings
+if neobundle#is_sourced('syntastic')
+	set statusline+=%#warningmsg#
+	set statusline+=%{SyntasticStatuslineFlag()}
+	set statusline+=%*
+endif
 
 " Show a warning if file format isn’t unix
 set statusline+=%#warningmsg#

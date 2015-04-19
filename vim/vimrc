@@ -73,6 +73,12 @@ set clipboard=unnamed,unnamedplus
 " Installation check.
 NeoBundleCheck
 
+" Easier window moving
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
 set listchars=tab:»·,trail:·
 set list
 

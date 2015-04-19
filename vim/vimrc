@@ -21,6 +21,7 @@ NeoBundle 'mattn/emmet-vim'
 NeoBundle 'miekg/rfc'
 NeoBundle 'tommcdo/vim-exchange'
 NeoBundle 'scrooloose/syntastic'
+NeoBundle 'kien/ctrlp.vim'
 
 call neobundle#end()
 
@@ -108,6 +109,10 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+let g:ctrlp_extensions = ['tag', 'buffertag', 'dir', 'undo', 'line',
+                         \ 'changes', 'mixed', 'bookmarkdir']
+
+nmap <silent> <Leader>p :CtrlPMixed<CR>
 
 " Installation check.
 NeoBundleCheck

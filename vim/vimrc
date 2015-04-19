@@ -67,8 +67,8 @@ set noexpandtab
 " Automatically hide buffers instead of requiring bangcommands
 set hidden
 
-" Paste mode when pressing Insert, disables autoformating
-set pastetoggle=<Insert>
+" Yank to clipboard/selection by default
+set clipboard=unnamed,unnamedplus
 
 " Installation check.
 NeoBundleCheck

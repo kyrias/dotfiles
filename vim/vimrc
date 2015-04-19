@@ -20,6 +20,7 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'miekg/rfc'
 NeoBundle 'tommcdo/vim-exchange'
+NeoBundle 'ConradIrwin/vim-bracketed-paste'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'kien/ctrlp.vim'
 

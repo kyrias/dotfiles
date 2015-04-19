@@ -52,6 +52,8 @@ set shortmess+=I      " don't show the nag-screen
 set encoding=utf-8    " oh please, like this needs explanation
 set showcmd
 
+" Use space as a leader
+map <space> <Leader>
 nmap <silent> <Leader>/ :nohlsearch<CR>
 
 cmap w!! w !sudo tee % >/dev/null

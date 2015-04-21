@@ -83,6 +83,11 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+vmap <C-j> gj
+vmap <C-k> gk
+nmap <C-j> gj
+nmap <C-k> gk
+
 " Show tabs and end-of-line whitespace
 set listchars=tab:»·,trail:·
 set list

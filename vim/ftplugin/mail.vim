@@ -1,4 +1,4 @@
-set formatoptions=w
+set formatoptions=taw
 
 " * <F1> to re-format the current paragraph correctly
 " * <F2> to format a line which is too long, and go to the next line

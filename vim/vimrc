@@ -49,7 +49,6 @@ set wildignore=*.swp,*.bak,*.pyc,*.o
 set title             " change the terminal's title
 set visualbell        " don't beep
 set noerrorbells      " don't beep
-set ruler
 set backup            " use backup files
 set undofile          " save undo's after file closes
 set mouse=a           " enable mouse in all modes

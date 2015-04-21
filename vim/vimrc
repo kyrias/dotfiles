@@ -20,6 +20,7 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'miekg/rfc'
 NeoBundle 'tommcdo/vim-exchange'
+NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'ConradIrwin/vim-bracketed-paste'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'kien/ctrlp.vim'
@@ -150,6 +151,10 @@ if neobundle#is_sourced('syntastic')
 	set statusline+=%#warningmsg#
 	set statusline+=%{SyntasticStatuslineFlag()}
 	set statusline+=%*
+endif
+
+if neobundle#is_sourced('vim-fugitive')
+	set statusline+=%{fugitive#statusline()}
 endif
 
 " Show a warning if file format isn’t unix

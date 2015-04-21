@@ -57,6 +57,7 @@ set shortmess+=I      " don't show the nag-screen
 set encoding=utf-8    " oh please, like this needs explanation
 set showcmd           " Show partial command in the last line of the screen
 set scrolloff=1       " Minimum number of screen lines under/above the cursor
+set linebreak         " Don’t wrap lines in the middle of a word
 
 " Use space as a leader
 map <space> <Leader>

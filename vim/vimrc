@@ -55,7 +55,8 @@ set undofile          " save undo's after file closes
 set mouse=a           " enable mouse in all modes
 set shortmess+=I      " don't show the nag-screen
 set encoding=utf-8    " oh please, like this needs explanation
-set showcmd
+set showcmd           " Show partial command in the last line of the screen
+set scrolloff=1       " Minimum number of screen lines under/above the cursor
 
 " Use space as a leader
 map <space> <Leader>

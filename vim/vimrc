@@ -109,7 +109,10 @@ augroup filetypes
 	autocmd BufRead,BufNewFile *.h set filetype=c
 augroup END
 
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 noet
+augroup indentation
+	autocmd!
+	autocmd FileType yaml setlocal ts=2 sts=2 sw=2 noet
+augroup END
 
 " Use clang_check for syntax checking
 let g:syntastic_c_checkers = ['clang_check']

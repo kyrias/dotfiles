@@ -178,3 +178,5 @@ set statusline+=%-15.((%l,%c-%v)\ %) " Line, column, percentage. (20,0)
 set statusline+=%P                   " Percentage visible
 
 set laststatus=2 " Always show statusline
+
+set spelllang=en_us

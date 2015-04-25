@@ -35,6 +35,7 @@ include "%L"
 <Multi_key> <minus> <greater>           : "→" U2192  # RIGHTWARDS ARROW
 <Multi_key> <minus> <v>                 : "↓" U2193  # DOWNWARDS ARROW
 
+<Multi_key> <e> <n> <minus>             : "–" U2013  # EN DASH
 <Multi_key> <e> <m> <minus>             : "—" U2014  # EM dash
 
 # Mathstuffs
@@ -42,6 +43,8 @@ include "%L"
 <Multi_key> <slash> <slash>             : "÷" U00F7  # DIVISION SIGN
 <Multi_key> <plus> <minus>              : "±" U00B1  # PLUS-MINUS SIGN
 <Multi_key> <8> <8>                     : "∞" U221E  # INFINITY
+<Multi_key> <greater> <equal>           : "≥" U2265
+<Multi_key> <less> <equal>              : "≤" U2264
 
 <Multi_key> <slash> <equal>             : "≠" U2260  # NOT EQUAL TO
 

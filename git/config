@@ -118,3 +118,7 @@
 
 [url "git@git.kyriasis.com"]
 	insteadOf = kyriasis:
+
+[credential "https://github.com"]
+	username = kyrias
+	helper = pass

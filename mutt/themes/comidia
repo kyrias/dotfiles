@@ -45,9 +45,9 @@ color body       green      default  "(^| )_[-a-z0-9_]+_[,.?]?[ \n]"
 uncolor index *                                 # unset all color index entries
 color index      green      default  ~F         # Flagged
 color index      red        default  ~N         # New
-color index      cyan       default  ~O         # Old
+color index      brightblue default  ~O         # Old
 color index      magenta    default  ~T         # Tagged
 color index      yellow     default  ~D         # Deleted
-color index	 blue 	    default  '\[(CHRPM|Contrib-Rpm)\]'
+color index      blue       default  '\[(CHRPM|Contrib-Rpm)\]'
 color index      color240 default "~h ^X.Mailer..Microsoft.Outlook"
-#color index      brightblack default "~n 10-20"
+color index      brightblack default "~n 10-20"

@@ -63,9 +63,9 @@ set status_format   = "───[ Folder: %f ]───[%r%m messages%?n? (%n ne
 
 # Header Options -------------------------------------
 ignore *            # ignore all headers
-unignore            from: to: cc: delivered-to:
-unignore            date: subject: In-Reply-To: Message-ID:
-unignore            X-Spambayes-Classification: X-Spambayes-Trained:
+unignore            from to cc delivered-to
+unignore            date subject In-Reply-To Message-ID
+unignore            X-Spambayes-Classification X-Spambayes-Trained
 #unhdr_order *      # some distros order things by default
 #hdr_order          from: to: cc: date: subject: # and in this order
 

@@ -64,6 +64,9 @@ set linebreak         " Don’t wrap lines in the middle of a word
 map <space> <Leader>
 nmap <silent> <Leader>/ :nohlsearch<CR>
 
+" Toggle spell checking
+nmap <silent> <Leader>s :set spell!<CR>
+
 cmap w!! w !sudo tee % >/dev/null
 
 " Tabs are 4 spaces wide

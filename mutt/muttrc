@@ -73,6 +73,8 @@ unignore            X-Spambayes-Classification X-Spambayes-Trained
 set date_format          = "%d/%m"
 set index_format         = "[%Z]  %D  %-20.20F  %s"
 set sort                 = threads # like gmail
+macro index i ':set sort=threads<return>'
+macro index I ':set sort=date-received<return>'
 set uncollapse_jump      # don't collapse on an unread message
 set pager_index_lines    = 10 # number of index lines to show
 set pager_context        = 3 # number of context lines to show

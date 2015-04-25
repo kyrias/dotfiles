@@ -11,7 +11,7 @@ Account theos
 
 MaildirStore theos-local
 Path ~/mail/
-Inbox ~/mail/Inbox
+Inbox ~/mail/inbox
 
 Channel theos
 Master :theos-remote:

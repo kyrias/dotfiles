@@ -1,3 +1,5 @@
+include "%L"
+
 # Various extra characters
 <Multi_key> <a> <o>                     : "å" aring
 <Multi_key> <A> <o>                     : "Å" Aring

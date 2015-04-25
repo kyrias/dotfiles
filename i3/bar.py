@@ -35,9 +35,9 @@ status.register("pulseaudio",
 #        "stop": "◾",
 #    },)
 
-status.register("wireless",
+status.register("network",
     interface="wlp3s0",
-    format_up="{v4cidr}{quality:3.0f}%",)
+    format_up="{v4cidr} {quality:3.0f}%",)
 
 # Shows disk usage of /
 # Format:

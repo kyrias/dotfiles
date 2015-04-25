@@ -30,14 +30,15 @@ set certificate_file = "$XDG_CONFIG_HOME/mutt/certificates"  # where to store ce
 set mailcap_path     = "$XDG_CONFIG_HOME/mutt/mailcap"       # entries for filetypes
 set tmpdir           = "$XDG_CONFIG_HOME/mutt/temp"          # where to keep temp files
 set signature        = "$XDG_CONFIG_HOME/mutt/sig"           # my signature file
-set spoolfile        = "+Inbox"
+set spoolfile        = "+inbox"
 set mbox             = "+archives"
 set postponed        = "+Drafts"
 set record           = "+Sent"
-mailboxes +Inbox +Sent +Drafts +Trash +archives
-mailboxes +Spam +Ham +learn-spam +learn-ham
-mailboxes +arch-dev-public +aur-general +arch-bugs
-mailboxes +openldap-technical +opensmtpd +pacman-dev +openssh-unix-dev
+mailboxes +inbox +Sent +Drafts +Trash +archives
+mailboxes +Spam +Ham +learn-spam +learn-ham +ccna
+mailboxes +arch-dev-public +aur-general +arch-bugs +arch-mirrors +arch-women +pacman-dev
+mailboxes +openldap-technical +opensmtpd +openssh-unix-dev +isync-devel +johannes-lothberg-gmail +lojban +Notes
+mailboxes ~/5mail/inbox
 
 set query_command='goobook -c "$XDG_CONFIG_HOME/goobookrc" query "%s"'
 macro index,pager A '<pipe-message>goobook -c "$XDG_CONFIG_HOME/goobookrc" add<return>' \

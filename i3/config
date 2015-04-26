@@ -7,7 +7,7 @@ floating_modifier $mod
 bindsym $mod+Return exec termite
 bindsym $mod+Shift+q kill
 bindsym $mod+d exec --no-startup-id "/usr/bin/j4-dmenu-desktop --dmenu='dmenu -i -fn DejaVu\ Sans\ Mono\ 9' --term=/usr/bin/termite"
-bindsym $mod+Shift+d exec --no-startup-id dmenru
+bindsym $mod+Shift+d exec --no-startup-id beze
 
 # change focus
 bindsym $mod+h focus left

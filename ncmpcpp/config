@@ -167,7 +167,9 @@ progressbar_look = "─╼╶"
 #
 user_interface = "alternative" # (classic/alternative)
 #
-media_library_left_column = "A" # (possible values: a,y,g,c,p, legend above)
+## Available values: artist, album_artist, date, genre, composer, performer.
+##
+media_library_primary_tag = album_artist
 #
 #default_find_mode = "wrapped" (wrapped/normal)
 #
@@ -244,9 +246,9 @@ media_library_left_column = "A" # (possible values: a,y,g,c,p, legend above)
 #
 locked_screen_width_part = "50"
 ask_for_locked_screen_width_part = "yes"
-startup_screen = "2"
+startup_screen = playlist
 jump_to_now_playing_song_at_start = "yes"
-ask_before_clearing_main_playlist = "yes"
+ask_before_clearing_playlists = "yes"
 clock_display_seconds = "yes"
 # display_volume_level = "yes"
 display_bitrate = "yes"

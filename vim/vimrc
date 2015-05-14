@@ -78,9 +78,6 @@ set noexpandtab
 " Automatically hide buffers instead of requiring bangcommands
 set hidden
 
-" Yank to clipboard/selection by default
-set clipboard=unnamed,unnamedplus
-
 " Easier window moving
 map <C-h> <C-w>h
 map <C-j> <C-w>j

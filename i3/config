@@ -21,12 +21,12 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-bindsym $mod+b split h
+bindsym $mod+w split h
 bindsym $mod+v split v
 
 bindsym $mod+f fullscreen
 bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
@@ -153,9 +153,9 @@ bindsym XF86AudioRaiseVolume exec volumecontrol.bash raise
 bindsym XF86ScreenSaver exec screenlock.bash
 
 new_window 1pixel
-bindsym $mod+t border normal
-bindsym $mod+y border 1pixel
-bindsym $mod+u border none
+bindsym $mod+b border normal
+bindsym $mod+p border 1pixel
+bindsym $mod+n border none
 
 for_window [class="Gifview"] floating enable
 

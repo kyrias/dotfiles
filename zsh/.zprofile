@@ -38,7 +38,10 @@ export SUDO_PROMPT=$'\e[31mSUDO\e[m password for \e[34m%p\e[m: '
 
 export SHORTHOST=$(hostname -s)
 
+# Don’t use the default venv prompt in favor of our custom one
 export VIRTUAL_ENV_DISABLE_PROMPT=1
+
+export FIGLET_FONTDIR="$HOME"/.local/share/figlet
 
 if [[ -f "$ZDOTDIR"/profile-"$SHORTHOST" ]]; then
 	source "$ZDOTDIR"/profile-"$SHORTHOST"

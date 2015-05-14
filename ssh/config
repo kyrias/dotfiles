@@ -19,9 +19,11 @@ Host *.kyriasis.com
 Host theos
 	hostname theos.kyriasis.com
 	PubkeyAuthentication no
+	ForwardAgent yes
 
 Host lucifer
 	hostname lucifer.kyriasis.com
+	ForwardAgent yes
 
 Host git.kyriasis.com
 	User git

@@ -1,3 +1,3 @@
 install:
-	-ln -s "$(HOME)/.config/zsh/.zshenv" "$(HOME)/.zshenv"
-	-ln -sn "$(HOME)/.config/ssh" "$(HOME)/.ssh"
+	-ln -s "$(PWD)/zsh/.zshenv" "$(HOME)/.zshenv"
+	-ln -sn "$(PWD)/ssh" "$(HOME)/.ssh"

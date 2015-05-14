@@ -101,3 +101,17 @@ function 5c {
 		cd "$HOME"/5/code
 	fi
 }
+
+function 5clone {
+	if [[ -z "$1" ]]; then
+		print "No repo name"
+	fi
+
+	(cd "$HOME"/5/code
+	git clone git@github.com:5m/"$1"
+	cd "$1"
+	git config --local user.email johannes@5monkeys.se
+	)
+}
+
+alias 5ssh='TERM=xterm ssh'

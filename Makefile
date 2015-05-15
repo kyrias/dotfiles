@@ -1,4 +1,4 @@
 install:
-	-ln -s "$(PWD)/zsh/.zshenv" "$(HOME)/.zshenv"
-	-ln -sn "$(PWD)/ssh" "$(HOME)/.ssh"
-	-ln -sn "$(PWD)/gnupg" "$(HOME)/.gnupg"
+	-ln -sf "$(PWD)/zsh/.zshenv" "$(HOME)/.zshenv"
+	-ln -sfn "$(PWD)/ssh" "$(HOME)/.ssh"
+	-ln -sfn "$(PWD)/gnupg" "$(HOME)/.gnupg"

@@ -1,5 +1,7 @@
 if (( UID )); then
-	export LD_PRELOAD="$HOME"/.local/lib/libwcwidth.so
+	if [[ -x "$HOME"/.local/lib/libwcwidth.so ]]; then
+		export LD_PRELOAD="$HOME"/.local/lib/libwcwidth.so
+	fi
 
 	export PERL5LIB="$HOME"/misc/grawity/code/lib/perl5"${PERL5LIB+:}$PERL5LIB";
 	source <(perl -Mlocal::lib="$HOME"/.local)

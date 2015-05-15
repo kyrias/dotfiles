@@ -18,6 +18,8 @@ if (( UID )); then
 	}
 
 	source "$HOME"/misc/grawity/code/kerberos/kc.sh
+
+	export MAILDIR="$HOME"/mail
 fi
 
 # vim: ft=zsh

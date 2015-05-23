@@ -24,6 +24,8 @@ alias ms5='mbsync --config "$XDG_CONFIG_HOME/mbsyncrc" 5monkeys'
 alias msa='mbsync --config "$XDG_CONFIG_HOME/mbsyncrc" -a'
 alias ty='ttytter -rc="$XDG_CONFIG_HOME"/ttytter/ttytterrc'
 
+alias pt='pstree --highlight-all --long --uid-changes'
+
 alias sprin='curl -F "sprunge=<-" http://sprunge.us'
 sprfile() {
 	curl -F "sprunge=<$1" http://sprunge.us

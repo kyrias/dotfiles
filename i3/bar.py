@@ -7,7 +7,7 @@ from i3pystatus import Status
 status = Status(standalone=True)
 
 status.register("clock",
-    format="%y-%m-%d %H:%M:%S",)
+    format="%y-%m-%d %H:%M:%S%z",)
 
 status.register("battery",
     format="⚡:{percentage:.2f}% {remaining:%E%hh:%Mm}{status}",

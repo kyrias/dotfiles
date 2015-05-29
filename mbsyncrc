@@ -12,6 +12,7 @@ Account theos
 MaildirStore theos-local
 Path ~/mail/
 Inbox ~/mail/inbox
+SubFolders Verbatim
 
 Channel theos
 Master :theos-remote:

@@ -157,6 +157,12 @@ bindsym $mod+b border normal
 bindsym $mod+p border 1pixel
 bindsym $mod+n border none
 
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the first scratchpad window
+bindsym $mod+minus scratchpad show
+
 for_window [class="Gifview"] floating enable
 
 exec --no-startup-id dex -s $HOME/.config/autostart -a -e i3

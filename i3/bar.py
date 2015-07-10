@@ -18,7 +18,7 @@ status.register("battery",
         "CHR": "↑",
         "FULL": "=",
     },
-    battery_ident="BAT1",)
+    battery_ident="BAT0",)
 
 
 status.register("temp",
@@ -36,7 +36,7 @@ status.register("pulseaudio",
 #    },)
 
 status.register("network",
-    interface="wlp3s0",
+    interface="wlp4s0",
     format_up="{v4cidr} {quality:3.0f}%",)
 
 # Shows disk usage of /

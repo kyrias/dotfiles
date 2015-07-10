@@ -111,7 +111,7 @@ bindsym $mod+r mode "resize"
 
 # i3bar
 bar {
-	status_command    python ~/.config/i3/bar.py
+	status_command    ~/.local/venv/bin/python ~/.config/i3/bar.py
 	position          bottom
 	workspace_buttons yes
 	colors {

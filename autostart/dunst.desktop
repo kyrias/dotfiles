@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Dunst
+Comment=Customizable and lightweight notification-daemon
+Exec=dunst
+Terminal=false
+Type=Application
+StartupNotify=false

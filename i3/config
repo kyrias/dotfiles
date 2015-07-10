@@ -125,24 +125,20 @@ bar {
 	}
 }
 
+for_window [class="Gifview"] floating enable
+
+
 bindsym $mod+Shift+g exec --no-startup-id setxkbmap us
 #bindsym $mod+Shift+u exec --no-startup-id setxkbmap dvp
 bindsym $mod+Shift+u exec --no-startup-id setxkbmap dvorak
 
-# TrackPoint scrolling
-exec --no-startup-id xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation" 1
-exec --no-startup-id xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Button" 2
-exec --no-startup-id xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Timeout" 150
-exec --no-startup-id xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Axes" 6 7 4 5
-exec --no-startup-id xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Middle Button Emulation" 1
-exec --no-startup-id xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Inertia" 25
-exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Off" 1
 
 # control ncmpcpp / mpd from media keys
 bindsym XF86AudioPlay exec --no-startup-id mpc toggle
 bindsym XF86AudioStop exec --no-startup-id mpc stop
 bindsym XF86AudioNext exec --no-startup-id mpc next
 bindsym XF86AudioPrev exec --no-startup-id mpc prev
+
 
 # control PulseAudio from media keys
 bindsym XF86AudioMute exec volumecontrol mute
@@ -152,10 +148,12 @@ bindsym XF86Forward exec volumecontrol raise
 bindsym XF86AudioRaiseVolume exec volumecontrol raise
 bindsym XF86ScreenSaver exec screenlock.bash
 
+
 new_window 1pixel
 bindsym $mod+b border normal
 bindsym $mod+p border 1pixel
 bindsym $mod+n border none
+
 
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
@@ -163,6 +161,9 @@ bindsym $mod+Shift+minus move scratchpad
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
 
-for_window [class="Gifview"] floating enable
+
+# TrackPoint scrolling
+exec setup-trackpoint
+
 
 exec --no-startup-id dex -s $HOME/.config/autostart -a -e i3

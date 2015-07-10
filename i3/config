@@ -1,7 +1,7 @@
 set $mod Mod4
 
 #font pango:visitor tt2 brk 10
-font pango:Source Code Pro 8
+font pango:Source Code Pro 9
 
 floating_modifier $mod
 bindsym $mod+Return exec termite

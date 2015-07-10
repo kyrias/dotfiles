@@ -4,7 +4,6 @@ if (( UID )); then
 	fi
 
 	export PERL5LIB="$HOME"/misc/grawity/code/lib/perl5"${PERL5LIB+:}$PERL5LIB";
-	source <(perl -Mlocal::lib="$HOME"/.local)
 
 	function {
 		local envfile="$XDG_RUNTIME_DIR"/ssh-agent.env
@@ -20,6 +19,7 @@ if (( UID )); then
 	source "$HOME"/misc/grawity/code/kerberos/kc.sh
 
 	export MAILDIR="$HOME"/mail
+	export MANPATH="$(manpath)":"$HOME"/.local/share/man
 fi
 
 # vim: ft=zsh

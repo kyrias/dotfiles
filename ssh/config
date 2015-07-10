@@ -16,6 +16,10 @@ Host *.kyriasis.com
 	ForwardX11 yes
 	ForwardX11Trusted yes
 
+Host git.kyriasis.com
+	User git
+	PubkeyAuthentication no
+
 Host theos
 	hostname theos.kyriasis.com
 	PubkeyAuthentication no
@@ -25,16 +29,11 @@ Host lucifer
 	hostname lucifer.kyriasis.com
 	ForwardAgent yes
 
-Host git.kyriasis.com
-	User git
-	PubkeyAuthentication no
-
-Host aur-dev.archlinux.org
-	IdentityFile ~/.ssh/id_ed25519
-	User aur
-	Port 2222
 
 Host *.archlinux.org
 	IdentityFile ~/.config/ssh/id_ed25519
 	ForwardAgent yes
 	User demize
+
+Host aur4.archlinux.org
+	User aur

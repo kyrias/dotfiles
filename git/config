@@ -34,6 +34,7 @@
 	wdiff = diff --word-diff
 	wshow = show --word-diff
 	fpush = push --force-with-lease
+	shortdesc = !git --no-pager log -1 --pretty='tformat:%h (%s, %ad)' --date=short
 
 [advice]
 	detachedHead = false

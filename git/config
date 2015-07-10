@@ -123,3 +123,5 @@
 [credential "https://github.com"]
 	username = kyrias
 	helper = pass
+[rerere]
+	enabled = true

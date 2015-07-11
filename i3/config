@@ -142,10 +142,11 @@ bindsym XF86AudioPrev exec --no-startup-id mpc prev
 
 # control PulseAudio from media keys
 bindsym XF86AudioMute exec volumecontrol mute
-bindsym XF86Back exec volumecontrol lower
+bindsym XF86AudioMicMute exec volumecontrol mute-mic
 bindsym XF86AudioLowerVolume exec volumecontrol lower
-bindsym XF86Forward exec volumecontrol raise
 bindsym XF86AudioRaiseVolume exec volumecontrol raise
+
+
 bindsym XF86ScreenSaver exec screenlock.bash
 
 

@@ -30,15 +30,61 @@ set header_cache     = "$XDG_CACHE_HOME/mutt/cache/headers"  # where to store he
 set certificate_file = "$XDG_CONFIG_HOME/mutt/certificates"  # where to store certs
 set mailcap_path     = "$XDG_CONFIG_HOME/mutt/mailcap"       # entries for filetypes
 set signature        = "$XDG_CONFIG_HOME/mutt/sig"           # my signature file
+
 set spoolfile        = "+inbox"
 set mbox             = "+archives"
 set postponed        = "+Drafts"
 set record           = "+Sent"
-mailboxes +inbox +Sent +Drafts +Trash +archives
-mailboxes +Spam +Ham +learn-spam +learn-ham +ccna
-mailboxes +arch-dev-public +aur-general +arch-bugs +arch-mirrors +arch-women +pacman-dev
-mailboxes +openldap-technical +opensmtpd +openssh-unix-dev +isync-devel +johannes-lothberg-gmail +lojban +Notes
+
+mailboxes +inbox +sent +drafts +trash +archive
+mailboxes +Spam +Ham +learn-spam +learn-ham
+
+mailboxes +arch-dev-public +arch-bugs +arch-mirrors +aur-general +aur-requests
+mailboxes +arch-women +pacman-dev
+
+mailboxes +isync-devel +opensmtpd
+
+mailboxes +openldap-technical +openssh-unix-dev
+
+mailboxes +johannes-lothberg-gmail +lojban +Notes +ccna
+
 mailboxes ~/5mail/inbox
+
+set virtual_spoolfile = yes
+set nm_record = yes
+set nm_record_tags = "-inbox,sent,me"
+set nm_default_uri = "notmuch:///home/kyrias/mail"
+
+virtual-mailboxes \
+    "inbox"   "notmuch://?query=tag:inbox and NOT tag:archive"  \
+    "sent"    "notmuch://?query=tag:sent"   \
+    "drafts"  "notmuch://?query=tag:drafts" \
+    "trash"   "notmuch://?query=tag:trash"  \
+    "unread"  "notmuch://?query=tag:unread" \
+    "archive" "notmuch://?query=tag:archive" \
+    \
+    "spam" "notmuch://?query=tag:spam" \
+    "ham" "notmuch://?query=tag:ham"   \
+    "learn-spam" "notmuch://?query=tag:learn-spam" \
+    "learn-ham" "notmuch://?query=tag:learn-ham" \
+    \
+    "arch-dev-public" "notmuch://?query=tag:arch-dev-public" \
+    "arch-bugs" "notmuch://?query=tag:arch-bugs" \
+    "arch-mirrors" "notmuch://?query=tag:arch-mirrors" \
+    "arch-general" "notmuch://?query=tag:arch-general" \
+    "aur-requests" "notmuch://?query=tag:aur-requests" \
+    "aur-general" "notmuch://?query=tag:aur-general" \
+    "aur-dev" "notmuch://?query=tag:aur-dev" \
+    "pacman-dev" "notmuch://?query=tag:pacman-dev" \
+    "arch-women" "notmuch://?query=tag:arch-women" \
+    "isync-devel" "notmuch://?query=tag:isync-devel" \
+    "opensmtpd" "notmuch://?query=tag:opensmtpd" \
+    "openldap-technical" "notmuch://?query=tag:openldap-technical" \
+    "openssh-unix-dev" "notmuch://?query=tag:openssh-unix-dev" \
+    "johannes-lothberg-gmail" "notmuch://?query=tag:johannes-lothberg-gmail" \
+    "lojban" "notmuch://?query=tag:lojban" \
+    "git" "notmuch://?query=tag:git" \
+    "ccna" "notmuch://?query=tag:ccna"
 
 set query_command='goobook -c "$XDG_CONFIG_HOME/goobookrc" query "%s"'
 macro index,pager A '<pipe-message>goobook -c "$XDG_CONFIG_HOME/goobookrc" add<return>' \
@@ -87,9 +133,11 @@ set ignore_list_reply_to = yes # Ignore mangled Reply-To:'s from MLs
 set quote_regexp         = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
 alternative_order text/plain text/enriched text/html
 
-
+macro index x      "<change-vfolder>?" "change vfolder"
 macro index C      "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
 macro index M      "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
+macro index,pager d "<modify-labels>+deleted -inbox -unread<enter>" "Mark an email as deleted"
+bind index,pager <Esc>D delete-message
 
 bind index gg      first-entry
 bind index G       last-entry
@@ -108,8 +156,8 @@ bind pager R       group-reply
 bind compose P     postpone-message
 bind index P       recall-message
 
-# Move message to archives
-macro index,pager a "<save-message>=archives<enter>"
+# Move message to archive
+macro index,pager a "<modify-labels>-inbox +archive<enter>"
 
 # View attachments properly.
 bind attach <return> view-mailcap
@@ -126,8 +174,10 @@ source ~/.config/mutt/themes/comidia
 
 subscribe arch-dev-public@archlinux.org
 subscribe aur-general@archlinux.org
+subscribe aur-dev@archlinux.org
 subscribe pacman-dev@archlinux.org
 subscribe lojban@googlegroups.com
 subscribe openldap-technical@openldap.org
 subscribe misc@opensmtpd.org
+subscribe git@vger.kernel.org
 lists linux-wireless@vger.kernel.org

@@ -32,9 +32,9 @@ set mailcap_path     = "$XDG_CONFIG_HOME/mutt/mailcap"       # entries for filet
 set signature        = "$XDG_CONFIG_HOME/mutt/sig"           # my signature file
 
 set spoolfile        = "+inbox"
-set mbox             = "+archives"
-set postponed        = "+Drafts"
-set record           = "+Sent"
+set mbox             = "+archive"
+set postponed        = "+drafts"
+set record           = "+sent"
 
 mailboxes +inbox +sent +drafts +trash +archive
 mailboxes +Spam +Ham +learn-spam +learn-ham

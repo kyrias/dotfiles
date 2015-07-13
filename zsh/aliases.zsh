@@ -128,3 +128,9 @@ aur-pull() {
 	git pull aur@aur4.archlinux.org:/"$1".git master:"$1"
 	git checkout "$old_branch"
 }
+
+tt() {
+	if [[ -n "$@" ]]; then
+		print "$@" | ts '[%Y-%m-%d %H:%M:%S]' >> "$HOME"/documents/timetracking
+	fi
+}

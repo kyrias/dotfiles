@@ -21,7 +21,6 @@
 	rbc = rebase --continue
 	rbs = rebase -i
 	re = rebase
-	rec = rebase --continue
 	st = status
 	stat = diff --stat
 	statc = diff --cached --stat

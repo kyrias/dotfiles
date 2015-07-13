@@ -9,6 +9,8 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' rehash yes
 
+fpath=("$ZDOTDIR"/completion "${fpath[@]}")
+
 autoload -Uz colors \
              compinit \
              promptinit \

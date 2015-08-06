@@ -74,14 +74,4 @@ include "%L"
 
 <Multi_key> <b> <h> <s>                 : "☣" U2623  # BIOHAZARD SIGN
 <Multi_key> <r> <a> <s>                 : "☢" U2622  # RADIOACTIVE SIGN
-<Multi_key> <S> <W>                     : "卐" U262D
 <Multi_key> <colon> <bar> <bar>         : "ಠ_ಠ"
-
-<Multi_key> <s> <a>                     : U00A0
-<Multi_key> <s> <b>                     : U2007
-<Multi_key> <s> <c>                     : U2008
-<Multi_key> <s> <d>                     : U2009
-<Multi_key> <s> <e>                     : U200A
-<Multi_key> <s> <f>                     : U202F
-<Multi_key> <s> <g>                     : U205F
-<Multi_key> <s> <h>                     : U3000

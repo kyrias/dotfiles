@@ -39,28 +39,28 @@ function virtualenv_prompt {
 
 if (( UID == 0 )); then
 	PROMPT='$bg[light_red] $fg[white]%m%f %k$bg[white]$fg[light_red] %~ %f%k$(virtualenv_prompt)
-$bg[light_blue]%B ^_^ %b%k '
+$bg[light_blue] λ %k '
 
 else
 	case $SHORTHOST in
 	"theos")
 		PROMPT='$bg[light_pink] $fg[white]%m%f %k$bg[white]$fg[light_pink] %~ %f%k$(virtualenv_prompt)
-$bg[light_blue]%B ^_^ %b %k'
+$bg[light_blue] λ %k '
 		;;
 
 	"lucifer")
 		PROMPT='$bg[dark_gold] $fg[white]%m%f %k$bg[white]$fg[dark_gold] %~ %f%k$(virtualenv_prompt)
-$bg[light_blue]%B ^_^ %b %k'
+$bg[light_blue] λ %k '
 		;;
 
 	"nymeria")
 		PROMPT='$bg[dark_green] $fg[white]%m%f %k$bg[white]$fg[dark_gold] %~ %f%k$(virtualenv_prompt)
-$bg[light_blue]%B ^_^ %b %k'
+$bg[light_blue] λ %k '
 		;;
 
 	*)
 		PROMPT='$bg[black] $fg[white]%m%f %k$bg[white]$fg[black] %~ %f%k$(virtualenv_prompt)
-$bg[light_blue]%B ^_^ %b %k'
+$bg[light_blue] λ %k '
 		;;
 
 	esac

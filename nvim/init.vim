@@ -1,10 +1,3 @@
-" Respect XDG
-set directory=$XDG_CACHE_HOME/nvim/swap,/tmp
-set backupdir=$XDG_CACHE_HOME/nvim/backup,/tmp
-set undodir=$XDG_CACHE_HOME/nvim/undo,/tmp
-set runtimepath=$XDG_CONFIG_HOME/nvim,$VIM,$VIMRUNTIME,$XDG_CONFIG_HOME/nvim/after
-
-
 call plug#begin(expand('$XDG_CONFIG_HOME/nvim/plugs'))
 
 " Unite and create user interfaces

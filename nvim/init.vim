@@ -160,12 +160,6 @@ autocmd BufWinLeave * call clearmatches()
 
 
 
-" Why does vim set the filetype of .h files as C++?
-augroup filetypes
-	autocmd!
-	autocmd BufRead,BufNewFile *.h set filetype=c
-augroup END
-
 augroup indentation
 	autocmd!
 	autocmd FileType yaml setlocal ts=2 sts=2 sw=2 noet

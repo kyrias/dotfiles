@@ -78,14 +78,7 @@ vmap <C-k> gk
 nmap <C-j> gj
 nmap <C-k> gk
 
-" Use clang_check for syntax checking
-let g:syntastic_c_checkers = ['clang_check']
-let g:syntastic_cpp_checkers = ['clang_check']
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
 
 
 let g:ctrlp_extensions = ['tag', 'buffertag', 'dir', 'undo', 'line',
@@ -110,13 +103,6 @@ set statusline+=%m    " Modified flag, [+]; [-]
 set statusline+=%#identifier#
 set statusline+=%r
 set statusline+=%*
-
-" Show syntastic warnings
-"if neobundle#is_sourced('syntastic')
-"	set statusline+=%#warningmsg#
-"	set statusline+=%{SyntasticStatuslineFlag()}
-"	set statusline+=%*
-"endif
 
 "if neobundle#is_sourced('vim-fugitive')
 	set statusline+=%{fugitive#statusline()}

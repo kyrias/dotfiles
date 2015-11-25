@@ -104,9 +104,9 @@ set statusline+=%#identifier#
 set statusline+=%r
 set statusline+=%*
 
-"if neobundle#is_sourced('vim-fugitive')
+if exists('g:loaded_fugitive')
 	set statusline+=%{fugitive#statusline()}
-"endif
+endif
 
 " Show a warning if file format isn’t unix
 set statusline+=%#warningmsg#

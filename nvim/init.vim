@@ -44,6 +44,7 @@ set showcmd           " Show partial command in the last line of the screen
 set scrolloff=1       " Minimum number of screen lines under/above the cursor
 set linebreak         " Don’t wrap lines in the middle of a word
 set spelllang=en_us
+set backupdir=$XDG_DATA_HOME/nvim/backup " Don't write backups in current dir
 
 " Use space as a leader
 map <space> <Leader>

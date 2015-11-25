@@ -65,6 +65,8 @@ let g:rst_syntax_code_list = ['vim', 'c', 'cpp', 'python', 'sh']
 " Toggle spell checking
 nmap <silent> <Leader>s :set spell!<CR>
 
+nmap <silent> <Leader>/ :nohlsearch<CR>
+
 cmap w!! w !sudo tee % >/dev/null
 " Easier window moving
 map <C-h> <C-w>h

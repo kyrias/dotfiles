@@ -1,22 +1,14 @@
+"""
+" Plugins
+"
+
 call plug#begin(expand('$XDG_CONFIG_HOME/nvim/plugs'))
 
-" Unite and create user interfaces
-"NeoBundle 'Shougo/unite.vim'
-
-" Emmet-like snippet system
-Plug 'mattn/emmet-vim'
-
-" Easy text exchange operator
-Plug 'tommcdo/vim-exchange'
-
-" Vim runtime files
-Plug 'tpope/vim-git'
-
-" Git wrapper
-Plug 'tpope/vim-fugitive'
-
-" Fuzzy file/buffer/mru/tag/etc. finder
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'    " Fuzzy file/buffer/mru/tag/etc. finder
+Plug 'mattn/emmet-vim'       " Emmet-like snippet system
+Plug 'tommcdo/vim-exchange'  " Easy text exchange operator
+Plug 'tpope/vim-git'         " Vim runtime files
+Plug 'tpope/vim-fugitive'    " Git wrapper
 
 " Asynchronous :make using Neovim's job-control
 " Upstream: Plug 'benekastah/neomake'

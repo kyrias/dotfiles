@@ -17,9 +17,14 @@ Plug 'kyrias/neomake', { 'branch': 'clang-check' }
 call plug#end()
 
 
+
+"""
+" Set options
+"
+
 syntax on
 filetype plugin indent on
-set copyindent
+set hidden " Automatically hide buffers instead of requiring bangcommands
 set number            " always show line numbers
 set ignorecase        " Ignore case of normal letters
 set smartcase         " ignore case if search pattern is all lowercase,
@@ -52,9 +57,13 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set noexpandtab
+set copyindent
 
-" Automatically hide buffers instead of requiring bangcommands
-set hidden
+" Show tabs and end-of-line whitespace
+set listchars=tab:»·,trail:·
+set list
+
+
 
 " Easier window moving
 map <C-h> <C-w>h
@@ -66,10 +75,6 @@ vmap <C-j> gj
 vmap <C-k> gk
 nmap <C-j> gj
 nmap <C-k> gk
-
-" Show tabs and end-of-line whitespace
-set listchars=tab:»·,trail:·
-set list
 
 " Use clang_check for syntax checking
 let g:syntastic_c_checkers = ['clang_check']

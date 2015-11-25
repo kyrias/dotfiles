@@ -34,5 +34,5 @@ Host *.archlinux.org
 	ForwardAgent yes
 	User demize
 
-Host aur4.archlinux.org
+Host aur.archlinux.org
 	User aur

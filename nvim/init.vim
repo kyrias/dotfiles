@@ -54,6 +54,9 @@ set copyindent
 set listchars=tab:»·,trail:·
 set list
 
+" List of vim syntaxes to highlight in rST code blocks
+let g:rst_syntax_code_list = ['vim', 'c', 'cpp', 'python', 'sh']
+
 
 
 """
@@ -84,8 +87,6 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 
-" List of vim syntaxes to highlight in rST code blocks
-let g:rst_syntax_code_list = ['vim', 'c', 'cpp', 'python', 'sh']
 
 let g:ctrlp_extensions = ['tag', 'buffertag', 'dir', 'undo', 'line',
                          \ 'changes', 'mixed', 'bookmarkdir']

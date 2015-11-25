@@ -43,7 +43,6 @@ set linebreak         " Don’t wrap lines in the middle of a word
 set spelllang=en_us
 set backupdir=$XDG_DATA_HOME/nvim/backup " Don't write backups in current dir
 
-" Tabs are 4 spaces wide
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -80,6 +79,9 @@ nmap <C-k> gk
 
 
 
+"""
+" CtrlP
+"
 
 let g:ctrlp_extensions = ['tag', 'buffertag', 'dir', 'undo', 'line',
                          \ 'changes', 'mixed', 'bookmarkdir']
@@ -88,8 +90,9 @@ nmap <silent> <Leader>p :CtrlPMixed<CR>
 
 
 
-""""""""""""""""""""
-"" Statusline
+"""
+" Statusline
+"
 
 set statusline=
 set statusline+=[%n]  " Buffer number
@@ -128,8 +131,9 @@ set laststatus=2 " Always show statusline
 
 
 
-""""""""""""""""""""
+"""
 " Syntax highlighting
+"
 
 " Colorscheme
 colorscheme Darkcustomside
@@ -144,14 +148,20 @@ autocmd BufWinLeave * call clearmatches()
 
 
 
+"""
+" Indentation
+"
+
 augroup indentation
 	autocmd!
 	autocmd FileType yaml setlocal ts=2 sts=2 sw=2 noet
 augroup END
 
 
-""""""""""""""""""""
+
+"""
 " Neomake
+"
 
 " Open the location list when adding entries
 let g:neomake_open_list = 2

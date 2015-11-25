@@ -43,15 +43,6 @@ set linebreak         " Don’t wrap lines in the middle of a word
 set spelllang=en_us
 set backupdir=$XDG_DATA_HOME/nvim/backup " Don't write backups in current dir
 
-" Use space as a leader
-map <space> <Leader>
-nmap <silent> <Leader>/ :nohlsearch<CR>
-
-" Toggle spell checking
-nmap <silent> <Leader>s :set spell!<CR>
-
-cmap w!! w !sudo tee % >/dev/null
-
 " Tabs are 4 spaces wide
 set tabstop=4
 set shiftwidth=4
@@ -65,6 +56,14 @@ set list
 
 
 
+"""
+" Mappings
+"
+
+" Toggle spell checking
+nmap <silent> <Leader>s :set spell!<CR>
+
+cmap w!! w !sudo tee % >/dev/null
 " Easier window moving
 map <C-h> <C-w>h
 map <C-j> <C-w>j

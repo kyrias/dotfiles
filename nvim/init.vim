@@ -88,7 +88,10 @@ nmap <C-k> gk
 let g:ctrlp_extensions = ['tag', 'buffertag', 'dir', 'undo', 'line',
                          \ 'changes', 'mixed', 'bookmarkdir']
 
-nmap <silent> <Leader>p :CtrlPMixed<CR>
+nmap <silent> <Leader>pf :CtrlP<CR>
+nmap <silent> <Leader>pb :CtrlPBuffer<CR>
+nmap <silent> <Leader>pm :CtrlPMRU<CR>
+nmap <silent> <Leader>px :CtrlPMixed<CR>
 
 
 

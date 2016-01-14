@@ -19,9 +19,8 @@ export ABSROOT="$HOME"/build/abs
 export HTTPIE_CONFIG_DIR="$XDG_CONFIG_HOME"/httpie
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/password-store
 
-export EDITOR=vim
-export VISUAL=vim
-export VIMINIT='source $XDG_CONFIG_HOME/vim/vimrc'
+export VISUAL=nvim
+export NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 export BROWSER=chromium
 export TERMINAL=termite

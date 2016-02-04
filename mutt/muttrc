@@ -62,6 +62,7 @@ virtual-mailboxes \
     "trash"   "notmuch://?query=tag:trash"  \
     "unread"  "notmuch://?query=tag:unread" \
     "archive" "notmuch://?query=tag:archive" \
+    "deleted" "notmuch://?query=tag:deleted" \
     \
     "spam" "notmuch://?query=tag:spam" \
     "ham" "notmuch://?query=tag:ham"   \
@@ -69,8 +70,11 @@ virtual-mailboxes \
     "learn-ham" "notmuch://?query=tag:learn-ham" \
     \
     "arch-dev-public" "notmuch://?query=tag:arch-dev-public" \
+    "arch-devops" "notmuch://?query=tag:arch-devops" \
     "arch-bugs" "notmuch://?query=tag:arch-bugs" \
     "arch-mirrors" "notmuch://?query=tag:arch-mirrors" \
+    "arch-projects" "notmuch://?query=tag:arch-projects" \
+    "arch-security" "notmuch://?query=tag:arch-security" \
     "arch-general" "notmuch://?query=tag:arch-general" \
     "aur-requests" "notmuch://?query=tag:aur-requests" \
     "aur-general" "notmuch://?query=tag:aur-general" \
@@ -84,7 +88,8 @@ virtual-mailboxes \
     "johannes-lothberg-gmail" "notmuch://?query=tag:johannes-lothberg-gmail" \
     "lojban" "notmuch://?query=tag:lojban" \
     "git" "notmuch://?query=tag:git" \
-    "ccna" "notmuch://?query=tag:ccna"
+    "ccna" "notmuch://?query=tag:ccna" \
+    "all" "notmuch://?query=*"
 
 set query_command='goobook -c "$XDG_CONFIG_HOME/goobookrc" query "%s"'
 macro index,pager A '<pipe-message>goobook -c "$XDG_CONFIG_HOME/goobookrc" add<return>' \

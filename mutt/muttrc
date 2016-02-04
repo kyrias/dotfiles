@@ -18,7 +18,7 @@ set send_charset     = "utf-8" # Charset for outgoing messages
 set config_charset   = "utf-8"
 
 set edit_headers     # Edit headers when editing
-set editor           = "vim" # Editor used by mutt
+set editor           = "nvim" # Editor used by mutt
 set text_flowed      = yes # Generate flowed attachments
 set sleep_time       = 0 # No delay when opening a maildir!
 

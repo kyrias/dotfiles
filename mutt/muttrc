@@ -174,11 +174,12 @@ macro index ,g "<pipe-message>grep -a \^Message-ID: | sed \'s_Message-ID: <\\(.*
 bind attach <return> view-mailcap
 
 source ~/.config/mutt/gpg.rc
-set crypt_autosign     = yes
-set crypt_replyencrypt = no
-set crypt_verify_sig   = yes
 set pgp_sign_as        = 3A9D0BB5
 set pgp_use_gpg_agent  = yes
+set crypt_use_gpgme    = yes
+set crypt_autosign     = yes
+set crypt_replyencrypt = yes
+set crypt_verify_sig   = yes
 set crypt_use_pka      = yes
 
 source ~/.config/mutt/themes/comidia

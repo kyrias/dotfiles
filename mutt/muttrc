@@ -168,6 +168,7 @@ bind index P       recall-message
 
 # Move message to archive
 macro index,pager a "<enter-command>unset resolve<enter><modify-labels>-inbox +archive<enter><save-message>=archive<enter><enter-command>set resolve<enter>"
+macro index ,g "<pipe-message>grep -a \^Message-ID: | sed \'s_Message-ID: <\\(.*\\)>_http:\/\/mid.gmane.org\/\\1_\' | xclip <enter>" "Copy gmane URL""
 
 # View attachments properly.
 bind attach <return> view-mailcap

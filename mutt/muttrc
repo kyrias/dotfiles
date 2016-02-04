@@ -167,7 +167,7 @@ bind compose P     postpone-message
 bind index P       recall-message
 
 # Move message to archive
-macro index,pager a "<modify-labels>-inbox +archive<enter>"
+macro index,pager a "<enter-command>unset resolve<enter><modify-labels>-inbox +archive<enter><save-message>=archive<enter><enter-command>set resolve<enter>"
 
 # View attachments properly.
 bind attach <return> view-mailcap

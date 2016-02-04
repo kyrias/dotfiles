@@ -1,0 +1,4 @@
+set from             = "demize@archlinux.org"
+set sendmail         = "nymeria-sendmail"
+
+# vim: ft=muttrc

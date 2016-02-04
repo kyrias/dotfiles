@@ -1,0 +1,4 @@
+set from             = "johannes@kyriasis.com"
+set sendmail         = "msmtp --file $XDG_CONFIG_HOME/msmtprc -a theos"
+
+# vim: ft=muttrc

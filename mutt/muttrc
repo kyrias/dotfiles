@@ -96,11 +96,16 @@ macro index,pager A '<pipe-message>goobook -c "$XDG_CONFIG_HOME/goobookrc" add<r
                         'add the sender address to Google contacts'
 bind editor <Tab>    complete-query
 
+# Sending email
+macro generic "<Esc>A" ":source \"$XDG_CONFIG_HOME\"/mutt/demize@archlinux.org.muttrc<return>"
+macro generic "<Esc>K" ":source \"$XDG_CONFIG_HOME\"/mutt/johannes@kyriasis.com.muttrc<return>"
+
+
 # Sync email
 macro index O       '<shell-escape>mbsync -c "$XDG_CONFIG_HOME/mbsyncrc" theos<return>' \
                         'run mbsync to sync all mail'
 
-set sendmail        = "/usr/bin/msmtp --file $XDG_CONFIG_HOME/msmtprc -a theos"
+set sendmail        = "msmtp --file $XDG_CONFIG_HOME/msmtprc -a theos"
 set sendmail_wait   = 0
 set copy            = yes
 

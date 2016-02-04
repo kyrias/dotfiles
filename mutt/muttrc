@@ -182,6 +182,8 @@ set crypt_replyencrypt = yes
 set crypt_verify_sig   = yes
 set crypt_use_pka      = yes
 
+my_hdr X-Clacks-Overhead: GNU Terry Pratchett
+
 source ~/.config/mutt/themes/comidia
 
 subscribe arch-dev-public@archlinux.org

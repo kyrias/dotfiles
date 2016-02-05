@@ -19,7 +19,7 @@ export ABSROOT="$HOME"/build/abs
 export HTTPIE_CONFIG_DIR="$XDG_CONFIG_HOME"/httpie
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/password-store
 
-export VISUAL=nvim
+export VISUAL=vim
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 export BROWSER=chromium

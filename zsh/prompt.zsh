@@ -37,6 +37,24 @@ function virtualenv_prompt {
 	fi
 }
 
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' actionformats \
+	"$bg[light_pink] $fg[white]%b%f (%a) %k"
+
+zstyle ':vcs_info:*' formats       \
+    "$bg[light_pink] $fg[white]%b%f %k"
+
+zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
+
+zstyle ':vcs_info:*' enable git cvs svn
+
+function vcs_info_prompt {
+  vcs_info
+  if [[ -n "$vcs_info_msg_0_" ]]; then
+    echo "%{$fg[grey]%}${vcs_info_msg_0_}%{%f%}$del"
+  fi
+}
+
 if (( UID == 0 )); then
 	PROMPT='$bg[light_red] $fg[white]%m%f %k$bg[white]$fg[light_red] %~ %f%k$(virtualenv_prompt)
 $bg[light_blue] λ %k '
@@ -59,7 +77,7 @@ $bg[light_blue] λ %k '
 		;;
 
 	*)
-		PROMPT='$bg[black] $fg[white]%m%f %k$bg[white]$fg[black] %~ %f%k$(virtualenv_prompt)
+		PROMPT='$bg[black] $fg[white]%m%f %k$bg[white]$fg[black] %~ %f%k$(virtualenv_prompt)$(vcs_info_prompt)
 $bg[light_blue] λ %k '
 		;;
 

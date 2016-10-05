@@ -1,22 +1,10 @@
 include "%L"
 
 # Various extra characters
-<Multi_key> <a> <o>                     : "å" aring
-<Multi_key> <A> <o>                     : "Å" Aring
-<Multi_key> <a> <e>                     : "ä" adiaeresis
-<Multi_key> <A> <e>                     : "Ä" Adiaeresis
-<Multi_key> <o> <e>                     : "ö" odiaeresis
-<Multi_key> <O> <e>                     : "Ö" Odiaeresis
-<Multi_key> <quotedbl> <u>              : "ü" udiaeresis
-<Multi_key> <quotedbl> <U>              : "Ü" Udiaeresis
-<Multi_key> <apostrophe> <e>            : "é" eacute
-<Multi_key> <apostrophe> <E>            : "É" Eacute
-<Multi_key> <grave> <e>                 : "è" egrave
-<Multi_key> <grave> <E>                 : "È" Egrave
-<Multi_key> <quotedbl> <i>              : "ï" idiaeresis
-<Multi_key> <quotedbl> <I>              : "Ï" Idiaeresis
 <Multi_key> <l> <a>                     : "λ" U03BB
 <Multi_key> <m> <u>                     : "µ" U00B5
+<Multi_key> <M> <u>                     : "Μ" U039C
+<Multi_key> <M> <U>                     : "Μ" U039C
 
 <Multi_key> <d> <e> <l>                 : "δ" U03B4
 <Multi_key> <D> <e> <l>                 : "Δ" U0394
@@ -78,5 +66,7 @@ include "%L"
 <Multi_key> <b> <h> <s>                 : "☣" U2623  # BIOHAZARD SIGN
 <Multi_key> <r> <a> <s>                 : "☢" U2622  # RADIOACTIVE SIGN
 <Multi_key> <colon> <bar> <bar>         : "ಠ_ಠ"
+
+<Multi_key> <e> <u> <r>                 : "€" U20AC  # EURO SIGN
 
 <Multi_key> <t> <r> <a> <i> <n> <s>     : "🚂 🚊 🚉 🚞 🚆 🚄 🚅 🚈 🚇 🚝 🚋 🚃 🚟"

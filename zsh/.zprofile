@@ -55,5 +55,5 @@ if [[ -f "$ZDOTDIR"/profile-"$SHORTHOST" ]]; then
 fi
 
 if [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-	exec startx "$XDG_CONFIG_HOME"/X11/xinitrc -- -configdir "$XDG_CONFIG_HOME"/X11/xorg.conf.d
+	exec startx "$XDG_CONFIG_HOME"/X11/xinitrc -- -keeptty -configdir "$XDG_CONFIG_HOME"/X11/xorg.conf.d
 fi

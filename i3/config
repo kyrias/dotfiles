@@ -119,13 +119,13 @@ bar {
 	workspace_buttons yes
 	strip_workspace_numbers yes
 	colors {
-		#class			border	backgr.	text
-		background					#101010
-		statusline					#ffffff
-		urgent_workspace	#303030	#202020	#bd3267
-		active_workspace	#5f5f5f	#101010	#101010
-		inactive_workspace	#101010	#101010	#5f5f5f
-		focused_workspace	#2e3436	#2a2a2a	#FFFFFF
+		#class              border   backgr.  text
+		background          #101010
+		statusline          #ffffff
+		urgent_workspace    #303030  #202020  #bd3267
+		active_workspace    #5f5f5f  #101010  #101010
+		inactive_workspace  #101010  #101010  #5f5f5f
+		focused_workspace   #2e3436  #2a2a2a  #FFFFFF
 	}
 }
 

@@ -138,17 +138,6 @@ function 5clone {
 
 alias 5ssh='TERM=xterm ssh'
 
-aur-push() {
-	git push aur@aur.archlinux.org:/"$1".git "$1":master
-}
-
-aur-pull() {
-	local old_branch=$(git symbolic-ref --short HEAD)
-	git checkout "$1"
-	git pull aur@aur.archlinux.org:/"$1".git master:"$1"
-	git checkout "$old_branch"
-}
-
 tt() {
 	if [[ -n "$@" ]]; then
 		print "$@" | ts '[%Y-%m-%d %H:%M:%S]' >> "$HOME"/documents/timetracking

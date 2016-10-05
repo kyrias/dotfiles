@@ -39,7 +39,7 @@ set record           = "+sent"
 mailboxes +inbox +sent +drafts +trash +archive
 mailboxes +Spam +Ham +learn-spam +learn-ham
 
-mailboxes +arch-dev-public +arch-bugs +arch-mirrors +aur-general +aur-requests
+mailboxes +arch-dev-public +arch-bugs +arch-mirrors +arch-projects +aur-general +aur-requests
 mailboxes +arch-women +pacman-dev
 
 mailboxes +isync-devel +opensmtpd
@@ -56,7 +56,7 @@ set nm_record_tags = "-inbox,sent,me"
 set nm_default_uri = "notmuch:///home/kyrias/mail"
 
 virtual-mailboxes \
-    "inbox"   "notmuch://?query=tag:inbox and NOT tag:archive"  \
+    "inbox"   "notmuch://?query=tag:inbox"  \
     "sent"    "notmuch://?query=tag:sent"   \
     "drafts"  "notmuch://?query=tag:drafts" \
     "trash"   "notmuch://?query=tag:trash"  \

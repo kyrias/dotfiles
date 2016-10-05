@@ -4,7 +4,8 @@ User kyrias
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 SSLType IMAPS
 SSLVersions TLSv1.2
-AuthMechs GSSAPI
+AuthMechs *
+PassCmd "pass show mail/johannes@kyriasis.com"
 
 IMAPStore theos-remote
 Account theos
@@ -19,28 +20,5 @@ Master :theos-remote:
 Slave :theos-local:
 Patterns *
 Create Slave
-SyncState *
-Expunge Both
-
-
-IMAPAccount 5monkeys
-Host imap.gmail.com
-User johannes@5monkeys.se
-PassCmd "pass show mail/johannes@5monkeys.se"
-SSLType IMAPS
-SSLVersions TLSv1.2
-
-IMAPStore 5monkeys-remote
-Account 5monkeys
-
-MaildirStore 5monkeys-local
-Path ~/5mail/
-Inbox ~/5mail/inbox
-
-Channel 5monkeys
-Master :5monkeys-remote:
-Slave :5monkeys-local:
-Patterns * ![Gmail]* "[Gmail]/Sent Mail" "[Gmail]/Starred" "[Gmail]/All Mail"
-Create Both
 SyncState *
 Expunge Both

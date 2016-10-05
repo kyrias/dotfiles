@@ -10,7 +10,6 @@ Host *
 	GSSAPIAuthentication yes
 	PubkeyAuthentication yes
 
-
 Host *.kyriasis.com
 	GSSAPIDelegateCredentials yes
 	ForwardAgent yes
@@ -21,13 +20,19 @@ Host git.kyriasis.com
 	User git
 	PubkeyAuthentication no
 
+Host h.theos
+	hostname h.theos.kyriasis.com
+	GSSAPIDelegateCredentials yes
+	ForwardAgent yes
+
 Host theos
 	hostname theos.kyriasis.com
 	PubkeyAuthentication no
+	GSSAPIDelegateCredentials yes
+	ForwardAgent yes
 
 Host lucifer
 	hostname lucifer.kyriasis.com
-
 
 Host *.archlinux.org
 	IdentityFile ~/.config/ssh/id_ed25519

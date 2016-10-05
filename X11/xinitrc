@@ -4,4 +4,9 @@
 #
 # Executed by startx (run your window manager from here)
 
+systemctl --user import-environment DISPLAY XAUTHORITY SSH_AGENT_PID SSH_AUTH_SOCK
+systemctl --user restart dumpwatch
+
+ibus-daemon -d -r
+
 exec i3 -c /home/kyrias/.config/i3/config

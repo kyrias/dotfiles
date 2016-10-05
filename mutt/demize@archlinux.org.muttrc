@@ -1,4 +1,4 @@
 set from             = "demize@archlinux.org"
-set sendmail         = "nymeria-sendmail"
+set sendmail         = "orion-sendmail"
 
 # vim: ft=muttrc

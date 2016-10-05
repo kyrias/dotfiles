@@ -7,12 +7,14 @@ call plug#begin(expand('$XDG_CONFIG_HOME/nvim/plugs'))
 Plug 'ctrlpvim/ctrlp.vim'    " Fuzzy file/buffer/mru/tag/etc. finder
 Plug 'mattn/emmet-vim'       " Emmet-like snippet system
 Plug 'tommcdo/vim-exchange'  " Easy text exchange operator
-Plug 'tpope/vim-git'         " Vim runtime files
 Plug 'tpope/vim-fugitive'    " Git wrapper
+Plug 'mbbill/undotree'
+Plug 'will133/vim-dirdiff'
 
-" Asynchronous :make using Neovim's job-control
-" Upstream: Plug 'benekastah/neomake'
-Plug 'kyrias/neomake', { 'branch': 'clang-check' }
+Plug 'dhruvasagar/vim-table-mode'
+Plug 'rust-lang/rust.vim'
+Plug 'ledger/vim-ledger'
+Plug 'tpope/vim-git'
 
 call plug#end()
 
@@ -50,7 +52,7 @@ set noexpandtab
 set copyindent
 
 " Show tabs and end-of-line whitespace
-set listchars=tab:»·,trail:·
+set listchars=tab:»·,trail:·,nbsp:☠
 set list
 
 " List of vim syntaxes to highlight in rST code blocks
@@ -161,15 +163,3 @@ augroup indentation
 	autocmd!
 	autocmd FileType yaml setlocal ts=2 sts=2 sw=2 noet
 augroup END
-
-
-
-"""
-" Neomake
-"
-
-" Open the location list when adding entries
-let g:neomake_open_list = 2
-
-" Run Neomake automatically when saving and entering a file
-autocmd! BufWritePost * Neomake

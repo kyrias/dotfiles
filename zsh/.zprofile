@@ -34,8 +34,6 @@ export LESSHISTFILE="$XDG_CACHE_HOME"/lesshist
 
 export SDL_AUDIODRIVER=pulse
 
-export GTK_IM_MODULE=xim
-
 export SUDO_PROMPT=$'\e[31mSUDO\e[m password for \e[34m%p\e[m: '
 
 export SHORTHOST=$(hostname -s)
@@ -45,12 +43,16 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 export FIGLET_FONTDIR="$HOME"/.local/share/figlet
 
-if [[ -f "$ZDOTDIR"/profile-"$SHORTHOST" ]]; then
-	source "$ZDOTDIR"/profile-"$SHORTHOST"
-fi
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
 
 # LS_COLORS is now required for `ls` to use colors
 source <(dircolors -b "$XDG_CONFIG_HOME"/dircolors)
+
+if [[ -f "$ZDOTDIR"/profile-"$SHORTHOST" ]]; then
+	source "$ZDOTDIR"/profile-"$SHORTHOST"
+fi
 
 if [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]]; then
 	exec startx "$XDG_CONFIG_HOME"/X11/xinitrc -- -configdir "$XDG_CONFIG_HOME"/X11/xorg.conf.d

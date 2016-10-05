@@ -1,55 +1,52 @@
 # -*- coding: utf-8 -*-
 
-import subprocess
-
 from i3pystatus import Status
 
 status = Status(standalone=True)
 
 status.register("clock",
-    format="%y-%m-%d %H:%M:%S%z",)
+                format="%y-%m-%d %H:%M:%S%z",)
 
 status.register("battery",
-    format="⚡:{percentage:.2f}% {remaining:%E%hh:%Mm}{status}",
-    alert=True,
-    alert_percentage=5,
-    status={
-        "DIS": "↓",
-        "CHR": "↑",
-        "FULL": "=",
-    },
-    battery_ident="BAT0",)
+                format="⚡:{percentage:.2f}% {remaining:%E%hh:%Mm}{status}",
+                alert=True,
+                alert_percentage=5,
+                status={
+                    "DIS": "↓",
+                    "CHR": "↑",
+                    "FULL": "=",
+                },
+                battery_ident="BAT0",)
 
 
 status.register("temp",
-    format="{temp:.0f}°C",)
+                format="{temp:.0f}°C",)
 
 status.register("pulseaudio",
-    format="♪:{volume}%",)
+                format="♪:{volume}%",)
 
-#status.register("mpd",
-#    format="{status} {artist} > {title}",
-#    status={
-#        "pause": "✧",
-#        "play": "▶",
-#        "stop": "◾",
-#    },)
+# status.register("mpd",
+#     format="{status} {artist} > {title}",
+#     status={
+#         "pause": "✧",
+#         "play": "▶",
+#         "stop": "◾",
+#     },)
 
 status.register("network",
-    interface="wlp4s0",
-    format_up="{essid:.10s}: {v4cidr} {quality:3.0f}%",)
+                interface="wlp4s0",
+                format_up="{essid:.10s}: {v4cidr} {quality:3.0f}%",)
 
 # Shows disk usage of /
 # Format:
 # 42/128G [86G]
 status.register("disk",
-    path="/media",
-    format="{avail}G",)
+                path="/boot",
+                format="{avail}G",)
 
 status.register("disk",
-    path="/",
-    format="{avail}G",)
-
+                path="/",
+                format="{avail}G",)
 
 
 status.run()

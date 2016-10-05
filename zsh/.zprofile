@@ -1,4 +1,7 @@
-export PATH="$HOME"/.local/bin:"$HOME"/.gem/ruby/2.1.0/bin:"$PATH"
+path=( "$HOME"/.local/bin
+       "$HOME"/bin
+       "$HOME"/.gem/ruby/2.1.0/bin
+       "${path[@]}" )
 
 # Set XDG Basedir Spec paths
 export XDG_CACHE_HOME="$HOME"/.cache

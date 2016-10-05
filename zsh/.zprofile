@@ -25,7 +25,7 @@ export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/password-store
 export VISUAL=nvim
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 
-export BROWSER=chromium
+export BROWSER=chromium-private
 export TERMINAL=termite
 
 export PAGER=less

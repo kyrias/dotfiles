@@ -1,5 +1,6 @@
 [Unit]
 Description=Music Player Daemon
+Requires=pulseaudio.socket
 
 [Service]
 Environment=PULSE_PROP=application.icon_name=sound

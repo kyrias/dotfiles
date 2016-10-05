@@ -136,3 +136,5 @@
 	fsckobjects = true
 [fetch]
 	fsckObjects = true
+[commit]
+	verbose = true

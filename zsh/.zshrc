@@ -29,11 +29,8 @@ setopt autocd \
        glob_dots \
        extended_history \
        hist_verify \
-       hist_ignore_all_dups \
-       hist_save_no_dups \
        hist_ignore_space \
-       hist_reduce_blanks \
-       inc_append_history \
+       inc_append_history_time \
        interactive_comments \
        numeric_glob_sort \
        no_bg_nice \

@@ -20,8 +20,8 @@
     horizontal_padding = 8
     separator_color = frame
     startup_notification = true
-    dmenu = /usr/bin/dmenu -p dunst:
-    browser = /usr/bin/firefox -new-tab
+    dmenu = /usr/bin/bemenu -P dunst:
+    browser = /home/kyrias/.local/bin/chromium-private
 
 [frame]
     width = 3

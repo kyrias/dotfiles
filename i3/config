@@ -133,8 +133,8 @@ for_window [class="Gifview"] floating enable
 
 
 bindsym $mod+Shift+g exec --no-startup-id setxkbmap us
-#bindsym $mod+Shift+u exec --no-startup-id setxkbmap dvp
 bindsym $mod+Shift+u exec --no-startup-id setxkbmap dvorak
+
 
 bindsym XF86MonBrightnessUp     exec --no-startup-id xbacklight -inc 10
 bindsym XF86MonBrightnessDown   exec --no-startup-id xbacklight -dec 10
@@ -168,9 +168,8 @@ bindsym $mod+Shift+minus move scratchpad
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
 
-
 # TrackPoint scrolling
 exec setup-trackpoint
 
-
+# Autostart all .desktop files with dex
 exec --no-startup-id dex -s $HOME/.config/autostart -a -e i3

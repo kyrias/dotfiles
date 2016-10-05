@@ -4,8 +4,7 @@ User kyrias
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 SSLType IMAPS
 SSLVersions TLSv1.2
-AuthMechs *
-PassCmd "pass show mail/johannes@kyriasis.com"
+AuthMechs GSSAPI
 
 IMAPStore theos-remote
 Account theos

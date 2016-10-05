@@ -153,8 +153,7 @@ bindsym XF86AudioLowerVolume exec volumecontrol lower
 bindsym XF86AudioRaiseVolume exec volumecontrol raise
 
 
-bindsym XF86ScreenSaver exec screenlock.bash
-
+bindsym XF86Tools exec loginctl lock-session
 
 new_window 1pixel
 bindsym $mod+b border normal

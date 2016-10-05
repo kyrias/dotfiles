@@ -101,8 +101,6 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
-highlight Comment cterm=italic
-
 
 " Why does vim set the filetype of .h files as C++?
 augroup filetypes
@@ -117,6 +115,7 @@ augroup END
 
 " Use clang_check for syntax checking
 let g:syntastic_c_checkers = ['clang_check']
+let g:syntastic_cpp_checkers = ['clang_check']
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1

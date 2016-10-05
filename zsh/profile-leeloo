@@ -1,10 +1,4 @@
 if (( UID )); then
-	if [[ -x "$HOME"/.local/lib/libwcwidth.so ]]; then
-		export LD_PRELOAD="$HOME"/.local/lib/libwcwidth.so
-	fi
-
-	export PERL5LIB="$HOME"/misc/grawity/code/lib/perl5"${PERL5LIB+:}$PERL5LIB";
-
 	function {
 		local envfile="$XDG_RUNTIME_DIR"/ssh-agent.env
 		local pid=$(awk -F'[=;]' 'FNR == 2 {print $2}' "$envfile" 2>/dev/null)

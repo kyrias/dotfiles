@@ -64,6 +64,7 @@
 
 [diff]
 	renames = copies
+	compactionHeuristic = true
 
 [diff "gpg"]
 	textconv = gpg -v
@@ -86,9 +87,10 @@
 
 [log]
 	decorate = full
+	showSignature = true
 
 [merge]
-	tool = vimdiff
+	tool = nvimdiff
 	conflictStyle = diff3
 
 [push]
@@ -100,6 +102,7 @@
 
 [receive]
 	denyCurrentBranch = updateInstead
+	fsckobjects = true
 
 [sendemail]
 	aliasfiletype = mutt
@@ -117,11 +120,19 @@
 	pushInsteadOf = git://github.com/
 	pushInsteadOf = https://github.com/
 
-[url "git@git.kyriasis.com"]
+[url "git@git.kyriasis.com:"]
 	insteadOf = kyriasis:
+
+[url "aur@aur.archlinux.org:"]
+	insteadOf = aur:
 
 [credential "https://github.com"]
 	username = kyrias
 	helper = pass
+
 [rerere]
 	enabled = true
+[transfer]
+	fsckobjects = true
+[fetch]
+	fsckObjects = true

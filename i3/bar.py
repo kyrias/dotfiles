@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
 
+import socket
+
 from i3pystatus import Status
 
+hostname = socket.gethostname()
 status = Status(standalone=True)
 
 status.register("clock",
@@ -25,21 +28,15 @@ status.register("temp",
 status.register("pulseaudio",
                 format="♪:{volume}%",)
 
-# status.register("mpd",
-#     format="{status} {artist} > {title}",
-#     status={
-#         "pause": "✧",
-#         "play": "▶",
-#         "stop": "◾",
-#     },)
+if hostname == "tirxu.kyriasis.com":
+    status.register("network",
+                    interface="wlp4s0",
+                    format_up="{essid:.10s}: {v4cidr} {quality:3.0f}%",)
 
-status.register("network",
-                interface="wlp4s0",
-                format_up="{essid:.10s}: {v4cidr} {quality:3.0f}%",)
+    status.register("network",
+                    interface="enp0s20u3u1u3",
+                    format_up="{interface}: {v4cidr}")
 
-# Shows disk usage of /
-# Format:
-# 42/128G [86G]
 status.register("disk",
                 path="/boot",
                 format="{avail}G",)

@@ -12,15 +12,14 @@ export XDG_DATA_HOME="$HOME"/.local/share
 export MPV_HOME="$XDG_CONFIG_HOME"/mpv
 export GNUPGHOME="$XDG_CONFIG_HOME"/gnupg
 export GALE_DIR="$XDG_CONFIG_HOME"/gale
+export HTTPIE_CONFIG_DIR="$XDG_CONFIG_HOME"/httpie
+export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/password-store
 
 # Config overrides
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc-2.0
 export XCOMPOSEFILE="$XDG_CONFIG_HOME"/X11/XCompose
 export XAUTHORITY="$XDG_RUNTIME_DIR"/xauthority
 export ABSROOT="$HOME"/build/abs
-
-export HTTPIE_CONFIG_DIR="$XDG_CONFIG_HOME"/httpie
-export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/password-store
 
 export VISUAL=nvim
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -40,8 +39,6 @@ export SHORTHOST=$(hostname -s)
 
 # Don’t use the default venv prompt in favor of our custom one
 export VIRTUAL_ENV_DISABLE_PROMPT=1
-
-export FIGLET_FONTDIR="$HOME"/.local/share/figlet
 
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus

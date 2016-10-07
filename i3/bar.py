@@ -39,11 +39,12 @@ if hostname == "tirxu.kyriasis.com":
 
 status.register("disk",
                 path="/boot",
-                format="{avail}G",)
+                divisor=1024**2,
+                format="/boot: {avail}M",)
 
 status.register("disk",
                 path="/",
-                format="{avail}G",)
+                format="/: {avail}G",)
 
 
 status.run()

@@ -12,8 +12,6 @@ zstyle ':completion:*' rehash yes
 # Colors for file completion
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
-fpath=("$ZDOTDIR"/completion "${fpath[@]}")
-
 autoload -Uz colors \
              compinit \
              promptinit \

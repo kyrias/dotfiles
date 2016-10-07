@@ -1,4 +1,0 @@
-#compdef 5v
-
-_arguments \
-	"1: :($(print $HOME/venvs/*(/) | xargs -n1 basename))"

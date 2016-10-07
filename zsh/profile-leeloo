@@ -13,7 +13,6 @@ if (( UID )); then
 	source "$HOME"/misc/grawity/code/kerberos/kc.sh
 
 	export MAILDIR="$HOME"/mail
-	export MANPATH="$(manpath)":"$HOME"/.local/share/man
 fi
 
 # vim: ft=zsh

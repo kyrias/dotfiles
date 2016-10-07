@@ -11,7 +11,6 @@ if (( UID )); then
 	}
 
 	export MAILDIR="$HOME"/mail
-	export MANPATH="$(manpath)":"$HOME"/.local/share/man
 fi
 
 # vim: ft=zsh

@@ -114,6 +114,7 @@ bindsym $mod+r mode "resize"
 
 # i3bar
 bar {
+	tray_output primary
 	status_command    ~/.local/venv/bin/python ~/.config/i3/bar.py
 	position          bottom
 	workspace_buttons yes
@@ -128,6 +129,7 @@ bar {
 		focused_workspace   #2e3436  #2a2a2a  #FFFFFF
 	}
 }
+
 
 for_window [class="Gifview"] floating enable
 

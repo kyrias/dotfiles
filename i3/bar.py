@@ -28,7 +28,12 @@ status.register("temp",
 status.register("pulseaudio",
                 format="♪:{volume}%",)
 
-if hostname == "tirxu.kyriasis.com":
+if hostname == "zorg.kyriasis.com":
+    status.register("network",
+                    interface="wlp4s0",
+                    format_up="{essid:.10s}: {v4cidr} {quality:3.0f}%",)
+
+elif hostname == "tirxu.kyriasis.com":
     status.register("network",
                     interface="wlp4s0",
                     format_up="{essid:.10s}: {v4cidr} {quality:3.0f}%",)

@@ -14,7 +14,6 @@ export GNUPGHOME="$XDG_CONFIG_HOME"/gnupg
 export GALE_DIR="$XDG_CONFIG_HOME"/gale
 export HTTPIE_CONFIG_DIR="$XDG_CONFIG_HOME"/httpie
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/password-store
-export MANPATH="$(manpath)":"$XDG_DATA_HOME"/man
 
 # Config overrides
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc-2.0

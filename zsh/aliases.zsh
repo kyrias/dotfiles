@@ -47,17 +47,6 @@ sp() { printf '%s' "$@"; printf '\n'; }
 
 have() { command -v "$1" >&/dev/null; }
 
-# Print basic prompt to the window title
-function precmd {
-	print -Pn "\e];%n %~\a"
-}
-
-# Print the current running command's name to the window title
-function preexec {
-	local cmd=${1[(wr)^(*=*|sudo|exec|ssh|-*)]}
-	print -Pn "\e];$cmd:q\a"
-}
-
 # service management
 if have systemctl && [[ -d /run/systemd/system ]]; then
 	alias ssctl='sudo systemctl'

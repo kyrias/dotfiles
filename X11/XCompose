@@ -8,6 +8,8 @@ include "%L"
 
 <Multi_key> <d> <e> <l>                 : "δ" U03B4
 <Multi_key> <D> <e> <l>                 : "Δ" U0394
+<Multi_key> <e> <t> <h>                 : "ð"
+<Multi_key> <E> <t> <h>                 : "Ð"
 
 # Quotes
 <Multi_key> <quotedbl> <bracketleft>    : "“" U201C

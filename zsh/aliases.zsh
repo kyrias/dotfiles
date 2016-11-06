@@ -7,6 +7,7 @@ unalias run-help
 alias help=run-help
 
 alias '...'='../..'
+alias '....'='../../..'
 
 ls_options=('--almost-all' '--classify'  '--color=auto'
             '--human-readable' '--group-directories-first')

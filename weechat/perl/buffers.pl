@@ -20,7 +20,13 @@
 #
 # History:
 #
-# 2015-03-29, Ed Santiago <ed@edsantiago.com>
+# 2016-05-01, mumixam <mumixam@gmail.com>:
+#     v5.4: added option "detach_buffer_immediately_level"
+# 2015-08-21, Matthew Cox <matthewcpcox@gmail.com>
+#     v5.3: add option "indenting_amount", to adjust the indenting of channel buffers
+# 2015-05-02, arza <arza@arza.us>:
+#     v5.2: truncate long names (name_size_max) more when mark_inactive adds parenthesis
+# 2015-03-29, Ed Santiago <ed@edsantiago.com>:
 #     v5.1: merged buffers: always indent, except when filling is horizontal
 # 2014-12-12
 #     v5.0: fix cropping non-latin buffer names
@@ -166,12 +172,14 @@ use strict;
 use Encode qw( decode encode );
 # -----------------------------[ internal ]-------------------------------------
 my $SCRIPT_NAME = "buffers";
-my $SCRIPT_VERSION = "5.1";
+my $SCRIPT_VERSION = "5.4";
 
 my $BUFFERS_CONFIG_FILE_NAME = "buffers";
 my $buffers_config_file;
 my $cmd_buffers_whitelist= "buffers_whitelist";
 my $cmd_buffers_detach   = "buffers_detach";
+
+my $maxlength;
 
 my %mouse_keys = ("\@item(buffers):button1*" => "hsignal:buffers_mouse",
                   "\@item(buffers):button2*" => "hsignal:buffers_mouse",
@@ -677,6 +685,13 @@ my %default_options_look =
      "", 0, 0, "on", "on", 0,
      "", "", "buffers_signal_config", "", "", ""
  ],
+ "indenting_amount" => [
+     "indenting_amount", "integer",
+     "amount of indenting to use. This option only takes effect if bar ".
+     "is left/right positioned, and indenting is enabled",
+     "", 0, 16, 2, 2, 0,
+     "", "", "buffers_signal_config", "", "", ""
+ ],
  "short_names" => [
      "short_names", "boolean",
      "display short names (remove text before first \".\" in buffer name)",
@@ -780,11 +795,23 @@ my %default_options_look =
  ],
  "detach_buffer_immediately" => [
      "detach_buffer_immediately", "string",
-     "comma separated list of buffers to detach immediately. A query and ".
-     "highlight message will attach buffer again. Allows \"*\" wildcard. ".
+     "comma separated list of buffers to detach immediately. Buffers ".
+     "will attach again based on notify level set in ".
+     "\"detach_buffer_immediately_level\". Allows \"*\" wildcard. ".
      "Ex: \"BitlBee,freenode.*\"",
      "", 0, 0, "", "", 0,
      "", "", "buffers_signal_config_detach_buffer_immediately", "", "", ""
+ ],
+ "detach_buffer_immediately_level" => [
+     "detach_buffer_immediately_level", "integer",
+     "The value determines what notify level messages are reattached from activity. ".
+     " This option works in conjunction with \"detach_buffer_immediately\" ".
+     "0: low priority (like join/part messages), ".
+     "1: message, ".
+     "2: private, ".
+     "3: highlight",
+     "", 0, 3, 2, 2, 0,
+     "", "", "buffers_signal_config", "", "", ""
  ],
  "detach_free_content" => [
      "detach_free_content", "boolean",
@@ -994,11 +1021,11 @@ sub build_buffers
             weechat::infolist_free($infolist_channel);
         }
 
-        my $result = check_immune_detached_buffers($buffer->{"name"});          # checking for wildcard 
-
+        my $result = check_immune_detached_buffers($buffer->{"name"});          # checking for wildcard
+        my $maxlevel = weechat::config_integer($options{"detach_buffer_immediately_level"});
         next if ( check_detach_buffer_immediately($buffer->{"name"}) eq 1
                  and $buffer->{"current_buffer"} eq 0
-                 and ( not exists $hotlist{$buffer->{"pointer"}} or $hotlist{$buffer->{"pointer"}} < 2) );          # checking for buffer to immediately detach
+                 and ( not exists $hotlist{$buffer->{"pointer"}} or $hotlist{$buffer->{"pointer"}} < $maxlevel) );          # checking for buffer to immediately detach
 
         unless ($result)
         {
@@ -1118,8 +1145,14 @@ sub build_buffers
                         $name = $buffer->{"name"};
                     }
                 }
-                if (weechat::config_integer($options{"name_size_max"}) >= 1){
-                    $name = encode("UTF-8", substr(decode("UTF-8", $name), 0, weechat::config_integer($options{"name_size_max"})));
+                if (weechat::config_integer($options{"name_size_max"}) >= 1)
+                {
+                    $maxlength = weechat::config_integer($options{"name_size_max"});
+                    if($buffer->{"type"} eq "channel" and weechat::config_boolean( $options{"mark_inactive"} ) eq 1 and $buffer->{"nicks_count"} == 0)
+                    {
+                        $maxlength -= 2;
+                    }
+                    $name = encode("UTF-8", substr(decode("UTF-8", $name), 0, $maxlength));
                 }
                 if ( weechat::config_boolean($options{"core_to_front"}) eq 1)
                 {
@@ -1325,16 +1358,17 @@ sub build_buffers
             {
                 if ( weechat::config_integer( $options{"indenting"} ) eq 1 )
                 {
-                    $str .= "  ";
+                    $str .= (" " x weechat::config_integer( $options{"indenting_amount"} ) );
                 }
                 elsif ( (weechat::config_integer($options{"indenting"}) eq 2) and (weechat::config_integer($options{"indenting_number"}) eq 0) )        #under_name
                 {
                     if ( weechat::config_boolean( $options{"show_number"} ) eq 0 )
                     {
-                      $str .= "  ";
-                    }else
+                      $str .= (" " x weechat::config_integer( $options{"indenting_amount"} ) );
+                    }
+                    else
                     {
-                      $str .= ( (" " x ( $max_number_digits - length($buffer->{"number"}) ))." " );
+                      $str .= ( (" " x ( $max_number_digits - length($buffer->{"number"}) )).(" " x weechat::config_integer( $options{"indenting_amount"} ) ) );
                     }
                 }
             }
@@ -1400,7 +1434,14 @@ sub build_buffers
         if (weechat::config_integer($options{"name_size_max"}) >= 1)                # check max_size of buffer name
         {
             $name = decode("UTF-8", $name);
-            $str .= encode("UTF-8", substr($name, 0, weechat::config_integer($options{"name_size_max"})));
+
+            $maxlength = weechat::config_integer($options{"name_size_max"});
+            if($buffer->{"type"} eq "channel" and weechat::config_boolean( $options{"mark_inactive"} ) eq 1 and $buffer->{"nicks_count"} == 0)
+            {
+                $maxlength -= 2;
+            }
+
+            $str .= encode("UTF-8", substr($name, 0, $maxlength));
             $str .= weechat::color(weechat::config_color( $options{"color_number_char"})).weechat::config_string($options{"name_crop_suffix"}) if (length($name) > weechat::config_integer($options{"name_size_max"}));
             $str .= add_inactive_parentless($buffer->{"type"}, $buffer->{"nicks_count"});
             $str .= add_hotlist_count($buffer->{"pointer"}, %hotlist);

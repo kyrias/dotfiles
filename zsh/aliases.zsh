@@ -2,6 +2,10 @@
 # Aliases and functions
 #
 
+# Don't have run-help aliased to man
+unalias run-help
+alias help=run-help
+
 alias '...'='../..'
 
 ls_options=('--almost-all' '--classify'  '--color=auto'

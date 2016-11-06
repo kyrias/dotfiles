@@ -15,6 +15,12 @@ zle -N zle-line-init
 zle -N zle-line-finish
 zle -N edit-command-line
 
+
+# Don't skip over / in e.g. paths
+# <http://zshwiki.org/home/zle/bindkeys>
+export WORDCHARS="${WORDCHARS:s#/#}"
+
+
 bindkey -v
 
 # Shift-tab

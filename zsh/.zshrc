@@ -2,6 +2,7 @@ HISTFILE=~/.config/zsh/.zsh_history
 HISTSIZE=500000
 SAVEHIST=500000
 
+fpath+=("$XDG_CONFIG_HOME/zsh/themes")
 zstyle :compinstall filename "$ZDOTDIR"/.zshrc
 
 # Menu completion
@@ -42,7 +43,6 @@ zmodload zsh/mapfile
 
 source "$ZDOTDIR"/keybindings.zsh
 source "$ZDOTDIR"/aliases.zsh        # aliases and functions.
-source "$ZDOTDIR"/prompt.zsh         # sets the prompt
 
 if [[ -n "$VTE_VERSION" ]]; then
 	source /etc/profile.d/vte.sh
@@ -55,3 +55,5 @@ fi
 
 GPG_TTY=$(tty)
 export GPG_TTY
+
+prompt kyrias

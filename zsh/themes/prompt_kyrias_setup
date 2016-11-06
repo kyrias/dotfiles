@@ -1,0 +1,39 @@
+prompt_kyrias_help() {
+	cat <<EOF
+kyrias' prompt.
+EOF
+}
+
+prompt_user_color() {
+	if (( ! UID )); then
+		print "red"
+	else
+		print "black"
+	fi
+}
+
+venv_prompt() {
+	if [[ -n "$VIRTUAL_ENV" ]]; then
+		print -P '%{$bg[blue]$fg[white] ${VIRTUAL_ENV##*/} %f%k%}'
+	fi
+}
+
+prompt_kyrias_precmd() {
+	print -Pn "\e];%n %~\a"
+}
+
+prompt_kyrias_setup() {
+	setopt prompt_subst
+	autoload -U colors && colors
+
+	PROMPT='%{$bg[$(prompt_user_color)]$fg[white] %m %k%f$bg[white]$fg[$(prompt_user_color)] %~ %f%k$(venv_prompt)
+$bg[blue]%} λ %k %}'
+}
+
+prompt_kyrias_preview() {
+	prompt_preview_theme kyrias "$@"
+}
+
+prompt_kyrias_setup "$@"
+
+# vim: ft=zsh

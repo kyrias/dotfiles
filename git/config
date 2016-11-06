@@ -102,7 +102,6 @@
 
 [receive]
 	denyCurrentBranch = updateInstead
-	fsckobjects = true
 
 [sendemail]
 	aliasfiletype = mutt
@@ -132,9 +131,5 @@
 
 [rerere]
 	enabled = true
-[transfer]
-	fsckobjects = true
-[fetch]
-	fsckObjects = true
 [commit]
 	verbose = true

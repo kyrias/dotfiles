@@ -14,7 +14,7 @@ prompt_user_color() {
 
 venv_prompt() {
 	if [[ -n "$VIRTUAL_ENV" ]]; then
-		print -P '%{$bg[blue]$fg[white] ${VIRTUAL_ENV##*/} %f%k%}'
+		print -Pn '%{$bg[blue]$fg[white] ${VIRTUAL_ENV##*/} %f%k%}'
 	fi
 }
 
@@ -35,8 +35,8 @@ prompt_kyrias_setup() {
 	add-zsh-hook precmd prompt_kyrias_precmd
 	add-zsh-hook preexec prompt_kyrias_preexec
 
-	PROMPT='%{$bg[$(prompt_user_color)]$fg[white] %m %k%f$bg[white]$fg[$(prompt_user_color)] %~ %f%k$(venv_prompt)
-$bg[blue]%} λ %k %}'
+	PROMPT='%{$bg[$(prompt_user_color)]$fg[white] %m %k%f$bg[white]$fg[$(prompt_user_color)] %~ %f%k$(venv_prompt)%}
+%{$bg[blue]%} λ %k %}'
 }
 
 prompt_kyrias_preview() {

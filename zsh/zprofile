@@ -8,6 +8,8 @@ export XDG_CACHE_HOME="$HOME"/.cache
 export XDG_CONFIG_HOME="$HOME"/.config
 export XDG_DATA_HOME="$HOME"/.local/share
 
+export HISTFILE="$XDG_CACHE_HOME"/zsh/history
+
 # Program homedir overrides
 export MPV_HOME="$XDG_CONFIG_HOME"/mpv
 export GNUPGHOME="$XDG_CONFIG_HOME"/gnupg
@@ -47,8 +49,8 @@ export QT_IM_MODULE=ibus
 # LS_COLORS is now required for `ls` to use colors
 source <(dircolors -b "$XDG_CONFIG_HOME"/dircolors)
 
-if [[ -f "$ZDOTDIR"/profile-"$SHORTHOST" ]]; then
-	source "$ZDOTDIR"/profile-"$SHORTHOST"
+if [[ -f "$ZDOTDIR"/profile.d/"$SHORTHOST" ]]; then
+	source "$ZDOTDIR"/profile.d/"$SHORTHOST"
 fi
 
 if [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]]; then

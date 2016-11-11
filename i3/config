@@ -115,6 +115,7 @@ bindsym $mod+r mode "resize"
 # i3bar
 bar {
 	tray_output primary
+	tray_output DP2-2
 	status_command    ~/.local/venv/bin/python ~/.config/i3/bar.py
 	position          bottom
 	workspace_buttons yes

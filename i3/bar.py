@@ -10,6 +10,7 @@ status = Status(standalone=True)
 status.register("clock",
                 format="%y-%m-%d %H:%M:%S%z",)
 
+
 status.register("battery",
                 format="⚡:{percentage:.2f}% {remaining:%E%hh:%Mm}{status}",
                 alert=True,
@@ -25,13 +26,20 @@ status.register("battery",
 status.register("temp",
                 format="{temp:.0f}°C",)
 
+
 status.register("pulseaudio",
                 format="♪:{volume}%",)
+
 
 if hostname == "zorg.kyriasis.com":
     status.register("network",
                     interface="wlp4s0",
                     format_up="{essid:.10s}: {v4cidr} {quality:3.0f}%",)
+
+    status.register("network",
+                    interface="enp0s25",
+                    format_up="{interface}: {v4cidr}")
+
 
 elif hostname == "tirxu.kyriasis.com":
     status.register("network",
@@ -41,6 +49,7 @@ elif hostname == "tirxu.kyriasis.com":
     status.register("network",
                     interface="enp0s20u3u1u3",
                     format_up="{interface}: {v4cidr}")
+
 
 status.register("disk",
                 path="/boot",

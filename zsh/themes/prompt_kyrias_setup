@@ -20,12 +20,12 @@ venv_prompt() {
 
 prompt_kyrias_precmd() {
 	# Print line to the window title
-	print -Pn "\e];%n %~\a"
+	print -Pn "\e]0;%n %~\a"
 }
 
 prompt_kyrias_preexec() {
 	# Print currently running command name to the window title
-	print -Pn "\e];$1:q\a"
+	print -Pn "\e]0;$1:q\a"
 }
 
 prompt_kyrias_setup() {

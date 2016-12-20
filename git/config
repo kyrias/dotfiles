@@ -94,7 +94,7 @@
 	conflictStyle = diff3
 
 [push]
-	default = current
+	default = simple
 
 [repack]
 	writebitmaps = true

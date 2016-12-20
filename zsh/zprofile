@@ -8,6 +8,8 @@ export XDG_CACHE_HOME="$HOME"/.cache
 export XDG_CONFIG_HOME="$HOME"/.config
 export XDG_DATA_HOME="$HOME"/.local/share
 
+export HISTSIZE=500000
+export SAVEHIST=600000
 export HISTFILE="$XDG_CACHE_HOME"/zsh/history
 
 # Program homedir overrides
@@ -56,3 +58,5 @@ fi
 if [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]]; then
 	exec startx "$XDG_CONFIG_HOME"/X11/xinitrc -- -keeptty -configdir "$XDG_CONFIG_HOME"/X11/xorg.conf.d
 fi
+
+# vim: set ft=zsh:

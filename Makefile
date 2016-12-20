@@ -2,6 +2,7 @@ install:
 	-ln -sf "$(PWD)/zsh/zshenv" "$(HOME)/.zshenv"
 	-ln -sfn "$(PWD)/ssh" "$(HOME)/.ssh"
 	-ln -sfn "$(PWD)/gnupg" "$(HOME)/.gnupg"
+	-mkdir -p "$(HOME)/.cache/zsh"
 
 ~/misc/grawity/:
 	-mkdir -p ~/misc/grawity

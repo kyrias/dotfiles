@@ -18,22 +18,9 @@ venv_prompt() {
 	fi
 }
 
-prompt_kyrias_precmd() {
-	# Print line to the window title
-	print -Pn "\e]0;%n %~\a"
-}
-
-prompt_kyrias_preexec() {
-	# Print currently running command name to the window title
-	print -Pn "\e]0;$1:q\a"
-}
-
 prompt_kyrias_setup() {
 	setopt prompt_subst
 	autoload -U colors && colors
-
-	add-zsh-hook precmd prompt_kyrias_precmd
-	add-zsh-hook preexec prompt_kyrias_preexec
 
 	PROMPT='%{$bg[$(prompt_user_color)]$fg[white] %m %k%f$bg[white]$fg[$(prompt_user_color)] %~ %f%k$(venv_prompt)%}
 %{$bg[blue]%} λ %k %}'

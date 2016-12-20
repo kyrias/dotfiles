@@ -22,11 +22,11 @@ colors
 setopt autocd \
        complete_aliases \
        glob_dots \
+       extended_glob \
        extended_history \
        hist_verify \
        hist_ignore_space \
        inc_append_history_time \
-       interactive_comments \
        numeric_glob_sort \
        no_bg_nice \
        print_exit_value \

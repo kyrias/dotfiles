@@ -22,6 +22,7 @@ transmission/resume/
 transmission/torrents/
 vim/bundle/
 vim/.netrwhist
+weechat/sec.conf
 weechat/logs/*
 weechat/*/autoload/
 weechat/keys/

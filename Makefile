@@ -3,6 +3,7 @@ install:
 	-ln -sfn "$(PWD)/gnupg" "$(HOME)/.gnupg"
 	-ln -sf "$(PWD)/zsh/zshenv" "$(HOME)/.zshenv"
 	-mkdir -p "$(HOME)/.cache/zsh"
+	-mkdir -p "$(HOME)/.local/share/nvim/backup"
 
 ~/misc/grawity/:
 	-mkdir -p ~/misc/grawity

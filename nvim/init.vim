@@ -4,7 +4,8 @@
 
 call plug#begin(expand('$XDG_CONFIG_HOME/nvim/plugs'))
 
-Plug 'ctrlpvim/ctrlp.vim'    " Fuzzy file/buffer/mru/tag/etc. finder
+Plug 'Shougo/denite.nvim'    " unite.vim for nvim
+Plug 'Shougo/neomru.vim'     " MRU plugin for denite
 Plug 'mattn/emmet-vim'       " Emmet-like snippet system
 Plug 'tommcdo/vim-exchange'  " Easy text exchange operator
 Plug 'tpope/vim-fugitive'    " Git wrapper
@@ -90,10 +91,11 @@ nmap <C-k> gk
 let g:ctrlp_extensions = ['tag', 'buffertag', 'dir', 'undo', 'line',
                          \ 'changes', 'mixed', 'bookmarkdir']
 
-nmap <silent> <Leader>pf :CtrlP<CR>
-nmap <silent> <Leader>pb :CtrlPBuffer<CR>
-nmap <silent> <Leader>pm :CtrlPMRU<CR>
-nmap <silent> <Leader>px :CtrlPMixed<CR>
+noremap <silent> <Leader>pf :Denite file_rec<CR>
+noremap <silent> <Leader>pm :Denite file_mru<CR>
+noremap <silent> <Leader>pb :Denite buffer<CR>
+noremap <silent> <Leader>px :Denite buffer file_mru file_rec<CR>
+noremap <silent> <Leader>pg :Denite grep<CR>
 
 
 

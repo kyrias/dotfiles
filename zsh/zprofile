@@ -31,7 +31,7 @@ export ABSROOT="$HOME"/build/abs
 export VISUAL=nvim
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 
-export BROWSER=chromium-private
+export BROWSER=chromium
 export TERMINAL=termite
 
 export PAGER=less

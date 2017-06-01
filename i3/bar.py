@@ -51,6 +51,16 @@ elif hostname == "tirxu.kyriasis.com":
                     format_up="{interface}: {v4cidr}")
 
 
+elif hostname == "hydrogen.kyriasis.com":
+    status.register("network",
+                    interface="wlp4s0",
+                    format_up="{essid:.10s}: {v4cidr} {quality:3.0f}%",)
+
+    status.register("network",
+                    interface="enp0s32f6",
+                    format_up="{interface}: {v4cidr}")
+
+
 status.register("disk",
                 path="/boot",
                 divisor=1024**2,

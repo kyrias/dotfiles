@@ -63,7 +63,6 @@ if hostname == "zorg.kyriasis.com":
                     interface="enp0s25",
                     format_up="{interface}: {v4cidr}")
 
-
 elif hostname == "tirxu.kyriasis.com":
     status.register("network",
                     interface="wlp4s0",
@@ -72,7 +71,6 @@ elif hostname == "tirxu.kyriasis.com":
     status.register("network",
                     interface="enp0s20u3u1u3",
                     format_up="{interface}: {v4cidr}")
-
 
 elif hostname == "hydrogen.kyriasis.com":
     status.register("network",

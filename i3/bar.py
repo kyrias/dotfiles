@@ -11,17 +11,40 @@ status.register("clock",
                 format="%y-%m-%d %H:%M:%S%z",)
 
 
-status.register("battery",
-                format="⚡:{percentage:.2f}% {remaining:%E%hh:%Mm}{status}",
-                alert=True,
-                alert_percentage=5,
-                status={
-                    "DIS": "↓",
-                    "CHR": "↑",
-                    "FULL": "=",
-                },
-                battery_ident="BAT0",)
+if hostname == "hydrogen.kyriasis.com":
+    status.register("battery",
+                    format="⚡0:{percentage:.2f}% {remaining:%E%hh:%Mm}{status}",
+                    alert=True,
+                    alert_percentage=5,
+                    status={
+                        "DIS": "↓",
+                        "CHR": "↑",
+                        "FULL": "=",
+                    },
+                    battery_ident="BAT0",)
 
+    status.register("battery",
+                    format="⚡1:{percentage:.2f}% {remaining:%E%hh:%Mm}{status}",
+                    alert=True,
+                    alert_percentage=5,
+                    status={
+                        "DIS": "↓",
+                        "CHR": "↑",
+                        "FULL": "=",
+                    },
+                    battery_ident="BAT1",)
+
+else:
+    status.register("battery",
+                    format="⚡:{percentage:.2f}% {remaining:%E%hh:%Mm}{status}",
+                    alert=True,
+                    alert_percentage=5,
+                    status={
+                        "DIS": "↓",
+                        "CHR": "↑",
+                        "FULL": "=",
+                    },
+                    battery_ident="BAT0",)
 
 status.register("temp",
                 format="{temp:.0f}°C",)

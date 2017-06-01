@@ -117,7 +117,7 @@ bar {
 	tray_output primary
 	tray_output DP2-2
 	tray_output eDP1
-	status_command    ~/.local/venv/bin/python ~/.config/i3/bar.py
+	status_command    ~/.local/share/i3/venv/bin/python ~/.config/i3/bar.py
 	position          bottom
 	workspace_buttons yes
 	strip_workspace_numbers yes

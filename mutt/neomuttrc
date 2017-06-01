@@ -27,9 +27,9 @@ set folder           = "$HOME/mail"
 set tmpdir           = "$XDG_CACHE_HOME/mutt/temp"           # where to keep temp files
 set message_cachedir = "$XDG_CACHE_HOME/mutt/cache/"         # where to store bodies
 set header_cache     = "$XDG_CACHE_HOME/mutt/cache/headers"  # where to store headers
-set certificate_file = "$XDG_CONFIG_HOME/neomutt/certificates"  # where to store certs
-set mailcap_path     = "$XDG_CONFIG_HOME/neomutt/mailcap"       # entries for filetypes
-set signature        = "$XDG_CONFIG_HOME/neomutt/sig"           # my signature file
+set certificate_file = "$XDG_CONFIG_HOME/mutt/certificates"  # where to store certs
+set mailcap_path     = "$XDG_CONFIG_HOME/mutt/mailcap"       # entries for filetypes
+set signature        = "$XDG_CONFIG_HOME/mutt/sig"           # my signature file
 
 set spoolfile        = "+inbox"
 set mbox             = "+archive"
@@ -99,8 +99,8 @@ macro index,pager A "<pipe-message>goobook -c \"$XDG_CONFIG_HOME/goobook/goobook
 bind editor <Tab> complete-query
 
 # Sending email
-macro generic "<Esc>A" ":source \"$XDG_CONFIG_HOME\"/neomutt/demize@archlinux.org.muttrc<return>"
-macro generic "<Esc>K" ":source \"$XDG_CONFIG_HOME\"/neomutt/johannes@kyriasis.com.muttrc<return>"
+macro generic "<Esc>A" ":source \"$XDG_CONFIG_HOME\"/mutt/demize@archlinux.org.muttrc<return>"
+macro generic "<Esc>K" ":source \"$XDG_CONFIG_HOME\"/mutt/johannes@kyriasis.com.muttrc<return>"
 
 
 # Sync email
@@ -175,7 +175,7 @@ macro index ,g "<pipe-message>grep -a \^Message-ID: | sed \'s_Message-ID: <\\(.*
 # View attachments properly.
 bind attach <return> view-mailcap
 
-source ~/.config/neomutt/gpg.rc
+source ~/.config/mutt/gpg.rc
 set pgp_sign_as        = 3A9D0BB5
 set pgp_use_gpg_agent  = yes
 set crypt_use_gpgme    = yes
@@ -186,7 +186,7 @@ set crypt_use_pka      = yes
 
 my_hdr X-Clacks-Overhead: GNU Terry Pratchett
 
-source ~/.config/neomutt/themes/comidia
+source ~/.config/mutt/themes/comidia
 
 subscribe arch-dev-public@archlinux.org
 subscribe aur-general@archlinux.org

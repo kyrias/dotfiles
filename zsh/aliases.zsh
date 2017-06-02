@@ -24,7 +24,6 @@ alias amv='amv -g'
 
 alias ncmpcpp='ncmpcpp -c ~/.config/ncmpcpp/config'
 alias wefree='weechat -a -r "/connect Freenode"'
-alias ms='mbsync --config "$XDG_CONFIG_HOME/mbsyncrc" theos'
 alias msa='mbsync --config "$XDG_CONFIG_HOME/mbsyncrc" -a'
 
 alias pt='pstree --highlight-all --long --uid-changes'

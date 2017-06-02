@@ -7,6 +7,7 @@ from i3pystatus import Status
 hostname = socket.gethostname()
 status = Status(standalone=True)
 
+
 status.register("clock",
                 format="%y-%m-%d %H:%M:%S%z",)
 
@@ -46,12 +47,18 @@ else:
                     },
                     battery_ident="BAT0",)
 
+
 status.register("temp",
                 format="{temp:.0f}°C",)
 
 
 status.register("pulseaudio",
                 format="♪:{volume}%",)
+
+
+status.register("backlight",
+                backlight="intel_backlight",
+                format="🔆: {percentage}% ({brightness}/{max_brightness})")
 
 
 if hostname == "zorg.kyriasis.com":

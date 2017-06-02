@@ -16,7 +16,7 @@ $tinyurltrigger = 40;
 # If we pass a 2nd argument, it means we want to force HTML check a 'text/plain' file
 if(defined($ARGV[2])) { open(FP, $file); for(<FP>) { push(@text, $_); } close(FP); }
 # Otherwise, treat as HTML first 
-else { @text = `elinks -dump -dump-charset $ARGV[1] -default-mime-type text/html $file`; }
+else { @text = `w3m -dump -o display_link_number=1 -o document_charset=$ARGV[1] $file`; }
 
 
 # Note: using while (instead of for) b/c for supposedly loads

@@ -33,12 +33,12 @@ while (my $line = shift @text) {
 				my $alarm = 5;
 				alarm $alarm;
 				my $link = uri_escape($link);
-				$tinyurl=`wget -q -O - http://tinyurl.com/api-create.php?url=$link`;
+				$tinyurl=`curl -s http://tinyurl.com/api-create.php?url=$link`;
 				alarm 0;
 			};
 
 			if ($@) { 
-				$line =~ s/(\w+:\/\/\S+)/$link (wget TimeOut)/; }
+				$line =~ s/(\w+:\/\/\S+)/$link (curl TimeOut)/; }
 			else { $line =~ s/(\w+:\/\/\S+)/$tinyurl\n\t[>> $link <<]/; }
 		}
 	}

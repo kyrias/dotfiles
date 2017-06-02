@@ -11,7 +11,7 @@ $file = $ARGV[0];
 @text = ();
 
 # Only shorten URLs at least this length or more
-$tinyurltrigger = 40;
+$tinyurltrigger = 120;
 
 # If we pass a 2nd argument, it means we want to force HTML check a 'text/plain' file
 if(defined($ARGV[2])) { open(FP, $file); for(<FP>) { push(@text, $_); } close(FP); }

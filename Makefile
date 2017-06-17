@@ -5,6 +5,7 @@ install:
 	-mkdir -p "$(HOME)/.cache/zsh"
 	-mkdir -p "$(HOME)/.local/share/nvim/backup"
 	-ln -sf "$(PWD)/mailcap" "$(HOME)/.mailcap"
+	-ln -sf "$(PWD)/msmtprc" "$(HOME)/.msmtprc"
 
 ~/misc/grawity/:
 	-mkdir -p ~/misc/grawity

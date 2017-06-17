@@ -47,9 +47,9 @@ export SHORTHOST=$(hostname -s)
 # Don’t use the default venv prompt in favor of our custom one
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
-export GTK_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
 
 # LS_COLORS is now required for `ls` to use colors
 source <(dircolors -b "$XDG_CONFIG_HOME"/dircolors)

@@ -14,7 +14,7 @@ status.register("clock",
 
 if hostname == "hydrogen.kyriasis.com":
     status.register("battery",
-                    format="⚡0:{percentage:.2f}% {remaining:%E%hh:%Mm}{status}",
+                    format="⚡0: {percentage:.2f}% {remaining:%E%hh:%Mm}{status}",
                     alert=True,
                     alert_percentage=5,
                     status={
@@ -25,7 +25,7 @@ if hostname == "hydrogen.kyriasis.com":
                     battery_ident="BAT0",)
 
     status.register("battery",
-                    format="⚡1:{percentage:.2f}% {remaining:%E%hh:%Mm}{status}",
+                    format="⚡1: {percentage:.2f}% {remaining:%E%hh:%Mm}{status}",
                     alert=True,
                     alert_percentage=5,
                     status={

@@ -29,7 +29,7 @@ export XAUTHORITY="$XDG_RUNTIME_DIR"/xauthority
 export ABSROOT="$HOME"/build/abs
 
 export VISUAL=nvim
-export NVIM_TUI_ENABLE_TRUE_COLOR=1
+export EDITOR=nvim
 
 export BROWSER=chromium
 export TERMINAL=termite

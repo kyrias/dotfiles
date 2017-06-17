@@ -42,6 +42,8 @@ SCRIPT_VERSION = "0.0.8"
 SCRIPT_LICENSE = "GPL"
 SCRIPT_DESC = "notify: A real time notification system for weechat"
 
+import subprocess
+
 # make sure we're run under weechat.
 import_ok = True
 try:
@@ -77,12 +79,29 @@ urgencies = {
 }
 
 # Functions
+def is_active_window():
+    try:
+        p = subprocess.Popen(['xdotool', 'getwindowfocus', 'getwindowname'], stdout=subprocess.PIPE)
+        (stdout, _) = p.communicate()
+    except FileNotFoundError:
+        # Always notify if xdotool isn't available.
+        return True
+
+    if p.returncode != 0:
+        return True
+
+    return b'WeeChat' in stdout
+
 def notify_show(data, bufferp, uber_empty, tagsn, isdisplayed, ishilight, prefix, message):
     """Sends highlighted message to be printed on notification"""
     # string for show_notification return
     snreturn = None
-    # smart_notification
-    if (weechat.config_get_plugin('smart_notification') == "on" and bufferp == weechat.current_buffer()):
+    # Don't notify if the WeeChat window is focused if smart notifications are on
+    if is_active_window():
+        pass
+    # Don't notify for current buffer if smart notifications are on.
+    elif (weechat.config_get_plugin('smart_notification') == "on" and bufferp == weechat.current_buffer()):
+        # smart_notification
         pass
     # are we away and want highlights? check: w.infolist_integer(infolist, 'is_away')
     elif (weechat.config_get_plugin('notify_when_away') == "off" and weechat.buffer_get_string(bufferp, 'localvar_away')):

@@ -11,7 +11,7 @@ endif
 let g:colors_name = "Darkcustomside"
 
 hi Cursor ctermfg=NONE ctermbg=231 cterm=NONE guifg=NONE guibg=#f8f8f0 gui=NONE
-hi Visual ctermfg=NONE ctermbg=16 cterm=NONE guifg=NONE guibg=#161a1f gui=NONE
+hi Visual ctermfg=NONE ctermbg=16 cterm=NONE guifg=#303030 guibg=#bababa gui=NONE
 hi CursorLine ctermfg=NONE ctermbg=239 cterm=NONE guifg=NONE guibg=#313233 gui=NONE
 hi CursorColumn ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#313233 gui=NONE
 hi ColorColumn ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#313233 gui=NONE
@@ -47,6 +47,7 @@ hi Operator ctermfg=208 ctermbg=NONE cterm=NONE guifg=#f08d24 guibg=NONE gui=NON
 hi PreProc ctermfg=208 ctermbg=NONE cterm=NONE guifg=#f08d24 guibg=NONE gui=NONE
 hi Special ctermfg=250 ctermbg=NONE cterm=NONE guifg=#bababa guibg=NONE gui=NONE
 hi SpecialKey ctermfg=59 ctermbg=236 cterm=NONE guifg=#4b4a42 guibg=#313233 gui=NONE
+hi Whitespace ctermfg=59 ctermbg=236 cterm=NONE guifg=#808080 guibg=NONE gui=NONE
 hi Statement ctermfg=208 ctermbg=NONE cterm=NONE guifg=#f08d24 guibg=NONE gui=NONE
 hi StorageClass ctermfg=38 ctermbg=NONE cterm=NONE guifg=#1cc3e8 guibg=NONE gui=italic
 hi String ctermfg=220 ctermbg=NONE cterm=NONE guifg=#f2d42c guibg=NONE gui=NONE

@@ -21,3 +21,4 @@ Patterns *
 Create Both
 SyncState *
 Expunge Both
+CopyArrivalDate yes

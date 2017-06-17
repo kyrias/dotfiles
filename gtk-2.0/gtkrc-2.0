@@ -1,7 +1,8 @@
 # DO NOT EDIT! This file will be overwritten by LXAppearance.
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
-gtk-theme-name="Numix"
+include "/home/kyrias/.gtkrc-2.0.mine"
+gtk-theme-name="Adapta"
 gtk-icon-theme-name="elementary-xfce-darkest"
 gtk-font-name="Ubuntu 10"
 gtk-cursor-theme-name="Neutral"
@@ -14,5 +15,5 @@ gtk-enable-event-sounds=1
 gtk-enable-input-feedback-sounds=1
 gtk-xft-antialias=1
 gtk-xft-hinting=1
-gtk-xft-hintstyle="hintmedium"
+gtk-xft-hintstyle="hintfull"
 gtk-xft-rgba="rgb"

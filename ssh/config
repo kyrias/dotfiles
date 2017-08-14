@@ -1,3 +1,22 @@
+Host theos theos.kyriasis.com h.theos h.theos.kyriasis.com
+	GSSAPIDelegateCredentials yes
+	ForwardAgent yes
+	ForwardX11 yes
+	ForwardX11Trusted yes
+
+Host theos
+	Hostname theos.kyriasis.com
+
+Host h.theos
+	Hostname h.theos.kyriasis.com
+
+Host *.archlinux.org
+	User demize
+	ForwardAgent yes
+
+Host aur.archlinux.org
+	User aur
+
 Host *
 	User kyrias
 	HostKeyAlgorithms ssh-ed25519,ssh-rsa
@@ -10,28 +29,3 @@ Host *
 	ControlPersist 30
 	GSSAPIAuthentication yes
 	PubkeyAuthentication yes
-
-Host git.kyriasis.com
-	User git
-	PubkeyAuthentication no
-
-Host h.theos h.theos.kyriasis.com
-	hostname h.theos.kyriasis.com
-	GSSAPIDelegateCredentials yes
-	ForwardAgent yes
-	ForwardX11 yes
-	ForwardX11Trusted yes
-
-Host theos theos.kyriasis.com
-	hostname theos.kyriasis.com
-	GSSAPIDelegateCredentials yes
-	ForwardAgent yes
-	ForwardX11 yes
-	ForwardX11Trusted yes
-
-Host *.archlinux.org
-	User demize
-	ForwardAgent yes
-
-Host aur.archlinux.org
-	User aur

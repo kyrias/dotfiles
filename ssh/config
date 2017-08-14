@@ -29,9 +29,6 @@ Host theos theos.kyriasis.com
 	ForwardX11 yes
 	ForwardX11Trusted yes
 
-Host lucifer
-	hostname lucifer.kyriasis.com
-
 Host *.archlinux.org
 	User demize
 	ForwardAgent yes

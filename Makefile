@@ -6,6 +6,7 @@ install:
 	-mkdir -p "$(HOME)/.local/share/nvim/backup"
 	-ln -sf "$(PWD)/mailcap" "$(HOME)/.mailcap"
 	-ln -sf "$(PWD)/msmtprc" "$(HOME)/.msmtprc"
+	-ln -sf "$(PWD)/X11/Xmodmap" "$(HOME)/.Xmodmap"
 
 ~/misc/grawity/:
 	-mkdir -p ~/misc/grawity

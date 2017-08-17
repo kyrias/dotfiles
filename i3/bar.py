@@ -1,5 +1,12 @@
 # -*- coding: utf-8 -*-
 
+###
+# Dependencies:
+#
+# i3pystatus
+# netifaces
+# colour
+
 import socket
 
 from i3pystatus import Status

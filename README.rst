@@ -12,6 +12,15 @@ GTK+
 
 The GTK+ config files use the Adapta GTK+ theme, and elementary icon theme.
 
+i3 bar
+------
+
+The i3 bar requires the following pip dependencies to be installed:
+
+- i3pystatus
+- netifaces
+- colour
+
 License
 =======
 

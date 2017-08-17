@@ -10,7 +10,8 @@ Dependencies
 GTK+
 ----
 
-The GTK+ config files use the Adapta GTK+ theme, and elementary icon theme.
+* adapta-gtk-theme
+* elementary-icon-theme
 
 i3 bar
 ------

@@ -1,4 +1,4 @@
-i3venv = ~/.local/share/i3/venv
+i3venv = "$(HOME)"/.local/share/i3/venv
 
 $(i3venv):
 	mkdir -p "$(i3venv)"

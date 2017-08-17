@@ -1,5 +1,6 @@
 path=( "$HOME"/.local/bin
        "$HOME"/bin
+       "$HOME"/.cargo/bin
        "$HOME"/.gem/ruby/2.1.0/bin
        "${path[@]}" )
 

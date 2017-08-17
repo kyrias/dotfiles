@@ -4,6 +4,14 @@ dotfiles
 
 Just a little repo containing most of my $XDG_CONFIG_HOME directory.
 
+Dependencies
+============
+
+GTK+
+----
+
+The GTK+ config files use the Adapta GTK+ theme, and elementary icon theme.
+
 License
 =======
 

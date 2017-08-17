@@ -1,4 +1,11 @@
-install:
+i3venv = ~/.local/share/i3/venv
+
+$(i3venv):
+	mkdir -p "$(i3venv)"
+	python -m venv "$(i3venv)"
+	"$(i3venv)"/bin/pip install --upgrade i3pystatus netifaces colour
+
+install: i3venv
 	-ln -sfn "$(PWD)/ssh" "$(HOME)/.ssh"
 	-ln -sfn "$(PWD)/gnupg" "$(HOME)/.gnupg"
 	-ln -sf "$(PWD)/zsh/zshenv" "$(HOME)/.zshenv"

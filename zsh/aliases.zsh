@@ -10,7 +10,8 @@ alias '...'='../..'
 alias '....'='../../..'
 
 ls_options=('--almost-all' '--classify'  '--color=auto'
-            '--human-readable' '--group-directories-first')
+            '--human-readable' '--group-directories-first'
+            '-v') # Natural sort
 alias ls='\ls "${ls_options[@]}"'
 alias ll='\ls "${ls_options[@]}" -l'
 

@@ -1,6 +1,5 @@
 [global]
     font = Terminus 14
-    allow_markup = yes
     format = "%a\n%s %p\n%b"
     sort = no
     indicate_hidden = yes

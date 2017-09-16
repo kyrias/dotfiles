@@ -1,0 +1,30 @@
+followup_to = True
+honor_followup_to = True
+handle_mouse = True
+history_size = -1
+auto_replyto_mailinglist = True
+#prefer_plaintext = True
+terminal_cmd = "termite -e"
+
+[accounts]
+  [[private]]
+    realname = Johannes Löthberg
+    address = johannes@kyriasis.com
+    gpg_key = 50FB9B273A9D0BB5
+    sign_by_default = True
+    sendmail_command = msmtp --account=theos -t
+    sent_box = maildir:///home/kyrias/mail/sent
+    draft_box = maildir:///home/kyrias/mail/drafts
+    signature = ~/.config/alot/sig
+
+[bindings]
+  [[search]]
+    a = toggletags archive
+    i = toggletags inbox
+    J = toggletags learn-spam
+    T = tag deleted; untag inbox
+
+  [[envelope]]
+    E = toggleencrypt
+
+# vim: ft=conf ts=2 sw=2 sts=2 et

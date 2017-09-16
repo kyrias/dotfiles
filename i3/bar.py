@@ -94,7 +94,7 @@ elif hostname == "hydrogen.kyriasis.com":
                     format_up="{essid:.10s}: {v4cidr} {quality:3.0f}%",)
 
     status.register("network",
-                    interface="enp0s32f6",
+                    interface="enp0s31f6",
                     format_up="{interface}: {v4cidr}")
 
 

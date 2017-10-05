@@ -7,6 +7,10 @@ Just a little repo containing most of my $XDG_CONFIG_HOME directory.
 Dependencies
 ============
 
+- adobe-source-code-pro-fonts
+- termite
+- chromium
+
 GTK+
 ----
 

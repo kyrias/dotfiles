@@ -9,13 +9,6 @@ if (( UID )); then
 			source "$envfile" >/dev/null
 		fi
 	}
-
-	export PERL5LIB="$HOME"/misc/grawity/code/lib/perl5"${PERL5LIB+:}$PERL5LIB";
-	path+=("$HOME"/misc/grawity/code/obj/host."$(hostname)"/
-	       "$HOME"/misc/grawity/code/bin)
-	source "$HOME"/misc/grawity/code/kerberos/kc.sh
-
-	export MAILDIR="$HOME"/mail
 fi
 
 # vim: ft=zsh

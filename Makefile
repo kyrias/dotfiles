@@ -5,7 +5,7 @@ all: install
 $(i3venv):
 	mkdir -p "$(i3venv)"
 	python -m venv "$(i3venv)"
-	"$(i3venv)"/bin/pip install --upgrade -e git+https://github.com/enkore/i3pystatus#egg=i3pystatus netifaces colour -e git+https://github.com/bastienleonard/pysensors#egg=pysensors
+	"$(i3venv)"/bin/pip install --upgrade -e git+https://github.com/enkore/i3pystatus#egg=i3pystatus netifaces colour -e git+https://github.com/bastienleonard/pysensors#egg=sensors basiciw https://download.gnome.org/sources/pygobject/3.26/pygobject-3.26.0.tar.xz
 
 install: $(i3venv)
 	-ln -sfn "$(PWD)/ssh" "$(HOME)/.ssh"

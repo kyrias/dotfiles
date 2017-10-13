@@ -13,14 +13,22 @@ GTK+
 * adapta-gtk-theme
 * elementary-icon-theme
 
+
 i3 bar
 ------
 
-The i3 bar requires the following pip dependencies to be installed:
+Required for battery notifications from bar:
+
+- gobject-introspection
+- python-cairo
+
+
+The i3 bar also requires the following pip dependencies to be installed:
 
 - i3pystatus
 - netifaces
 - colour
+
 
 License
 =======
@@ -29,12 +37,13 @@ Everything in this repo is licensed under the ISC license unless otherwise
 specified in either the file itself, or alternatively in a LICENSE or README
 file located in the same directory as, or a parent directory of, the file.
 
+
 ISC License
 -----------
 
 ::
 
- Copyright (c) 2014, Johannes Löthberg <johannes@kyriasis.com>
+ Copyright (c) 2014-2017, Johannes Löthberg <johannes@kyriasis.com>
 
  Permission to use, copy, modify, and/or distribute this software for
  any purpose with or without fee is hereby granted, provided that the

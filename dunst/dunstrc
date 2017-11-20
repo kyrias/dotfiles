@@ -20,7 +20,6 @@
     separator_color = frame
     startup_notification = true
     dmenu = /usr/bin/bemenu -P dunst:
-    browser = /home/kyrias/.local/bin/chromium
 
 [frame]
     width = 3

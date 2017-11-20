@@ -12,7 +12,6 @@ Host h.theos
 
 Host *.archlinux.org
 	User demize
-	ForwardAgent yes
 
 Host aur.archlinux.org
 	User aur

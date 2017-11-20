@@ -4,6 +4,7 @@ set $mod Mod4
 font pango:Inter UI Medium 12
 
 floating_modifier $mod
+hide_edge_borders smart
 bindsym $mod+Return exec termite
 bindsym $mod+Shift+q kill
 bindsym $mod+d exec --no-startup-id "/usr/bin/j4-dmenu-desktop --dmenu='dmenu -i -fn DejaVu\ Sans\ Mono\ 9' --term=/usr/bin/termite"

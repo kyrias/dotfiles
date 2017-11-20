@@ -51,6 +51,37 @@ if hostname == "hydrogen.kyriasis.com":
                     },
                     battery_ident="BAT1",)
 
+elif hostname.startswith("lithium"):
+    status.register("battery",
+                    color="#CDC0B0",
+                    full_color="#7CFC00",
+                    charging_color="#7CFC00",
+                    critical_color="#EE4000",
+                    format="⚡0 {percentage:.2f}% {remaining:%E%hh:%Mm}{status}",
+                    alert=True,
+                    alert_percentage=5,
+                    status={
+                        "DIS": "↓",
+                        "CHR": "↑",
+                        "FULL": "=",
+                    },
+                    battery_ident="BAT0",)
+
+    status.register("battery",
+                    color="#CDC0B0",
+                    full_color="#7CFC00",
+                    charging_color="#7CFC00",
+                    critical_color="#EE4000",
+                    format="⚡1 {percentage:.2f}% {remaining:%E%hh:%Mm}{status}",
+                    alert=True,
+                    alert_percentage=5,
+                    status={
+                        "DIS": "↓",
+                        "CHR": "↑",
+                        "FULL": "=",
+                    },
+                    battery_ident="BAT1",)
+
 else:
     status.register("battery",
                     color="#CDC0B0",
@@ -118,6 +149,19 @@ elif hostname == "hydrogen.kyriasis.com":
                     color_up="#7CFC00",
                     color_down="#EE4000",
                     interface="wlp4s0",
+                    format_up="{essid:.10s}: {v4cidr} {quality:3.0f}%",)
+
+    status.register("network",
+                    color_up="#7CFC00",
+                    color_down="#EE4000",
+                    interface="enp0s31f6",
+                    format_up="{interface}: {v4cidr}")
+
+elif hostname.startswith('lithium'):
+    status.register("network",
+                    color_up="#7CFC00",
+                    color_down="#EE4000",
+                    interface="wlp3s0",
                     format_up="{essid:.10s}: {v4cidr} {quality:3.0f}%",)
 
     status.register("network",

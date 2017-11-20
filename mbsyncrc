@@ -22,3 +22,28 @@ Create Both
 SyncState *
 Expunge Both
 CopyArrivalDate yes
+
+
+IMAPAccount archlinux
+Host mail.archlinux.org
+User demize
+SSLType STARTTLS
+SSLVersions TLSv1.2
+PassCmd +"pass show mail/demize@archlinux.org"
+
+IMAPStore archlinux-remote
+Account archlinux
+
+MaildirStore archlinux-local
+Path ~/mail-archlinux/
+Inbox ~/mail-archlinux/inbox
+SubFolders Verbatim
+
+Channel archlinux
+Master :archlinux-remote:
+Slave :archlinux-local:
+Patterns *
+Create Both
+SyncState *
+Expunge Both
+CopyArrivalDate yes

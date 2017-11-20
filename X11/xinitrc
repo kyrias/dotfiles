@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # ~/.xinitrc
 #
@@ -7,6 +7,6 @@
 systemctl --user import-environment DISPLAY XAUTHORITY SSH_AGENT_PID SSH_AUTH_SOCK
 systemctl --user restart dumpwatch
 
-[[ -f "$XDG_CONFIG_HOME"/X11/Xmodmap ]] && xmodmap "$XDG_CONFIG_HOME"/X11/Xmodmap
+[[ -f "$XDG_CONFIG_HOME"/X11/Xmodmap ]] && xmodmap "$XDG_CONFIG_HOME"/X11/Xmodmap -v
 
 exec i3 -c "$XDG_CONFIG_HOME"/i3/config

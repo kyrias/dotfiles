@@ -54,7 +54,7 @@ set noexpandtab
 set copyindent
 
 " Show tabs and end-of-line whitespace
-set listchars=tab:»·,trail:·,nbsp:☠
+set listchars=tab:»·,trail:·,nbsp:◊
 set list
 
 " List of vim syntaxes to highlight in rST code blocks

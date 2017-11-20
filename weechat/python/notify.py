@@ -80,12 +80,8 @@ urgencies = {
 
 # Functions
 def is_active_window():
-    try:
-        p = subprocess.Popen(['xdotool', 'getwindowfocus', 'getwindowname'], stdout=subprocess.PIPE)
-        (stdout, _) = p.communicate()
-    except FileNotFoundError:
-        # Always notify if xdotool isn't available.
-        return True
+    p = subprocess.Popen(['xdotool', 'getwindowfocus', 'getwindowname'], stdout=subprocess.PIPE)
+    (stdout, _) = p.communicate()
 
     if p.returncode != 0:
         return True

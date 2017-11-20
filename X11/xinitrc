@@ -9,4 +9,4 @@ systemctl --user restart dumpwatch
 
 [[ -f "$XDG_CONFIG_HOME"/X11/Xmodmap ]] && xmodmap "$XDG_CONFIG_HOME"/X11/Xmodmap
 
-exec i3 -c /home/kyrias/.config/i3/config
+exec i3 -c "$XDG_CONFIG_HOME"/i3/config

@@ -1,1 +1,9 @@
-keysym Control_L Control = Escape
+clear Lock
+clear Control
+
+keycode   9 = Caps_Lock NoSymbol Caps_Lock NoSymbol Caps_Lock
+keycode  66 = Control_L NoSymbol Control_L NoSymbol Control_L
+keycode  37 = Escape NoSymbol Escape NoSymbol Escape
+
+add Lock = Caps_Lock
+add Control = Control_L

@@ -4,7 +4,7 @@ Description=Watch ~/dumpdir for things to upload to theos
 [Service]
 Environment=dump_host=theos.kyriasis.com
 Environment=dump_user=kyrias
-ExecStart=/home/kyrias/.local/bin/dumpwatch.zsh
+ExecStart=/home/%u/.local/bin/dumpwatch.zsh
 
 [Install]
 WantedBy=default.target

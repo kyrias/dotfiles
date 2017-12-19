@@ -1,0 +1,3 @@
+! Unbreak space+space
+! Original: keycode  65 = space NoSymbol space NoSymbol NoSymbol NoSymbol NoSymbol NoSymbol space space thinspace nobreakspace
+keycode  65 = space NoSymbol space NoSymbol space NoSymbol NoSymbol NoSymbol space space thinspace nobreakspace

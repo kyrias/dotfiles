@@ -64,13 +64,12 @@
 [diff "ldif"]
 	xfuncname = "^(dn: .+)$"
 
+[format]
+	signOff = true
+
 [gc]
 	reflogExpire = 365 days
 	reflogExpireUnreachable = 365 days
-
-[github]
-	user = kyrias
-	password = !pass show web/github.com | head -1
 
 [grep]
 	lineNumber = true
@@ -79,6 +78,9 @@
 [log]
 	decorate = full
 	showSignature = true
+
+[status]
+	showuntrackedfiles = no
 
 [merge]
 	tool = nvimdiff
@@ -93,6 +95,9 @@
 [receive]
 	denyCurrentBranch = updateInstead
 
+[rerere]
+	enabled = true
+
 [sendemail]
 	aliasfiletype = mutt
 	aliasesfile = /home/kyrias/.config/git/aliases
@@ -101,9 +106,6 @@
 	smtpserveroption = "-C"
 	smtpserveroption = "/home/kyrias/.config/msmtprc"
 	supresscc = self
-
-[status]
-	showuntrackedfiles = no
 
 [url "git@github.com:"]
 	pushInsteadOf = git://github.com/
@@ -119,8 +121,10 @@
 	username = kyrias
 	helper = pass
 
-[rerere]
-	enabled = true
+[github]
+	user = kyrias
+	password = !pass show web/github.com | head -1
+
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f

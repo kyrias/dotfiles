@@ -15,6 +15,7 @@ Host *.archlinux.org
 
 Host aur.archlinux.org
 	User aur
+	SendEnv AUR_OVERWRITE
 
 Host *.starstable.com *.internal.starstable.com 172.*
 	User centos

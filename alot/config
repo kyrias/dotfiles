@@ -17,6 +17,16 @@ terminal_cmd = "termite -e"
     draft_box = maildir:///home/kyrias/mail/drafts
     signature = ~/.config/alot/sig
 
+  [[archlinux]]
+    realname = Johannes Löthberg
+    address = demize@archlinux.org
+    gpg_key = 50FB9B273A9D0BB5
+    sign_by_default = True
+    sendmail_command = msmtp --account=archlinux -t
+    sent_box = maildir:///home/kyrias/mail/archlinux/Sent
+    draft_box = maildir:///home/kyrias/mail/archlinux/Drafts
+    signature = ~/.config/alot/sig
+
 [bindings]
   [[search]]
     a = toggletags archive

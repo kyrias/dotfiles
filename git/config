@@ -33,9 +33,6 @@
 	fpush = push --force-with-lease
 	shortdesc = !git --no-pager log -1 --pretty='tformat:%h (%s, %ad)' --date=short
 
-[advice]
-	detachedHead = false
-
 [am]
 	messageid = true
 
@@ -49,22 +46,16 @@
 	status = true
 
 [column]
-	branch = never
-	status = never
 	tag = auto dense
 
 [commit]
 	verbose = true
 
 [core]
-	# never use an askpass even if $SSH_ASKPASS is set
-	askpass =
-	logAllRefUpdates = true
 	pager = less -x1,5
 
 [diff]
 	renames = copies
-	compactionHeuristic = true
 
 [diff "gpg"]
 	textconv = gpg -v
@@ -93,14 +84,10 @@
 	tool = nvimdiff
 	conflictStyle = diff3
 
-[push]
-	default = simple
-
 [pull]
 	rebase = preserve
 
 [repack]
-	writebitmaps = true
 	autosquash = true
 
 [receive]

@@ -17,7 +17,7 @@ SubFolders Verbatim
 Channel theos
 Master :theos-remote:
 Slave :theos-local:
-Patterns *
+Patterns * !archlinux/*
 Create Both
 SyncState *
 Expunge Both
@@ -35,8 +35,8 @@ IMAPStore archlinux-remote
 Account archlinux
 
 MaildirStore archlinux-local
-Path ~/mail-archlinux/
-Inbox ~/mail-archlinux/inbox
+Path ~/mail/archlinux/
+Inbox ~/mail/archlinux/inbox
 SubFolders Verbatim
 
 Channel archlinux

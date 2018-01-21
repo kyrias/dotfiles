@@ -4,9 +4,9 @@
 	signingkey = 3A9D0BB5
 
 [alias]
-	amend = commit --amend --verbose
+	amend = commit --amend
 	br = branch
-	ci = commit --verbose --signoff
+	ci = commit --signoff
 	co = checkout
 	di = diff
 	dc = diff --cached
@@ -55,6 +55,9 @@
 	branch = never
 	status = never
 	tag = auto dense
+
+[commit]
+	verbose = true
 
 [core]
 	# never use an askpass even if $SSH_ASKPASS is set
@@ -134,8 +137,6 @@
 
 [rerere]
 	enabled = true
-[commit]
-	verbose = true
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f

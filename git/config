@@ -8,8 +8,6 @@
 	br = branch
 	ci = commit --signoff
 	co = checkout
-	di = diff
-	dc = diff --cached
 	empty = !git init && git commit --allow-empty -m \"Initial commit\"
 	follow = log --oneline --follow --stat --summary --
 	last = log -1 HEAD
@@ -30,7 +28,6 @@
 	tip = !git --no-pager log -1 --decorate --abbrev-commit --date=relative --show-signature
 	undo = reset --soft HEAD^
 	unstage = reset HEAD --
-	up = remote update
 	wdiff = diff --word-diff
 	wshow = show --word-diff
 	fpush = push --force-with-lease

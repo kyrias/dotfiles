@@ -7,7 +7,7 @@ mail_mover_kind = query
 [ArchiveSentMailsFilter]
 [InboxFilter]
 [FolderNameFilter]
-folder_explicit_list = archive drafts sent spam "probably-spam"
+folder_explicit_list = archive drafts sent spam "probably-spam" archlinux/Drafts archlinux/Junk archlinux/Sent archlinux/Trash archlinux/inbox
 
 [MailMover]
 folders = inbox archive spam

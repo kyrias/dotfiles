@@ -1,1 +1,2 @@
 alias pacman pacman-dev@archlinux.org
+alias pacman-contrib pacman-contrib@lists.archlinux.org

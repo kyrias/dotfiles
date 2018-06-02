@@ -4,7 +4,10 @@ handle_mouse = True
 history_size = -1
 auto_replyto_mailinglist = True
 #prefer_plaintext = True
-terminal_cmd = "termite -e"
+editor_in_thread = True
+editor_spawn = True
+editor_cmd = "nvim %s"
+terminal_cmd = "term"
 
 [accounts]
   [[private]]

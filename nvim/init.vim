@@ -10,6 +10,12 @@ Plug 'chriskempson/base16-vim'
 " Modeline replacement
 Plug 'itchyny/lightline.vim'
 
+" Change working directory to project root when opening file
+Plug 'airblade/vim-rooter'
+
+" Fuzzy finder.  Requires fzf package to be installed
+Plug 'junegunn/fzf.vim'
+
 " Better syntax highlighting
 Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-git'
@@ -28,6 +34,9 @@ let base16colorspace=256
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ }
+
+" Fzf
+let g:fzf_command_prefix = 'Fzf'
 
 
 """
@@ -112,3 +121,6 @@ noremap <silent> <Leader>pm :Denite file_mru<CR>
 noremap <silent> <Leader>pb :Denite buffer<CR>
 noremap <silent> <Leader>px :Denite buffer file_mru file_rec<CR>
 noremap <silent> <Leader>pg :Denite grep<CR>
+
+map <C-p> :FzfFiles<CR>
+nmap <leader>; :FzfBuffers<CR>

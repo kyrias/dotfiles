@@ -59,6 +59,17 @@ set copyindent
 set listchars=tab:»·,trail:·,nbsp:◊
 set list
 
+" Colors
+colorscheme base16-atelier-dune
+
+" Color spaces at end of lines bright red for visibility
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+
 " List of vim syntaxes to highlight in rST code blocks
 let g:rst_syntax_code_list = ['vim', 'c', 'cpp', 'python', 'sh']
 
@@ -96,21 +107,6 @@ noremap <silent> <Leader>pb :Denite buffer<CR>
 noremap <silent> <Leader>px :Denite buffer file_mru file_rec<CR>
 noremap <silent> <Leader>pg :Denite grep<CR>
 
-
-"""
-" Syntax highlighting
-"
-
-" Colorscheme
-colorscheme base16-atelier-dune
-
-" Color spaces at end of lines bright red for visibility
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
 
 
 " Horrible hack to work-around weird corrupted lines on window resize

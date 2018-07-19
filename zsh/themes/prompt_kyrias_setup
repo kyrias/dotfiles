@@ -4,17 +4,9 @@ kyrias' prompt.
 EOF
 }
 
-prompt_user_color() {
-	if (( ! UID )); then
-		print "red"
-	else
-		print "black"
-	fi
-}
-
 venv_prompt() {
 	if [[ -n "$VIRTUAL_ENV" ]]; then
-		print -Pn '%{$bg[blue]$fg[white] ${VIRTUAL_ENV##*/} %f%k%}'
+		print -Pn '(${VIRTUAL_ENV##*/}) '
 	fi
 }
 
@@ -22,8 +14,7 @@ prompt_kyrias_setup() {
 	setopt prompt_subst
 	autoload -U colors && colors
 
-	PROMPT='%{$bg[$(prompt_user_color)]$fg[white] %m %k%f$bg[white]$fg[$(prompt_user_color)] %~ %f%k$(venv_prompt)%}
-%{$bg[blue]%} λ %k %}'
+	PROMPT='%m:%~ $(venv_prompt)%}λ '
 }
 
 prompt_kyrias_preview() {

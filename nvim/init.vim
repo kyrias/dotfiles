@@ -116,11 +116,5 @@ vmap <C-k> gk
 nmap <C-j> gj
 nmap <C-k> gk
 
-noremap <silent> <Leader>pf :Denite file_rec<CR>
-noremap <silent> <Leader>pm :Denite file_mru<CR>
-noremap <silent> <Leader>pb :Denite buffer<CR>
-noremap <silent> <Leader>px :Denite buffer file_mru file_rec<CR>
-noremap <silent> <Leader>pg :Denite grep<CR>
-
 map <C-p> :FzfFiles<CR>
 nmap <leader>; :FzfBuffers<CR>

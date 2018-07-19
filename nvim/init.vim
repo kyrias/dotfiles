@@ -98,7 +98,6 @@ nmap <C-j> gj
 nmap <C-k> gk
 
 
-
 """
 " CtrlP
 "
@@ -112,6 +111,14 @@ noremap <silent> <Leader>pb :Denite buffer<CR>
 noremap <silent> <Leader>px :Denite buffer file_mru file_rec<CR>
 noremap <silent> <Leader>pg :Denite grep<CR>
 
+
+"""
+" Filetypes
+"
+augroup filetypedetect
+	autocmd BufRead,BufNewFile *mutt-*              setfiletype mail
+	autocmd BufRead,BufNewFile *.h                  setfiletype c
+augroup END
 
 
 " Horrible hack to work-around weird corrupted lines on window resize

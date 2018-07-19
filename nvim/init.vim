@@ -137,17 +137,6 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
 
-
-"""
-" Indentation
-"
-
-augroup indentation
-	autocmd!
-	autocmd FileType yaml setlocal ts=2 sts=2 sw=2 noet
-augroup END
-
-
 " Horrible hack to work-around weird corrupted lines on window resize
 " https://github.com/neovim/neovim/issues/7861
 autocmd VimResized * redraw!

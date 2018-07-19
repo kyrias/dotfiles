@@ -4,11 +4,11 @@
 
 call plug#begin(expand('$XDG_CONFIG_HOME/nvim/plugs'))
 
+Plug 'chriskempson/base16-vim' " Base16 colorschemes
 Plug 'itchyny/lightline.vim'   " Modeline replacement
 
 Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-git'
-Plug 'chriskempson/base16-vim'
 
 call plug#end()
 
@@ -16,6 +16,9 @@ call plug#end()
 """
 " Plugin settings
 "
+
+" Base16
+let base16colorspace=256
 
 " Lightline
 let g:lightline = {

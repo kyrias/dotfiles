@@ -27,7 +27,7 @@ let g:lightline = {
 
 
 """
-" Set options
+" NVim settings
 "
 
 syntax on

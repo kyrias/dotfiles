@@ -16,6 +16,7 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'rust-lang/rust.vim'
 Plug 'ledger/vim-ledger'
 Plug 'tpope/vim-git'
+Plug 'chriskempson/base16-vim'
 
 call plug#end()
 
@@ -146,7 +147,7 @@ set laststatus=2 " Always show statusline
 "
 
 " Colorscheme
-colorscheme Darkcustomside
+colorscheme base16-atelier-dune
 
 " Color spaces at end of lines bright red for visibility
 highlight ExtraWhitespace ctermbg=red guibg=red

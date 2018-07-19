@@ -113,18 +113,13 @@ autocmd VimResized * redraw!
 " Mappings
 "
 
-nmap <silent> <Leader>/ :nohlsearch<CR>
+nnoremap <silent> <Leader>/ :nohlsearch<CR>
 
 " Easier window moving
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
 
-vmap <C-j> gj
-vmap <C-k> gk
-nmap <C-j> gj
-nmap <C-k> gk
-
-map <Leader>p :FzfFiles<CR>
-nmap <leader>b :FzfBuffers<CR>
+noremap <Leader>p :FzfFiles<CR>
+nnoremap <leader>b :FzfBuffers<CR>

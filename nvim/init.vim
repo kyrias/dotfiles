@@ -4,12 +4,23 @@
 
 call plug#begin(expand('$XDG_CONFIG_HOME/nvim/plugs'))
 
+Plug 'itchyny/lightline.vim'   " Modeline replacement
+
 Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-git'
 Plug 'chriskempson/base16-vim'
 
 call plug#end()
 
+
+"""
+" Plugin settings
+"
+
+" Lightline
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ }
 
 
 """
@@ -81,44 +92,6 @@ noremap <silent> <Leader>pm :Denite file_mru<CR>
 noremap <silent> <Leader>pb :Denite buffer<CR>
 noremap <silent> <Leader>px :Denite buffer file_mru file_rec<CR>
 noremap <silent> <Leader>pg :Denite grep<CR>
-
-
-
-"""
-" Statusline
-"
-
-set statusline=
-set statusline+=[%n]  " Buffer number
-set statusline+=%<\   " Where to truncate
-set statusline+=%.99f " Relative path to file
-set statusline+=\ %y  " Filetype flag, [c]; [help]
-set statusline+=%w    " Preview window flag, [Preview]
-set statusline+=%m    " Modified flag, [+]; [-]
-
-" Show a warning if file is read only, [RO]
-set statusline+=%#identifier#
-set statusline+=%r
-set statusline+=%*
-
-" Show a warning if file format isn’t unix
-set statusline+=%#warningmsg#
-set statusline+=%{&ff!='unix'?'['.&ff.']':''}
-set statusline+=%*
-
-" Show a warning if file encoding isn’t utf-8
-set statusline+=%#warningmsg#
-set statusline+=%{(&fenc!='utf-8'&&&fenc!='')?'['.&fenc.']':''}
-set statusline+=%*
-
-
-"" Right side of statusline
-set statusline+=%=                   " Left/right separation point
-set statusline+=%-15.((%l,%c-%v)\ %) " Line, column, percentage. (20,0)
-set statusline+=%P                   " Percentage visible
-
-set laststatus=2 " Always show statusline
-
 
 
 """

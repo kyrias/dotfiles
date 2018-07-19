@@ -7,7 +7,7 @@ call plug#begin(expand('$XDG_CONFIG_HOME/nvim/plugs'))
 " Base16 colorschemes
 Plug 'chriskempson/base16-vim'
 
-" Modeline replacement
+" Statusline replacement
 Plug 'itchyny/lightline.vim'
 
 " Change working directory to project root when opening file

@@ -33,34 +33,54 @@ filter_unmatched_urls = true
 modify_other_keys = true
 
 [colors]
-#cursor         = #dcdccc
-foreground      = #dcdccc
-foreground_bold = #ffffff
-background      = #303030
+# Base16 Atelier Dune
+# Author: Bram de Haan (http://atelierbramdehaan.nl)
 
-# 20% background transparency (requires a compositor)
-#background = rgba(63, 63, 63, 0.8)
+foreground          = #a6a28c
+foreground_bold     = #e8e4cf
+cursor              = #e8e4cf
+cursor_foreground   = #20201d
+background          = rgba(32, 32, 29)
 
-# if unset, will reverse foreground and background
-#highlight = #202020
+# 16 color space
 
-# colors from color0 to color254 can be set
-color0 = #3f3f3f
-color1 = #906060
-color2 = #60b48a
-color3 = #dfaf8f
-color4 = #607080
-color5 = #dc8cc3
-color6 = #8cd0d3
-color7 = #dcdccc
-color8 = #709080
-color9 = #dca3a3
-color10 = #c3bf9f
-color11 = #f0dfaf
-color12 = #94bff3
-color13 = #ec93d3
-color14 = #93e0e3
-color15 = #ffffff
+# Black, Gray, Silver, White
+color0  = #20201d
+color8  = #7d7a68
+color7  = #a6a28c
+color15 = #fefbec
+
+# Red
+color1  = #d73737
+color9  = #d73737
+
+# Green
+color2  = #60ac39
+color10 = #60ac39
+
+# Yellow
+color3  = #ae9513
+color11 = #ae9513
+
+# Blue
+color4  = #6684e1
+color12 = #6684e1
+
+# Purple
+color5  = #b854d4
+color13 = #b854d4
+
+# Teal
+color6  = #1fad83
+color14 = #1fad83
+
+# Extra colors
+color16 = #b65611
+color17 = #d43552
+color18 = #292824
+color19 = #6e6b5e
+color20 = #999580
+color21 = #e8e4cf
 
 [hints]
 #font = Monospace 12

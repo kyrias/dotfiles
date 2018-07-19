@@ -4,9 +4,13 @@
 
 call plug#begin(expand('$XDG_CONFIG_HOME/nvim/plugs'))
 
-Plug 'chriskempson/base16-vim' " Base16 colorschemes
-Plug 'itchyny/lightline.vim'   " Modeline replacement
+" Base16 colorschemes
+Plug 'chriskempson/base16-vim'
 
+" Modeline replacement
+Plug 'itchyny/lightline.vim'
+
+" Better syntax highlighting
 Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-git'
 
@@ -24,14 +28,6 @@ let base16colorspace=256
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ }
-
-
-"""
-" Builtin things
-"
-
-" List of vim syntaxes to highlight in rST code blocks
-let g:rst_syntax_code_list = ['vim', 'c', 'cpp', 'python', 'sh']
 
 
 """
@@ -79,6 +75,20 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
 
+"""
+" Filetypes
+"
+augroup filetypedetect
+	autocmd BufRead,BufNewFile *mutt-*              setfiletype mail
+	autocmd BufRead,BufNewFile *.h                  setfiletype c
+augroup END
+
+
+" Horrible hack to work-around weird corrupted lines on window resize
+" https://github.com/neovim/neovim/issues/7861
+autocmd VimResized * redraw!
+
+
 
 """
 " Mappings
@@ -97,30 +107,8 @@ vmap <C-k> gk
 nmap <C-j> gj
 nmap <C-k> gk
 
-
-"""
-" CtrlP
-"
-
-let g:ctrlp_extensions = ['tag', 'buffertag', 'dir', 'undo', 'line',
-                         \ 'changes', 'mixed', 'bookmarkdir']
-
 noremap <silent> <Leader>pf :Denite file_rec<CR>
 noremap <silent> <Leader>pm :Denite file_mru<CR>
 noremap <silent> <Leader>pb :Denite buffer<CR>
 noremap <silent> <Leader>px :Denite buffer file_mru file_rec<CR>
 noremap <silent> <Leader>pg :Denite grep<CR>
-
-
-"""
-" Filetypes
-"
-augroup filetypedetect
-	autocmd BufRead,BufNewFile *mutt-*              setfiletype mail
-	autocmd BufRead,BufNewFile *.h                  setfiletype c
-augroup END
-
-
-" Horrible hack to work-around weird corrupted lines on window resize
-" https://github.com/neovim/neovim/issues/7861
-autocmd VimResized * redraw!

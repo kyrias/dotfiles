@@ -27,6 +27,14 @@ let g:lightline = {
 
 
 """
+" Builtin things
+"
+
+" List of vim syntaxes to highlight in rST code blocks
+let g:rst_syntax_code_list = ['vim', 'c', 'cpp', 'python', 'sh']
+
+
+"""
 " NVim settings
 "
 
@@ -69,9 +77,6 @@ autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
-
-" List of vim syntaxes to highlight in rST code blocks
-let g:rst_syntax_code_list = ['vim', 'c', 'cpp', 'python', 'sh']
 
 
 

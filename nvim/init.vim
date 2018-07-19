@@ -49,6 +49,11 @@ let g:LanguageClient_serverCommands = {
 let g:LanguageClient_autoStart = 1
 nnoremap <silent> <Leader>f :call LanguageClient_textDocument_formatting()<CR>
 
+" rust.vim
+let g:rust_clip_command = 'xclip -selection clipboard'
+vnoremap <Leader>= :'<,'>RustFmtRange<CR>
+nnoremap <Leader>= :RustFmt<CR>
+
 
 """
 " NVim settings

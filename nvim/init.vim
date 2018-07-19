@@ -16,12 +16,11 @@ Plug 'airblade/vim-rooter'
 " Fuzzy finder.  Requires fzf package to be installed
 Plug 'junegunn/fzf.vim'
 
+" Better language support
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
-
-" Better syntax highlighting
 Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-git'
 

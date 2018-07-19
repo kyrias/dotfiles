@@ -18,25 +18,22 @@ call plug#end()
 
 syntax on
 filetype plugin indent on
-set hidden " Automatically hide buffers instead of requiring bangcommands
-set number            " always show line numbers
+set hidden            " Automatically hide buffers with changes instead of requiring bangcommands
+set number            " Always show line numbers
 set ignorecase        " Ignore case of normal letters
-set smartcase         " ignore case if search pattern is all lowercase,
-                      "   case-sensitive otherwise
-set undolevels=1000
-set wildignore=*.swp,*.bak,*.pyc,*.o
-set title             " change the terminal's title
-set visualbell        " don't beep
-set noerrorbells      " don't beep
-set backup            " use backup files
-set undofile          " save undo's after file closes
-set shortmess+=I      " don't show the nag-screen
+set smartcase         " Case-sensitive search unless pattern is all lowercase
+set wildignore=*.swp,*.bak,*.pyc,*.o  " File patterns to ignore on wildcard expansion
+set title             " Change the terminal's title to the filename
+set visualbell        " Don't beep
+set backup            " Always keep backup files in case of crashes
+set undofile          " Save undo's after file closes
+set shortmess+=I      " Don't show the nag-screen
 set showcmd           " Show partial command in the last line of the screen
 set scrolloff=1       " Minimum number of screen lines under/above the cursor
 set linebreak         " Don’t wrap lines in the middle of a word
 set spelllang=en_us
 set backupdir=$XDG_DATA_HOME/nvim/backup " Don't write backups in current dir
-set termguicolors
+set termguicolors     " Use -guifg/-guibg attributes (24-bit colors)
 
 set tabstop=4
 set shiftwidth=4
@@ -44,7 +41,7 @@ set softtabstop=4
 set noexpandtab
 set copyindent
 
-" Show tabs and end-of-line whitespace
+" Show tabs, end-of-line whitespace, and non-breaking spaces
 set listchars=tab:»·,trail:·,nbsp:◊
 set list
 

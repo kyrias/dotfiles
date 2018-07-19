@@ -77,6 +77,7 @@ set linebreak         " Don’t wrap lines in the middle of a word
 set spelllang=en_us
 set backupdir=$XDG_DATA_HOME/nvim/backup " Don't write backups in current dir
 set termguicolors     " Use -guifg/-guibg attributes (24-bit colors)
+set colorcolumn=100   " Show colored line at column 100
 
 set tabstop=4
 set shiftwidth=4

@@ -126,5 +126,5 @@ vmap <C-k> gk
 nmap <C-j> gj
 nmap <C-k> gk
 
-map <C-p> :FzfFiles<CR>
-nmap <leader>; :FzfBuffers<CR>
+map <Leader>p :FzfFiles<CR>
+nmap <leader>b :FzfBuffers<CR>

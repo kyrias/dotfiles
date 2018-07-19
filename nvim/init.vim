@@ -4,17 +4,7 @@
 
 call plug#begin(expand('$XDG_CONFIG_HOME/nvim/plugs'))
 
-Plug 'Shougo/denite.nvim'    " unite.vim for nvim
-Plug 'Shougo/neomru.vim'     " MRU plugin for denite
-Plug 'mattn/emmet-vim'       " Emmet-like snippet system
-Plug 'tommcdo/vim-exchange'  " Easy text exchange operator
-Plug 'tpope/vim-fugitive'    " Git wrapper
-Plug 'mbbill/undotree'
-Plug 'will133/vim-dirdiff'
-
-Plug 'dhruvasagar/vim-table-mode'
 Plug 'rust-lang/rust.vim'
-Plug 'ledger/vim-ledger'
 Plug 'tpope/vim-git'
 Plug 'chriskempson/base16-vim'
 
@@ -67,12 +57,8 @@ let g:rst_syntax_code_list = ['vim', 'c', 'cpp', 'python', 'sh']
 " Mappings
 "
 
-" Toggle spell checking
-nmap <silent> <Leader>s :set spell!<CR>
-
 nmap <silent> <Leader>/ :nohlsearch<CR>
 
-cmap w!! w !sudo tee % >/dev/null
 " Easier window moving
 map <C-h> <C-w>h
 map <C-j> <C-w>j
@@ -117,10 +103,6 @@ set statusline+=%m    " Modified flag, [+]; [-]
 set statusline+=%#identifier#
 set statusline+=%r
 set statusline+=%*
-
-if exists('g:loaded_fugitive')
-	set statusline+=%{fugitive#statusline()}
-endif
 
 " Show a warning if file format isn’t unix
 set statusline+=%#warningmsg#

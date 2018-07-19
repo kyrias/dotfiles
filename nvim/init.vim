@@ -128,4 +128,5 @@ noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
 noremap <Leader>p :FzfFiles<CR>
-nnoremap <leader>b :FzfBuffers<CR>
+noremap <Leader>P :FzfFiles<space>
+nnoremap <Leader>b :FzfBuffers<CR>

@@ -8,6 +8,7 @@ editor_in_thread = True
 editor_spawn = True
 editor_cmd = "nvim %s"
 terminal_cmd = "term"
+theme = "foo"
 
 [accounts]
   [[private]]

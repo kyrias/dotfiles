@@ -1,3 +1,7 @@
+HISTSIZE=500000
+SAVEHIST=600000
+HISTFILE="$XDG_DATA_HOME"/zsh/history
+
 fpath+=("$XDG_CONFIG_HOME/zsh/themes")
 zstyle :compinstall filename "$ZDOTDIR"/.zshrc
 

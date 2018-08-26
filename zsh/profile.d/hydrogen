@@ -13,4 +13,8 @@ if (( UID )); then
 	export MAILDIR="$HOME"/mail
 fi
 
+if [ -e "/etc/nix/nix-profile.sh" ]; then
+	source /etc/profile.d/nix.sh
+fi
+
 # vim: ft=zsh

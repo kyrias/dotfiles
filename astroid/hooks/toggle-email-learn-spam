@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#
+# $1 Message ID to toggle tag on
+
+if [[ "$(notmuch search id:$1 and tag:learn-spam)" ]]; then
+	printf "unsetting tag learn-spam from message %s\n" "$1"
+	notmuch tag -learn-spam +inbox id:"$1"
+else
+	printf "setting tag learn-spam from message %s\n" "$1"
+	notmuch tag +learn-spam -inbox id:"$1"
+fi

@@ -1,0 +1,2 @@
+thread_index.run(hooks::toggle-thread-learn-spam %1, hooks::toggle-thread-learn-spam %1)=S
+thread_view.run(hooks::toggle-email-learn-spam %2, hooks::toggle-email-learn-spam %2)=S

@@ -16,11 +16,6 @@ Plug 'airblade/vim-rooter'
 " Fuzzy finder.  Requires fzf package to be installed
 Plug 'junegunn/fzf.vim'
 
-" Better language support
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
 Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-git'
 
@@ -41,13 +36,6 @@ let g:lightline = {
 
 " Fzf
 let g:fzf_command_prefix = 'Fzf'
-
-" Language Client
-let g:LanguageClient_serverCommands = {
-    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
-    \ }
-let g:LanguageClient_autoStart = 1
-nnoremap <silent> <Leader>f :call LanguageClient_textDocument_formatting()<CR>
 
 " rust.vim
 let g:rust_clip_command = 'xclip -selection clipboard'

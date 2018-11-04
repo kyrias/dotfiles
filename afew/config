@@ -22,8 +22,9 @@ spam = 'NOT tag:spam AND tag:inbox':inbox 'NOT tag:spam AND NOT tag:inbox':archi
 rules = spam archive
 rename = True
 
-spam = 'tag:spam AND NOT folder:learn-spam':learn-spam
+spam = 'tag:spam AND NOT folder:spam':spam 'tag:learn-spam AND NOT folder:learn-spam':learn-spam
 archive = 'tag:archive AND NOT folder:archive':archive
+          'folder:spam AND NOT tag:spam':archive
           'folder:inbox AND NOT tag:inbox AND NOT tag:learn-spam':archive
 
 # vim: ft=conf

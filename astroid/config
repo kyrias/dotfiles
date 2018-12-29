@@ -24,9 +24,10 @@
             "always_gpg_sign": "true",
             "sendmail": "msmtp --account=theos -t",
             "default": "true",
-            "save_sent_to": "~/mail/sent/cur",
-            "save_drafts_to": "~/mail/drafts",
-            "signature_file": "~/.config/mail-sig",
+            "save_sent": "true",
+            "save_sent_to": "~\/mail\/sent\/cur",
+            "save_drafts_to": "~\/mail\/drafts",
+            "signature_file": "~\/.config\/mail-sig",
             "signature_default_on": "true"
         },
         "archlinux": {
@@ -35,9 +36,10 @@
             "gpgkey": "0x50FB9B273A9D0BB5",
             "always_gpg_sign": "true",
             "sendmail": "msmtp --account=archlinux -t",
-            "save_sent_to": "~/mail/archlinux/Sent/cur",
-            "save_drafts_to": "~/mail/archlinux/Drafts",
-            "signature_file": "~/.config/mail-sig",
+            "save_sent": "true",
+            "save_sent_to": "~\/mail\/archlinux\/Sent\/cur",
+            "save_drafts_to": "~\/mail\/archlinux\/Drafts",
+            "signature_file": "~\/.config\/mail-sig",
             "signature_default_on": "true"
         }
     },

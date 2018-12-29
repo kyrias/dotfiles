@@ -3,7 +3,7 @@
         "config": {
             "version": "11"
         },
-        "notmuch_config": "\/home\/kyrias\/.config/notmuch-config",
+        "notmuch_config": "~\/.config\/notmuch-config",
         "debug": {
             "dryrun_sending": "false"
         },

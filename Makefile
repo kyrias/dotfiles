@@ -7,6 +7,7 @@ install:
 	-ln -sfn "$(PWD)/gnupg" "$(HOME)/.gnupg"
 	-ln -sf "$(PWD)/zsh/zshenv" "$(HOME)/.zshenv"
 	-mkdir -p "$(HOME)/.cache/zsh"
+	-mkdir -p "$(HOME)/.local/share/zsh"
 	-mkdir -p "$(HOME)/.local/share/nvim/backup"
 	-ln -sf "$(PWD)/mailcap" "$(HOME)/.mailcap"
 	-ln -sf "$(PWD)/msmtprc" "$(HOME)/.msmtprc"

@@ -38,3 +38,7 @@ tt() {
 		print "$@" | ts '[%Y-%m-%d %H:%M:%S]' >> "$HOME"/documents/timetracking
 	fi
 }
+
+function ix {
+	curl -F 'f:1=<-' ix.io
+}

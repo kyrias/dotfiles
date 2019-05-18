@@ -1,24 +1,15 @@
-prompt_kyrias_help() {
-	cat <<EOF
-kyrias' prompt.
-EOF
-}
-
-venv_prompt() {
+function prompt_kyrias_precmd {
 	if [[ -n "$VIRTUAL_ENV" ]]; then
-		print -Pn '(${VIRTUAL_ENV##*/}) '
+		psvar[1]="(${VIRTUAL_ENV##*/}) "
+	else
+		psvar[1]=''
 	fi
 }
 
-prompt_kyrias_setup() {
-	setopt prompt_subst
-	autoload -U colors && colors
+function prompt_kyrias_setup {
+	PROMPT='%m:%~ %v%}λ '
 
-	PROMPT='%m:%~ $(venv_prompt)%}λ '
-}
-
-prompt_kyrias_preview() {
-	prompt_preview_theme kyrias "$@"
+	add-zsh-hook precmd prompt_kyrias_precmd
 }
 
 prompt_kyrias_setup "$@"

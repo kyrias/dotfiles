@@ -11,7 +11,6 @@ install:
 	-mkdir -p "$(HOME)/.local/share/nvim/backup"
 	-ln -sf "$(PWD)/mailcap" "$(HOME)/.mailcap"
 	-ln -sf "$(PWD)/msmtprc" "$(HOME)/.msmtprc"
-	-ln -sf "$(PWD)/taskrc" "$(HOME)/.taskrc"
 
 $(i3venv):
 	mkdir -p "$(i3venv)"

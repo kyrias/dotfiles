@@ -17,7 +17,8 @@ status = Status(standalone=True)
 
 status.register("clock",
                 color="#CDC0B0",
-                format="%y-%m-%d %H:%M:%S%z")
+                format="<span font_features=\"zero, ss01, tnum\">%Y-%m-%d %H:%M:%S%z</span>",
+                hints={"markup": "pango"})
 
 
 if hostname == "hydrogen.kyriasis.com":

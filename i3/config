@@ -1,7 +1,7 @@
 set $mod Mod4
 
 #font pango:visitor tt2 brk 10
-font pango:Inter UI Medium 12
+font pango:Inter Regular 12
 
 floating_modifier $mod
 hide_edge_borders smart

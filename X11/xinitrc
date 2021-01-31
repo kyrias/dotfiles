@@ -7,10 +7,5 @@
 systemctl --user import-environment DISPLAY XAUTHORITY SSH_AGENT_PID SSH_AUTH_SOCK
 systemctl --user restart dumpwatch
 
-XMODMAP="$XDG_CONFIG_HOME"/X11/Xmodmap
-xmodmap "$XMODMAP"
-if [[ -f "$XMODMAP"-"$(hostname -s)" ]]; then
-	xmodmap "$XMODMAP"-"$(hostname -s)"
-fi
 
 exec i3 -c "$XDG_CONFIG_HOME"/i3/config

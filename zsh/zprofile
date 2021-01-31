@@ -40,7 +40,7 @@ export SDL_AUDIODRIVER=pulse
 
 export SUDO_PROMPT=$'\e[31mSUDO\e[m password for \e[34m%p\e[m: '
 
-export SHORTHOST=$(hostname -s)
+export SHORTHOST=${HOST//.*}
 
 # Don’t use the default venv prompt in favor of our custom one
 export VIRTUAL_ENV_DISABLE_PROMPT=1

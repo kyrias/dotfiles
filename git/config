@@ -75,7 +75,6 @@
 
 [log]
 	decorate = full
-	showSignature = true
 
 [status]
 	showuntrackedfiles = no

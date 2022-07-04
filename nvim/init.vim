@@ -34,9 +34,6 @@ let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ }
 
-" Fzf
-let g:fzf_command_prefix = 'Fzf'
-
 " rust.vim
 let g:rust_clip_command = 'xclip -selection clipboard'
 vnoremap <Leader>= :'<,'>RustFmtRange<CR>
@@ -116,17 +113,23 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
+
+" Fzf
+let g:fzf_command_prefix = 'Fzf'
+
+command! -bang -nargs=? -complete=dir
+  \ FzfFiles call fzf#vim#files(<q-args>, {'source': 'rg --files'}, <bang>0)
+
+noremap <Leader>r :FzfRg<space>
+
 noremap <Leader>p :FzfFiles<CR>
 noremap <Leader>P :FzfFiles<space>
+noremap <Leader>g :FzfGFiles<CR>
+
 nnoremap <Leader>b :FzfBuffers<CR>
 
-noremap <Leader>s :Rg<space>
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
-  \   <bang>0 ? fzf#vim#with_preview('up:60%')
-  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-  \   <bang>0)
+noremap <Leader>l :FzfLines<CR>
+
 
 " ft_sql can bugger off
 let g:omni_sql_no_default_maps = 1

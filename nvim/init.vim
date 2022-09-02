@@ -75,6 +75,9 @@ nnoremap <silent> K :call ShowDocumentation()<CR>
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
+" Make the selection highlight readable.
+autocmd ColorScheme * hi CocMenuSel ctermbg=237 guibg=#13354A
+
 " Symbol renaming.
 nmap <Leader>rn <Plug>(coc-rename)
 

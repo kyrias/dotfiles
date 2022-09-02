@@ -1,30 +1,24 @@
 [global]
 mail_mover_kind = query
 
-[SpamFilter]
 [KillThreadsFilter]
 [ListMailsFilter]
 [ArchiveSentMailsFilter]
-[InboxFilter]
 [FolderNameFilter]
-folder_explicit_list = archive drafts sent spam "probably-spam" archlinux/Drafts archlinux/Junk archlinux/Sent archlinux/Trash archlinux/inbox
-
-[MailMover]
-folders = inbox archive spam
-rename = True
-#max_age = 15
-
-inbox = 'tag:spam':spam 'NOT tag:inbox AND NOT tag:spam':archive
-archive = 'tag:spam':spam
-spam = 'NOT tag:spam AND tag:inbox':inbox 'NOT tag:spam AND NOT tag:inbox':archive
+maildir_separator = '/'
 
 [QueryMailMover]
-rules = spam archive
+rules = inbox junk spam archive
 rename = True
 
-spam = 'tag:spam AND NOT folder:spam':spam 'tag:learn-spam AND NOT folder:learn-spam':learn-spam
+inbox = 'tag:inbox AND NOT folder:inbox':inbox
+junk = 'folder:Junk':Spam
+spam = 'tag:Spam AND NOT folder:Spam':Spam
 archive = 'tag:archive AND NOT folder:archive':archive
-          'folder:spam AND NOT tag:spam':archive
-          'folder:inbox AND NOT tag:inbox AND NOT tag:learn-spam':archive
+          'folder:Spam AND NOT tag:Spam':archive
+          'folder:inbox AND NOT tag:inbox':archive
+
+[InboxFilter]
+tags_blacklist = ['killed']
 
 # vim: ft=conf

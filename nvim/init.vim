@@ -161,18 +161,19 @@ noremap <C-l> <C-w>l
 let g:fzf_command_prefix = 'Fzf'
 
 command! -bang -nargs=? -complete=dir
-  \ FzfFiles call fzf#vim#files(<q-args>, {'source': 'rg --files'}, <bang>0)
+  \ FzfFilesRg call fzf#vim#files(<q-args>, {'source': 'rg --files'}, <bang>0)
 
-noremap <Leader>r :FzfRg<space>
+noremap <Leader>fr :FzfRg<space>
 
-noremap <Leader>p :FzfFiles<CR>
-noremap <Leader>P :FzfFiles<space>
-noremap <Leader>g :FzfGFiles<CR>
+noremap <Leader>p :FzfFilesRg<CR>
+noremap <Leader>P :FzfFiles<CR>
+noremap <Leader>fg :FzfGFiles<CR>
 
 nnoremap <Leader>b :FzfBuffers<CR>
 
-noremap <Leader>l :FzfLines<CR>
+noremap <Leader>fl :FzfLines<CR>
 
 
 " ft_sql can bugger off
 let g:omni_sql_no_default_maps = 1
+

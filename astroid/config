@@ -111,7 +111,7 @@
         },
         "sent_tags": "sent",
         "message_id_fqdn": "",
-        "message_id_user": "",
+        "message_id_user": "remmy",
         "user_agent": "default",
         "send_delay": "2",
         "close_on_success": "false",

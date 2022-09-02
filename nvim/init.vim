@@ -16,6 +16,8 @@ Plug 'airblade/vim-rooter'
 " Fuzzy finder.  Requires fzf package to be installed
 Plug 'junegunn/fzf.vim'
 
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-git'
 
@@ -34,10 +36,51 @@ let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ }
 
-" rust.vim
-let g:rust_clip_command = 'xclip -selection clipboard'
-vnoremap <Leader>= :'<,'>RustFmtRange<CR>
-nnoremap <Leader>= :RustFmt<CR>
+" CoC
+set updatetime=300
+set signcolumn=yes
+
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1):
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
+nnoremap <silent> K :call ShowDocumentation()<CR>
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Symbol renaming.
+nmap <Leader>rn <Plug>(coc-rename)
+
+" Formatting selected code.
+xmap <Leader>=  <Plug>(coc-format-selected)
+nmap <Leader>=  <Plug>(coc-format)
 
 
 """

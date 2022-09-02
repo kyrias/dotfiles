@@ -115,7 +115,7 @@
         "user_agent": "default",
         "send_delay": "2",
         "close_on_success": "false",
-        "format_flowed": "false"
+        "format_flowed": "true"
     },
     "poll": {
         "interval": "60",

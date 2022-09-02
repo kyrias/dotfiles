@@ -5,6 +5,8 @@ include "%L"
 <Multi_key> <m> <u>                     : "µ" U00B5
 <Multi_key> <M> <u>                     : "Μ" U039C
 <Multi_key> <M> <U>                     : "Μ" U039C
+<Multi_key> <O> <m>                     : "Ω" U03A9
+<Multi_key> <O> <M>                     : "Ω" U03A9
 
 <Multi_key> <d> <e> <l>                 : "δ" U03B4
 <Multi_key> <D> <e> <l>                 : "Δ" U0394
@@ -57,8 +59,6 @@ include "%L"
 
 # Degree symbols
 <Multi_key> <asciicircum> <o>           : "°" U00B0  # DEGREE SIGN
-<Multi_key> <o> <C>                     : "℃" U2103  # DEGREE CELSIUS
-<Multi_key> <o> <F>                     : "℉" U2109  # DEGREE CELSIUS
 
 # Intellectual property symbols
 <Multi_key> <c> <s>                     : "©" U00A9  # COPYRIGHT SIGN
@@ -70,5 +70,6 @@ include "%L"
 <Multi_key> <colon> <bar> <bar>         : "ಠ_ಠ"
 
 <Multi_key> <e> <u> <r>                 : "€" U20AC  # EURO SIGN
+<Multi_key> <g> <b> <p>                 : "£" U00A3  # POUND SIGN
 
-<Multi_key> <t> <r> <a> <i> <n> <s>     : "🚂 🚊 🚉 🚞 🚆 🚄 🚅 🚈 🚇 🚝 🚋 🚃 🚟"
+<Multi_key> <n> <space>                 : " " U202F # NARROW NO-BREAK SPACE

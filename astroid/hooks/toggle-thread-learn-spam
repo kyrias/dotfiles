@@ -2,10 +2,10 @@
 #
 # $1 Thread ID to toggle tag on
 
-if [[ "$(notmuch search thread:$1 and tag:learn-spam)" ]]; then
-	printf "unsetting tag learn-spam from thread %s\n" "$1"
-	notmuch tag -learn-spam +inbox thread:"$1"
+if [[ "$(notmuch search thread:$1 and tag:Spam)" ]]; then
+	printf "unsetting tag Spam on thread %s\n" "$1"
+	notmuch tag -Spam thread:"$1"
 else
-	printf "setting tag learn-spam%s from thread %s\n" "$1"
-	notmuch tag +learn-spam -inbox thread:"$1"
+	printf "setting tag Spam on thread %s\n" "$1"
+	notmuch tag +Spam thread:"$1"
 fi

@@ -30,6 +30,18 @@
             "signature_file": "~\/.config\/mail-sig",
             "signature_default_on": "true"
         },
+        "theos-remmy": {
+            "name": "Johannes Löthberg",
+            "email": "me@remmy.io",
+            "gpgkey": "0x50FB9B273A9D0BB5",
+            "always_gpg_sign": "true",
+            "sendmail": "msmtp --account=theos-remmy -t",
+            "save_sent": "true",
+            "save_sent_to": "~\/mail\/Sent\/cur",
+            "save_drafts_to": "~\/mail\/drafts",
+            "signature_file": "~\/.config\/mail-sig",
+            "signature_default_on": "true"
+        },
         "archlinux": {
             "name": "Johannes Löthberg",
             "email": "demize@archlinux.org",

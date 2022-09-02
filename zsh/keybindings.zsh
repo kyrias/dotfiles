@@ -7,6 +7,7 @@
 # are the values from $terminfo valid.
 zle-line-init() {
 	printf '%s' "${terminfo[smkx]}"
+	zle reset-prompt
 }
 zle-line-finish () {
 	printf '%s' "${terminfo[rmkx]}"
@@ -20,8 +21,6 @@ zle -N edit-command-line
 # <http://zshwiki.org/home/zle/bindkeys>
 export WORDCHARS="${WORDCHARS:s#/#}"
 
-
-bindkey -v
 
 # Shift-tab
 bindkey $terminfo[kcbt] reverse-menu-complete

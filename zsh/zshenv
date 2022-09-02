@@ -1,1 +1,9 @@
 export ZDOTDIR=~/.config/zsh
+
+# disable global config so grml-zsh-config doesn't break mine
+setopt no_global_rcs
+
+if [[ -o login ]]; then
+	. /etc/zsh/zprofile
+fi
+. "$HOME/.cargo/env"

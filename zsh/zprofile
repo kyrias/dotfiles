@@ -1,6 +1,5 @@
 path=( "$HOME"/.local/bin
        "$HOME"/bin
-       "$HOME"/.cargo/bin
        "$HOME"/.gem/ruby/2.1.0/bin
        "${path[@]}" )
 
@@ -48,6 +47,9 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
+
+# Tell GDB &co. to use the Arch debuginfod server.
+export DEBUGINFOD_URLS="https://debuginfod.archlinux.org"
 
 # LS_COLORS is now required for `ls` to use colors
 source <(dircolors -b "$XDG_CONFIG_HOME"/dircolors)

@@ -6,6 +6,8 @@
 # To make it work, you may need to download: python-notify2 (and libnotify - libgtk)
 # Requires Weechat 0.3.0
 # Released under GNU GPL v2
+# 2020-05-10, Balint Reczey <balint.reczey@canonical.com>
+#     version 0.0.9: make script compatible with Python 3
 # 2014-05-10, Sébastien Helleu <flashcode@flashtux.org>
 #     version 0.0.8: change hook_print callback argument type of
 #                    displayed/highlight (WeeChat >= 1.0)
@@ -35,29 +37,29 @@
 # 2009-05-02, FlashCode <flashcode@flashtux.org>:
 #     version 0.0.2.1: sync with last API changes
 
+from __future__ import print_function
+
 # script variables
 SCRIPT_NAME = "notify"
 SCRIPT_AUTHOR = "lavaramano"
-SCRIPT_VERSION = "0.0.8"
+SCRIPT_VERSION = "0.0.9"
 SCRIPT_LICENSE = "GPL"
 SCRIPT_DESC = "notify: A real time notification system for weechat"
-
-import subprocess
 
 # make sure we're run under weechat.
 import_ok = True
 try:
     import weechat
 except ImportError:
-    print "This script must be run under WeeChat."
-    print "Get WeeChat now at: http://www.weechat.org/"
+    print("This script must be run under WeeChat.")
+    print("Get WeeChat now at: http://www.weechat.org/")
     import_ok = False
 # make sure we have notify2.
 try:
     import notify2
-except ImportError, message:
-    print "Missing package(s) for %s: %s" % (SCRIPT_NAME, message)
-    print "You must have notify2 installed."
+except ImportError as message:
+    print("Missing package(s) for %s: %s" % (SCRIPT_NAME, message))
+    print("You must have notify2 installed.")
     import_ok = False
 
 # script options
@@ -79,25 +81,12 @@ urgencies = {
 }
 
 # Functions
-def is_active_window():
-    p = subprocess.Popen(['xdotool', 'getwindowfocus', 'getwindowname'], stdout=subprocess.PIPE)
-    (stdout, _) = p.communicate()
-
-    if p.returncode != 0:
-        return True
-
-    return b'WeeChat' in stdout
-
 def notify_show(data, bufferp, uber_empty, tagsn, isdisplayed, ishilight, prefix, message):
     """Sends highlighted message to be printed on notification"""
     # string for show_notification return
     snreturn = None
-    # Don't notify if the WeeChat window is focused if smart notifications are on
-    if is_active_window():
-        pass
-    # Don't notify for current buffer if smart notifications are on.
-    elif (weechat.config_get_plugin('smart_notification') == "on" and bufferp == weechat.current_buffer()):
-        # smart_notification
+    # smart_notification
+    if (weechat.config_get_plugin('smart_notification') == "on" and bufferp == weechat.current_buffer()):
         pass
     # are we away and want highlights? check: w.infolist_integer(infolist, 'is_away')
     elif (weechat.config_get_plugin('notify_when_away') == "off" and weechat.buffer_get_string(bufferp, 'localvar_away')):
@@ -128,7 +117,7 @@ def show_notification(chan, message):
     try:
         wn.show()
         return None
-    except Exception, e:
+    except Exception as e:
         return "Exception trying to show notification: {0}".format(e)
 
 if __name__ == "__main__":

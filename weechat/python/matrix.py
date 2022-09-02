@@ -1,0 +1,1 @@
+/usr/lib/weechat/python/matrix.py

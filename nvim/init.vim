@@ -5,7 +5,7 @@
 call plug#begin(expand('$XDG_CONFIG_HOME/nvim/plugs'))
 
 " Base16 colorschemes
-Plug 'chriskempson/base16-vim'
+Plug 'RRethy/nvim-base16'
 
 " Statusline replacement
 Plug 'itchyny/lightline.vim'

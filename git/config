@@ -85,7 +85,7 @@
 	conflictStyle = diff3
 
 [pull]
-	rebase = preserve
+	rebase = merges
 
 [repack]
 	autosquash = true

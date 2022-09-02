@@ -141,7 +141,7 @@
     "crypto": {
         "gpg": {
             "path": "gpg2",
-            "always_trust": "false",
+            "always_trust": "true",
             "enabled": "true"
         }
     },

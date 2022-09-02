@@ -1,43 +1,49 @@
-set $mod Mod4
+set $mod   Mod4
 
-#font pango:visitor tt2 brk 10
-font pango:Inter Regular 12
+set $alt   Mod1
+set $hyper Mod3
+set $super Mod4
 
-floating_modifier $mod
-hide_edge_borders smart
-bindsym $mod+Return exec termite
-bindsym $mod+Shift+q kill
-bindsym $mod+d exec --no-startup-id "/usr/bin/j4-dmenu-desktop --dmenu='dmenu -i -fn DejaVu\ Sans\ Mono\ 9' --term=/usr/bin/termite"
-bindsym $mod+Shift+d exec --no-startup-id beze
+
+floating_modifier $super
+
+bindsym $super+Return exec termite
+bindsym $super+Shift+q kill
+bindsym $super+d exec --no-startup-id beze
+
 
 # change focus
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
+bindsym $super+h focus left
+bindsym $super+j focus down
+bindsym $super+k focus up
+bindsym $super+l focus right
 
 # move focused window
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
+bindsym $super+Shift+h move left
+bindsym $super+Shift+j move down
+bindsym $super+Shift+k move up
+bindsym $super+Shift+l move right
 
-bindsym $mod+Shift+Control+h move workspace to output left
-bindsym $mod+Shift+Control+l move workspace to output right
 
-bindsym $mod+w split h
-bindsym $mod+v split v
+bindsym $super+w split h
+bindsym $super+v split v
 
-bindsym $mod+f fullscreen
-bindsym $mod+s layout stacking
-bindsym $mod+t layout tabbed
-bindsym $mod+e layout toggle split
-bindsym $mod+Shift+space floating toggle
+bindsym $super+f fullscreen
+bindsym $super+s layout stacking
+bindsym $super+t layout tabbed
+bindsym $super+e layout toggle split
+bindsym $super+space floating toggle
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+bindsym $super+Shift+space focus mode_toggle
 
-bindsym $mod+a focus parent
-bindsym $mod+c focus child
+bindsym $super+greater focus parent
+bindsym $super+less focus child
+
+default_border pixel 2
+bindsym $super+b border normal
+bindsym $super+p border pixel 2
+bindsym $super+n border none
+
 
 set $workspace1 1:I
 set $workspace2 2:II
@@ -50,76 +56,82 @@ set $workspace8 8:VIII
 set $workspace9 9:IX
 set $workspace0 10:X
 
+workspace $workspace1 output HDMI2 eDP1
+workspace $workspace2 output HDMI2 eDP1
+workspace $workspace3 output HDMI2 eDP1
+workspace $workspace4 output HDMI2 eDP1
+workspace $workspace5 output HDMI2 eDP1
+workspace $workspace6 output HDMI2 eDP1
+workspace $workspace7 output HDMI2 eDP1
+workspace $workspace8 output HDMI2 eDP1
+workspace $workspace9 output eDP1 HDMI2
+workspace $workspace0 output eDP1 HDMI2
+
 # switch to workspace
-bindsym $mod+1 workspace $workspace1
-bindsym $mod+2 workspace $workspace2
-bindsym $mod+3 workspace $workspace3
-bindsym $mod+4 workspace $workspace4
-bindsym $mod+5 workspace $workspace5
-bindsym $mod+6 workspace $workspace6
-bindsym $mod+7 workspace $workspace7
-bindsym $mod+8 workspace $workspace8
-bindsym $mod+9 workspace $workspace9
-bindsym $mod+0 workspace $workspace0
+bindsym $super+1 workspace $workspace1
+bindsym $super+2 workspace $workspace2
+bindsym $super+3 workspace $workspace3
+bindsym $super+4 workspace $workspace4
+bindsym $super+5 workspace $workspace5
+bindsym $super+6 workspace $workspace6
+bindsym $super+7 workspace $workspace7
+bindsym $super+8 workspace $workspace8
+bindsym $super+9 workspace $workspace9
+bindsym $super+0 workspace $workspace0
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $workspace1
-bindsym $mod+Shift+2 move container to workspace $workspace2
-bindsym $mod+Shift+3 move container to workspace $workspace3
-bindsym $mod+Shift+4 move container to workspace $workspace4
-bindsym $mod+Shift+5 move container to workspace $workspace5
-bindsym $mod+Shift+6 move container to workspace $workspace6
-bindsym $mod+Shift+7 move container to workspace $workspace7
-bindsym $mod+Shift+8 move container to workspace $workspace8
-bindsym $mod+Shift+9 move container to workspace $workspace9
-bindsym $mod+Shift+0 move container to workspace $workspace0
+bindsym $super+Shift+1 move container to workspace $workspace1
+bindsym $super+Shift+2 move container to workspace $workspace2
+bindsym $super+Shift+3 move container to workspace $workspace3
+bindsym $super+Shift+4 move container to workspace $workspace4
+bindsym $super+Shift+5 move container to workspace $workspace5
+bindsym $super+Shift+6 move container to workspace $workspace6
+bindsym $super+Shift+7 move container to workspace $workspace7
+bindsym $super+Shift+8 move container to workspace $workspace8
+bindsym $super+Shift+9 move container to workspace $workspace9
+bindsym $super+Shift+0 move container to workspace $workspace0
 
-bindsym $mod+m exec i3-input -F 'mark %s' sl1 -P 'Mark: '
-bindsym $mod+g exec i3-input -F '[con_mark="%s"] focus' -l 1 -P 'Go to: '
+bindsym $super+Control+h move workspace to output left
+bindsym $super+Control+j move workspace to output down
+bindsym $super+Control+k move workspace to output up
+bindsym $super+Control+l move workspace to output right
 
-# reload the configuration file
-bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $super+Shift+minus move scratchpad
+bindsym $super+minus scratchpad show
 
-# resize window (you can also use the mouse for that)
+
+bindsym $super+m exec i3-input -F 'mark %s' -l1 -P 'Mark: '
+bindsym $super+g exec i3-input -F '[con_mark="%s"] focus' -l 1 -P 'Go to: '
+
+
+bindsym $super+c reload
+bindsym $super+r restart
+bindsym $super+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+
 mode "resize" {
-# These bindings trigger as soon as you enter the resize mode
-
-# Pressing left will shrink the window’s width.
-# Pressing right will grow the window’s width.
-# Pressing up will shrink the window’s height.
-# Pressing down will grow the window’s height.
 	bindsym h resize shrink width 10 px or 10 ppt
 	bindsym j resize grow height 10 px or 10 ppt
 	bindsym k resize shrink height 10 px or 10 ppt
 	bindsym l resize grow width 10 px or 10 ppt
 
-# same bindings, but for the arrow keys
 	bindsym Left resize shrink width 10 px or 10 ppt
 	bindsym Down resize grow height 10 px or 10 ppt
 	bindsym Up resize shrink height 10 px or 10 ppt
 	bindsym Right resize grow width 10 px or 10 ppt
 
-# back to normal: Enter or Escape
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
 }
 
-bindsym $mod+r mode "resize"
+bindsym $super+Shift+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-#bar {
-#	status_command i3status
-#}
 
-# i3bar
+font pango:Inter Regular 12
+
 bar {
 	tray_output primary
-	tray_output DP2-2
+	tray_output HDMI2
 	tray_output eDP1
 	status_command    ~/.local/share/i3/venv/bin/python ~/.config/i3/bar.py
 	position          bottom
@@ -137,24 +149,10 @@ bar {
 }
 
 
-for_window [class="Gifview"] floating enable
-
-
-bindsym $mod+Shift+g exec --no-startup-id setxkbmap us
-bindsym $mod+Shift+u exec --no-startup-id setxkbmap dvorak
-
-
 bindsym XF86MonBrightnessUp     exec --no-startup-id xbacklight -inc 10
 bindsym XF86MonBrightnessDown   exec --no-startup-id xbacklight -dec 10
 
-# control ncmpcpp / mpd from media keys
-bindsym XF86AudioPlay exec --no-startup-id mpc toggle
-bindsym XF86AudioStop exec --no-startup-id mpc stop
-bindsym XF86AudioNext exec --no-startup-id mpc next
-bindsym XF86AudioPrev exec --no-startup-id mpc prev
 
-
-# control PulseAudio from media keys
 bindsym XF86AudioMute exec volumecontrol mute
 bindsym XF86AudioMicMute exec volumecontrol mute-mic
 bindsym XF86AudioLowerVolume exec volumecontrol lower
@@ -163,20 +161,6 @@ bindsym XF86AudioRaiseVolume exec volumecontrol raise
 
 bindsym XF86Tools exec loginctl lock-session
 
-new_window 1pixel
-bindsym $mod+b border normal
-bindsym $mod+p border 1pixel
-bindsym $mod+n border none
 
-
-# Make the currently focused window a scratchpad
-bindsym $mod+Shift+minus move scratchpad
-
-# Show the first scratchpad window
-bindsym $mod+minus scratchpad show
-
-# TrackPoint scrolling
-exec setup-trackpoint
-
-# Autostart all .desktop files with dex
+exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Disable While Typing Enabled" 0
 exec --no-startup-id dex -s $HOME/.config/autostart -a -e i3

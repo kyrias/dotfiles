@@ -52,9 +52,6 @@
 [commit]
 	verbose = true
 
-[core]
-	pager = diff-so-fancy | less -x1,5
-
 [diff]
 	renames = copies
 

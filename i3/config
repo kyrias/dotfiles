@@ -40,6 +40,7 @@ bindsym $super+greater focus parent
 bindsym $super+less focus child
 
 default_border pixel 2
+for_window [all] border pixel 2
 bindsym $super+b border normal
 bindsym $super+p border pixel 2
 bindsym $super+n border none

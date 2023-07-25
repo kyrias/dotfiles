@@ -1,0 +1,6 @@
+[Unit]
+Description=backup my zsh history file
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/backup-zhistfile

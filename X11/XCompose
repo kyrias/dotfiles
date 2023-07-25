@@ -73,3 +73,4 @@ include "%L"
 <Multi_key> <g> <b> <p>                 : "£" U00A3  # POUND SIGN
 
 <Multi_key> <n> <space>                 : " " U202F # NARROW NO-BREAK SPACE
+<Multi_key> <_>                         : "̄"  U0304 # COMBINING MACRON

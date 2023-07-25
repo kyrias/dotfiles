@@ -11,7 +11,7 @@ Plug 'RRethy/nvim-base16'
 Plug 'itchyny/lightline.vim'
 
 " Change working directory to project root when opening file
-Plug 'airblade/vim-rooter'
+"Plug 'airblade/vim-rooter'
 
 " Fuzzy finder.  Requires fzf package to be installed
 Plug 'junegunn/fzf.vim'
@@ -19,10 +19,31 @@ Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'rust-lang/rust.vim'
+Plug 'pangloss/vim-javascript'
+
 Plug 'tpope/vim-git'
+
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 call plug#end()
 
+
+lua << EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = { "c", "lua", "vim", "help", "query", "rust", "tsx" },
+  sync_install = false,
+  auto_install = true,
+  highlight = {
+    enable = true,
+
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
+}
+EOF
 
 """
 " Plugin settings
@@ -33,12 +54,23 @@ let base16colorspace=256
 
 " Lightline
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ }
+    \ 'colorscheme': 'wombat',
+    \ 'active': {
+    \   'left': [ [ 'mode', 'paste' ],
+    \             [ 'readonly', 'filename', 'modified', 'cocstatus' ] ],
+    \   'right': [ [ 'lineinfo' ],
+    \              [ 'percent' ],
+    \              [ 'fileformat', 'fileencoding', 'filetype' ] ]
+    \ },
+    \ 'component_function': {
+    \   'cocstatus': 'coc#status'
+    \ },
+    \ }
 
 " CoC
 set updatetime=300
 set signcolumn=yes
+let g:coc_disable_transparent_cursor=1
 
 function! CheckBackspace() abort
   let col = col('.') - 1
@@ -72,6 +104,9 @@ function! ShowDocumentation()
 endfunction
 nnoremap <silent> K :call ShowDocumentation()<CR>
 
+" Use autocmd to force lightline update.
+autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
+
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
@@ -84,6 +119,19 @@ nmap <Leader>rn <Plug>(coc-rename)
 " Formatting selected code.
 xmap <Leader>=  <Plug>(coc-format-selected)
 nmap <Leader>=  <Plug>(coc-format)
+
+" Applying codeAction to the selected region.
+" Example: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Remap keys for applying codeAction to the current buffer.
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Run the Code Lens action on the current line.
+nmap <leader>cl  <Plug>(coc-codelens-action)
 
 
 """

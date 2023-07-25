@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=xss-lock
-Comment=X sceen locker manager
-Exec=sh -c "xset +dpms s 600; exec xss-lock --transfer-sleep-lock -- i3lock -c 000000 -f --nofork"
-Terminal=false
-Type=Application
-StartupNotify=false
-OnlyShowIn=i3;

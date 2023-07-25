@@ -58,8 +58,4 @@ if [[ -f "$ZDOTDIR"/profile.d/"$SHORTHOST" ]]; then
 	source "$ZDOTDIR"/profile.d/"$SHORTHOST"
 fi
 
-if [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-	exec startx "$XDG_CONFIG_HOME"/X11/xinitrc -- -keeptty -configdir "$XDG_CONFIG_HOME"/X11/xorg.conf.d
-fi
-
 # vim: set ft=zsh:

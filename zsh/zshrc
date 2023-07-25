@@ -28,7 +28,6 @@ setopt autocd \
        glob_dots \
        extended_glob \
        extended_history \
-       hist_expire_dups_first \
        hist_ignore_space \
        hist_verify \
        inc_append_history_time \
